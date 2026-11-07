@@ -16,8 +16,8 @@ import {
 
 const alle = await beitraege();
 
-// Aufmacher: der neueste Beitrag mit Titelbild unter den letzten fünf, sonst der neueste überhaupt
-const aufmacher = alle.slice(0, 5).find((b) => b.data.cover) ?? alle[0];
+// Aufmacher: der neueste Beitrag, der im CMS als „Auf der Startseite hervorheben“ markiert ist
+const aufmacher = alle.find((b) => b.data.aufmacher);
 
 // Ergebnisleiste: die letzten Spielberichte mit erkennbarem Ergebnis im Titel
 const ergebnisse = (await beitraege('Fußball'))
@@ -40,9 +40,9 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
 <Layout>
   <h1 class="visually-hidden">{VEREIN.name}</h1>
 
-  {
-    aufmacher && (
-      <section class="aufmacher" aria-label="Aktuell">
+  <section class="aufmacher" aria-label="Aktuell">
+    {
+      aufmacher && (
         <div class="container aufmacher__inner">
           <div class="aufmacher__text">
             <div class="meta">
@@ -65,17 +65,27 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
             </div>
           )}
         </div>
-      </section>
-    )
-  }
+      )
+    }
+    <div class="container aufmacher__shop">
+      <a class="banner" href={FANSHOP_URL} rel="noopener">
+        <img
+          src="/uploads/2026/01/marketing-teaser-728x90-1.webp"
+          alt="Unser Onlineshop – zum Fanshop des VfB Tamm (externe Seite)"
+          width="1024"
+          height="127"
+        />
+      </a>
+    </div>
+  </section>
 
   {
     ergebnisse.length > 0 && (
       <section class="ergebnisse" aria-labelledby="ergebnisse">
         <div class="container">
           <div class="ergebnisse__kopf">
-            <h2 id="ergebnisse">Ergebnisse</h2>
-            <a href="/fussball/beitraege/">Alle Spielberichte</a>
+            <h2 id="ergebnisse">Spielberichte</h2>
+            <a href="/fussball/beitraege/">Alle Beiträge Fußball</a>
           </div>
           <ul class="ergebnisse__liste">
             {ergebnisse.map(({ b, e }) => (
@@ -111,11 +121,14 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
             <h2 id={`neu-${abteilung}`}>{abteilung}</h2>
             <ul class="kompaktliste">
               {liste.map((b) => (
-                <li>
-                  <div class="meta">
-                    <time datetime={isoDatum(b.data.date)}>{datum(b.data.date)}</time>
+                <li class:list={{ 'mit-bild': b.data.cover }}>
+                  {b.data.cover && <img src={b.data.cover} alt="" loading="lazy" decoding="async" />}
+                  <div>
+                    <div class="meta">
+                      <time datetime={isoDatum(b.data.date)}>{datum(b.data.date)}</time>
+                    </div>
+                    <a href={beitragUrl(b)}>{b.data.title}</a>
                   </div>
-                  <a href={beitragUrl(b)}>{b.data.title}</a>
                 </li>
               ))}
             </ul>
@@ -169,16 +182,6 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
         }
       </ul>
     </section>
-
-    <a class="banner abschnitt" href={FANSHOP_URL} rel="noopener">
-      <img
-        src="/uploads/2026/01/marketing-teaser-728x90-1.webp"
-        alt="Unser Onlineshop – zum Fanshop des VfB Tamm (externe Seite)"
-        width="1024"
-        height="127"
-        loading="lazy"
-      />
-    </a>
 
     <section class="abschnitt anfahrt" aria-labelledby="anfahrt">
       <div>

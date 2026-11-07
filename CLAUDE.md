@@ -29,7 +29,7 @@ am Ende umgestellt wird.
 - **Bilder bleiben im Git-Repo.** Optimierung beim Upload durch Sveltia (WebP, max. ca. 1600 px Breite).
   Astro soll Bilder nicht aufwendig beim Build verarbeiten (Build-Zeit), Bilder werden direkt ausgeliefert.
 - **Autoren (max. 3 Personen inkl. Admin)** dürfen im CMS nur Beiträge bearbeiten. Felder:
-  Titel, Datum, Abteilung (Pflicht, Dropdown), Titelbild,
+  Titel, Datum, Abteilung (Pflicht, Dropdown), „Auf der Startseite hervorheben“ (Aufmacher), Titelbild,
   Bildergalerie, Text (Markdown, Toolbar auf Basics reduziert: fett, kursiv, Link, Liste).
 - **Mannschaften, Trainer, Trainingszeiten, Sponsoren, Vorstand** sind NICHT im CMS sichtbar.
   Sie werden als Datendateien im Repo gepflegt (vom Admin, ändern sich ca. einmal pro Saison).
@@ -55,7 +55,7 @@ am Ende umgestellt wird.
 
 ## Datenmodell (Astro Content Collections)
 
-- `beitraege`: title, date, abteilung, cover?, gallery[]?, body
+- `beitraege`: title, date, abteilung, aufmacher (bool, Standard false), cover?, gallery[]?, body
 - `mannschaften`: name, abteilung, gruppe (z. B. Aktive/Jugend/Erwachsene), reihenfolge?,
   jahrgang?, teamfoto?, personen[] (rolle als Freitext, name, foto?, telefon?, email?),
   trainingszeiten[] (tag, von, bis?, ort?, hinweis?), beschreibung? (Markdown),
@@ -88,9 +88,11 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   Kopf schwarz mit Wappen in Negativ-Version (`public/logo-negativ.png`, aus `assets/vfb-logo-original.png`
   erzeugt); `public/logo.png` (positiv), `favicon.png`, `apple-touch-icon.png`. Styles zentral in
   `src/styles/global.css`.
-- Startseite: Aufmacher (neuester Beitrag mit Titelbild unter den letzten fünf), Ergebnisleiste (Ergebnisse
+- Startseite: Aufmacher (neuester Beitrag mit `aufmacher: true`, im CMS „Auf der Startseite hervorheben“;
+  ohne markierten Beitrag entfällt er), direkt darunter das Fanshop-Banner, „Spielberichte“-Leiste (Ergebnisse
   werden mit `spielergebnis()` in `src/lib/site.ts` aus Titeln wie „Herren 1: A – VfB Tamm 1:6 (1:3)“
-  gelesen), Nachrichten in drei Spalten, „Mitmachen“, Sponsoren (Logos in Graustufen), Fanshop, Anfahrt.
+  gelesen), Nachrichten in drei Spalten mit kleinen Vorschaubildern, „Mitmachen“, Sponsoren (Logos in
+  Graustufen), Anfahrt.
 - Gestaltungsregeln: keine angehängten Pfeile „→“ an Linktexten, keine Trennpunkte „·“ in Metazeilen,
   keine Großbuchstaben-Etiketten, keine Schatten/Verläufe. Bewegung nur einmal (Einblendung des Aufmachers),
   `prefers-reduced-motion` wird beachtet.

@@ -35,6 +35,8 @@ const beitraege = defineCollection({
     date: z.coerce.date(),
     abteilung: z.enum(ABTEILUNGEN),
     cover: bildpfad.optional(),
+    // Auf der Startseite oben als Aufmacher zeigen (es erscheint der neueste markierte Beitrag)
+    aufmacher: z.boolean().default(false),
     gallery: z.array(bildpfad).optional(),
   }),
 });

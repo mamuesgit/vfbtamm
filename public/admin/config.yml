@@ -96,6 +96,12 @@ collections:
         widget: select
         options: [Hauptverein, Fußball, Freizeitsport, Tischtennis]
         hint: Bestimmt, auf welcher Seite und in welchem Block der Startseite der Beitrag erscheint.
+      - name: aufmacher
+        label: Auf der Startseite hervorheben
+        widget: boolean
+        default: false
+        required: false
+        hint: Nur für besondere Beiträge (z. B. neue Angebote, Feste). Oben auf der Startseite erscheint immer der neueste markierte Beitrag – am besten mit Titelbild.
       - name: cover
         label: Titelbild
         widget: image
