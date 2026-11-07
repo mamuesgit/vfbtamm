@@ -1,0 +1,14 @@
+name: E2-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 170
+jahrgang: "2017"
+teamfoto: /uploads/2026/10/e2-24.10.2026-kopie.webp
+personen:
+  - rolle: Trainer
+    name: Klajd Sopay
+    foto: /uploads/2023/10/c6df8920-89ff-48a3-82b7-19a984928aa7.webp
+    email: Klajd.sopaj@gmail.com
+trainingszeiten:
+  - { tag: Dienstag, von: "17:00", bis: "18:30" }
+  - { tag: Donnerstag, von: "17:00", bis: "18:30" }

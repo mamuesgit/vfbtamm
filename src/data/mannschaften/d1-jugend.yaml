@@ -1,0 +1,15 @@
+name: D1-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 140
+jahrgang: "2015"
+teamfoto: /uploads/2025/04/whatsapp-image-2025-04-02-at-12.50.02.webp
+personen:
+  - rolle: Trainer
+    name: Michael Pospischil
+    foto: /uploads/2025/04/whatsapp-image-2025-04-02-at-12.50.02-2.webp
+    telefon: 0176 30438588
+    email: michael-pospischil@gmx.de
+trainingszeiten:
+  - { tag: Montag, von: "18:30", bis: "20:00" }
+  - { tag: Mittwoch, von: "18:30", bis: "20:00" }

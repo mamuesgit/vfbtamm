@@ -1,0 +1,18 @@
+name: Nordic Walking
+abteilung: Freizeitsport
+gruppe: Erwachsene
+reihenfolge: 40
+beschreibung: >-
+  Wir walken mit oder ohne Stöcke immer donnerstags, um 9:00 Uhr und um 18:00 Uhr, Dauer ca. eine
+  Stunde. Die Gruppe am Donnerstagvormittag trifft sich am Friedhof, die Gruppe am Donnerstagabend
+  an der Obsthalle.
+personen:
+  - rolle: Ansprechpartnerin vormittags
+    name: Ute Hofmeister
+    email: hofmeister.dieter@t-online.de
+  - rolle: Ansprechpartnerin abends
+    name: Sigrid Gaiser
+    email: sigrid.gaiser@web.de
+trainingszeiten:
+  - { tag: Donnerstag, von: "09:00", bis: "10:00", ort: am Friedhof }
+  - { tag: Donnerstag, von: "18:00", bis: "19:00", ort: Obsthalle, hinweis: April–Oktober }

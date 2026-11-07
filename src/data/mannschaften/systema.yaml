@@ -1,0 +1,26 @@
+name: Systema
+abteilung: Freizeitsport
+gruppe: Erwachsene
+reihenfolge: 60
+teamfoto: /uploads/2022/09/systema.webp
+beschreibung: |-
+  **Systema – Kampf- und Gesundheitslehre beim VfB Tamm**
+
+  Systema ist eine russische Methode zur Selbstverteidigung und Gesundheitserhaltung, die in der
+  Sowjetzeit aus verschiedenen Einflüssen entstanden ist. Zu diesen Einflüssen zählen unter anderem
+  die mittelasiatischen Ringkampftraditionen, das Fechten der Kosaken, russischer Faustkampf,
+  militärischer Nahkampf, Volkstanz und Volksheilkunde. Das Ergebnis ist ein überaus flexibles und
+  vollständiges Trainingssystem, das aus verschiedenen Blickwinkeln praktiziert werden kann und eine
+  sehr persönliche Entfaltung ermöglicht. Der Schwerpunkt liegt auf Wahrnehmung und Kontrolle des
+  Körpers sowie dem Abbau von Spannungen und Ängsten. Somit ist Systema nicht nur zur
+  Selbstverteidigung hervorragend geeignet, sondern auch als generelle Übungsmethode für ein
+  feineres, ganzheitliches Körpergefühl. Systema kann als eigenständiges System trainiert werden,
+  als unterstützende Methode für weitere Kampf- und Bewegungskünste oder als Ergänzung zu einer
+  Körpertherapie.
+
+  Die Teilnahme ist ab 16 Jahren möglich.
+trainingszeiten:
+  - { tag: Donnerstag, von: "20:00", bis: "22:00", ort: Gymnastikhalle der Realschule Tamm }
+links:
+  - titel: Weitere Informationen zu Trainingsinhalten, Geschichte und Training
+    url: http://www.systema-tamm.de/

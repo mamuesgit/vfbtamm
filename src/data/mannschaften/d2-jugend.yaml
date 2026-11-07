@@ -1,0 +1,15 @@
+name: D2-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 150
+jahrgang: "2015"
+teamfoto: /uploads/2025/04/whatsapp-image-2025-04-02-at-12.50.02-1-1.webp
+personen:
+  - rolle: Trainer
+    name: Alexander Zart
+    foto: /uploads/2025/04/whatsapp-image-2025-04-02-at-12.50.03.webp
+    telefon: +49 15566 804702
+    email: alex_zart@yahoo.de
+trainingszeiten:
+  - { tag: Montag, von: "18:30", bis: "20:00" }
+  - { tag: Mittwoch, von: "18:30", bis: "20:00" }

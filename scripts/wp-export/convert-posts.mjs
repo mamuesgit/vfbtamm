@@ -11,19 +11,11 @@
 // Bereits heruntergeladene Originale liegen in migration/cache/originals/ und
 // werden nicht erneut geladen.
 
-import { mkdir, readFile, writeFile, access, rm } from 'node:fs/promises';
-import { dirname } from 'node:path';
+import { mkdir, writeFile, rm } from 'node:fs/promises';
 import TurndownService from 'turndown';
-import sharp from 'sharp';
+import { ROOT, readJson, bildUebernehmen as bildLaden, dateiUebernehmen as dateiLaden } from './lib.mjs';
 
-const ROOT = new URL('../../', import.meta.url);
-const CACHE = new URL('migration/cache/', ROOT);
-const ORIGINALS = new URL('migration/cache/originals/', ROOT);
 const OUT_POSTS = new URL('src/content/beitraege/', ROOT);
-const OUT_UPLOADS = new URL('public/uploads/', ROOT);
-const HEADERS = { 'User-Agent': 'Mozilla/5.0 (compatible; vfbtamm-migration)' };
-const MAX_WIDTH = 1600;
-const WEBP_QUALITY = 80;
 
 const KATEGORIE_ZU_ABTEILUNG = {
   'hauptverein-news': 'Hauptverein',
@@ -33,9 +25,6 @@ const KATEGORIE_ZU_ABTEILUNG = {
   // 'psg-news': nicht übernehmen (PSG 2023 aufgelöst)
 };
 
-const readJson = async (name) => JSON.parse(await readFile(new URL(name, CACHE), 'utf8'));
-const exists = (url) => access(url).then(() => true, () => false);
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const categories = await readJson('categories.json');
 const posts = await readJson('posts.json');
@@ -78,65 +67,25 @@ function originalUrl(imgTag) {
   return src.replace(/-\d+x\d+(\.\w+)$/, '$1');
 }
 
-/** Pfad unter /uploads/ für eine WordPress-URL, z. B. /uploads/2026/11/image0.webp */
-function zielpfad(url, ext) {
-  const u = new URL(url);
-  let path = u.pathname.replace(/^\/wp-content\/uploads\//, '').replace(/^\/+/, '');
-  if (path === u.pathname.replace(/^\/+/, '')) path = 'sonstige/' + path.split('/').pop();
-  path = decodeURIComponent(path).toLowerCase().replace(/[^a-z0-9/._-]+/g, '-');
-  return ext ? path.replace(/\.[^./]+$/, ext) : path;
-}
-
-async function download(url) {
-  const cacheFile = new URL(zielpfad(url), ORIGINALS);
-  if (await exists(cacheFile)) return readFile(cacheFile);
-  const res = await fetch(url.replace(/^http:/, 'https:'), { headers: HEADERS });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  await mkdir(dirname(cacheFile.pathname), { recursive: true });
-  await writeFile(cacheFile, buf);
-  await sleep(200);
-  return buf;
-}
-
 const fehler = [];
 
-/** Lädt ein Bild, speichert es als WebP und liefert den öffentlichen Pfad. */
+/** Wie bildLaden, sammelt Fehler aber in der Liste statt abzubrechen. */
 async function bildUebernehmen(url, beitrag, stillBeiFehler = false) {
-  const rel = zielpfad(url, '.webp');
-  const ziel = new URL(rel, OUT_UPLOADS);
-  if (!(await exists(ziel))) {
-    try {
-      const buf = await download(url);
-      await mkdir(dirname(ziel.pathname), { recursive: true });
-      await sharp(buf, { animated: false })
-        .rotate()
-        .resize({ width: MAX_WIDTH, withoutEnlargement: true })
-        .webp({ quality: WEBP_QUALITY })
-        .toFile(ziel.pathname);
-    } catch (e) {
-      if (!stillBeiFehler) fehler.push(`${beitrag}: Bild ${url} – ${e.message}`);
-      return null;
-    }
+  try {
+    return await bildLaden(url);
+  } catch (e) {
+    if (!stillBeiFehler) fehler.push(`${beitrag}: Bild ${url} – ${e.message}`);
+    return null;
   }
-  return '/uploads/' + rel;
 }
 
-/** Lädt eine verlinkte Datei (z. B. PDF) unverändert nach public/uploads/. */
 async function dateiUebernehmen(url, beitrag) {
-  const rel = zielpfad(url);
-  const ziel = new URL(rel, OUT_UPLOADS);
-  if (!(await exists(ziel))) {
-    try {
-      const buf = await download(url);
-      await mkdir(dirname(ziel.pathname), { recursive: true });
-      await writeFile(ziel, buf);
-    } catch (e) {
-      fehler.push(`${beitrag}: Datei ${url} – ${e.message}`);
-      return url;
-    }
+  try {
+    return await dateiLaden(url);
+  } catch (e) {
+    fehler.push(`${beitrag}: Datei ${url} – ${e.message}`);
+    return url;
   }
-  return '/uploads/' + rel;
 }
 
 // ---------- HTML → Markdown ----------

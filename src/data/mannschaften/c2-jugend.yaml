@@ -1,0 +1,21 @@
+name: C2-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 130
+jahrgang: 2012/13
+teamfoto: /uploads/2023/09/e10b31d6e0-42ef-4de8-bf33-0ac9a73c904e.webp
+personen:
+  - rolle: Trainer
+    name: Nicolaos „Nico“ Efthimiadis
+    foto: /uploads/2023/10/cd06453b-9aba-4f5e-b783-f34f95c9d6b0.webp
+    telefon: 0152 54063815
+    email: nikolaos.efthimiadis@web.de
+  - rolle: Trainer
+    name: David Tindal
+    foto: /uploads/2023/10/0f6a9ce5-a7e4-4a38-9d88-eed9cc3df425.webp
+trainingszeiten:
+  - { tag: Dienstag, von: "18:30", bis: "20:00" }
+  - { tag: Donnerstag, von: "18:30", bis: "20:00" }
+links:
+  - titel: Die Mannschaft bei FUSSBALL.DE
+    url: https://www.fussball.de/mannschaft/vfb-tamm-i-vfb-tamm-wuerttemberg/-/saison/2223/team-id/011MI9UFC8000000VTVG0001VTR8C1K7

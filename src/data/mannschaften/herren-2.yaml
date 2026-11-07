@@ -1,0 +1,17 @@
+name: Herren 2
+abteilung: Fußball
+gruppe: Aktive
+reihenfolge: 20
+personen:
+  - rolle: Trainer
+    name: Mustafa Ulubel
+    telefon: 0179 4336315
+  - rolle: Co-Trainer
+    name: Erik Nothacker
+    telefon: 0160 99531975
+trainingszeiten:
+  - { tag: Dienstag, von: "20:00", bis: "21:30" }
+  - { tag: Donnerstag, von: "20:00", bis: "21:30" }
+links:
+  - titel: Die Mannschaft bei FUSSBALL.DE
+    url: https://www.fussball.de/mannschaft/vfb-tamm-ii-vfb-tamm-wuerttemberg/-/saison/2223/team-id/011MID3HGS000000VTVG0001VTR8C1K7

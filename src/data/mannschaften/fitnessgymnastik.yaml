@@ -1,0 +1,15 @@
+name: Fitnessgymnastik
+abteilung: Freizeitsport
+gruppe: Erwachsene
+reihenfolge: 20
+personen:
+  - rolle: Ansprechpartnerin Gymnastik/Aerobic
+    name: Ute Hofmeister
+    email: hofmeister.dieter@t-online.de
+  - rolle: Trainerin Aerobic
+    name: Tünde Müller
+    email: freizeitsport@vfbtamm.de
+trainingszeiten:
+  - { tag: Mittwoch, von: "09:30", bis: "10:30", ort: Realschulhalle, hinweis: Gymnastik/Aerobic }
+  - { tag: Mittwoch, von: "19:00", bis: "20:00", ort: Grundschule Hohenstange, hinweis: Gymnastik/Aerobic }
+  - { tag: Dienstag, von: "19:00", bis: "20:30", ort: Realschulhalle, hinweis: Aerobic }

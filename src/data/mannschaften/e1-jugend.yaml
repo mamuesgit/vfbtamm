@@ -1,0 +1,22 @@
+name: E1-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 160
+jahrgang: "2016"
+teamfoto: /uploads/2026/10/whatsapp-image-2026-10-19-at-17.23.23.webp
+personen:
+  - rolle: Trainer
+    name: Stefan Dietrich
+    foto: /uploads/2023/10/179bba06-49ac-4ea3-b8ba-2e32126f89ea.webp
+    email: Ste.dietrich@gmx.de
+  - rolle: Trainer
+    name: Alexander Ulrich
+    foto: /uploads/2025/08/8896c23d-0db5-4ca2-a641-25e23289f71e.webp
+    telefon: +49 172 6177845
+  - rolle: Trainer
+    name: Rainer Jungton
+    foto: /uploads/2026/03/2dfe5231-0fff-4cd3-ac55-83852e769fff.webp
+    email: rainer.jungton@outlook.de
+trainingszeiten:
+  - { tag: Dienstag, von: "17:00", bis: "18:30" }
+  - { tag: Donnerstag, von: "17:00", bis: "18:30" }

@@ -1,0 +1,32 @@
+name: Herren 1
+abteilung: Fußball
+gruppe: Aktive
+reihenfolge: 10
+personen:
+  - rolle: Trainer
+    name: Markus Schneider
+    telefon: 0178-1643278
+  - rolle: Co-Trainer
+    name: Michael Stein
+    telefon: 0177 2385832
+  - rolle: Co-Trainer
+    name: Michael Walz
+    telefon: 0172-7835885
+  - rolle: Betreuer
+    name: Jürgen Seel
+    foto: /uploads/2022/09/img-20220812-wa0010.webp
+    telefon: 0170-3303685
+    email: j.seel@sanacorp.de
+  - rolle: Spielleiter
+    name: Frank Silzle
+    telefon: 0172 6222004
+  - rolle: Physiotherapeut
+    name: Florian Ziegler
+    foto: /uploads/2022/09/flo.webp
+    telefon: 01575-2613606
+trainingszeiten:
+  - { tag: Dienstag, von: "20:00", bis: "21:30" }
+  - { tag: Donnerstag, von: "20:00", bis: "21:30" }
+links:
+  - titel: Die Mannschaft bei FUSSBALL.DE
+    url: https://www.fussball.de/mannschaft/vfb-tamm-vfb-tamm-wuerttemberg/-/saison/2223/team-id/011MIBG4G0000000VTVG0001VTR8C1K7

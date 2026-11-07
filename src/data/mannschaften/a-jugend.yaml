@@ -1,0 +1,23 @@
+name: A-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 110
+jahrgang: 2008/09
+teamfoto: /uploads/2023/09/cb1a0ef8c5-df57-4b88-9587-7d150bc7e519.webp
+personen:
+  - rolle: Trainer
+    name: Marco Ognissanti
+    foto: /uploads/2023/10/61b97e0a-894b-40db-bb00-073a5cb45387.webp
+    telefon: 0172 5961487
+    email: marco507@web.de
+  - rolle: Trainer
+    name: Domenico Scigliano
+    foto: /uploads/2023/10/db4309a6-ea96-4c28-bff3-f452041f461f.webp
+    telefon: 0176 22320387
+    email: scgliano@web.de
+trainingszeiten:
+  - { tag: Montag, von: "19:00", bis: "20:30" }
+  - { tag: Donnerstag, von: "18:30", bis: "20:00" }
+links:
+  - titel: Die Mannschaft bei FUSSBALL.DE
+    url: https://www.fussball.de/mannschaft/vfb-tamm-i-vfb-tamm-wuerttemberg/-/saison/2223/team-id/01HGNP4EPS000000VV0AG80NVV0A1VPF

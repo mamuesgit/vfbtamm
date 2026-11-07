@@ -52,15 +52,15 @@ am Ende umgestellt wird.
 ## Datenmodell (Astro Content Collections)
 
 - `beitraege`: title, date, abteilung, cover?, gallery[]?, body
-- `mannschaften`: name, abteilung, gruppe (z. B. Aktive/Jugend/Erwachsene), teamfoto?,
-  personen[] (rolle: Trainer/Betreuer, name, foto?, telefon?, email?),
-  trainingszeiten[] (tag, von, bis, ort?), beschreibung?
+- `mannschaften`: name, abteilung, gruppe (z. B. Aktive/Jugend/Erwachsene), reihenfolge?,
+  jahrgang?, teamfoto?, personen[] (rolle als Freitext, name, foto?, telefon?, email?),
+  trainingszeiten[] (tag, von, bis?, ort?, hinweis?), beschreibung? (Markdown),
+  links[] (titel, url), galerie[] (bild, beschreibung?)
 - Abteilungen: Hauptverein, Fußball, Freizeitsport, Tischtennis
 
 Umsetzung in `src/content.config.ts`:
 - Beiträge: `src/content/beitraege/*.md` (Dateiname = ID)
-- Mannschaften: `src/data/mannschaften/*.yaml` (Dateiname = ID, z. B. `herren-1`), zusätzlich
-  optional `reihenfolge` für die Sortierung
+- Mannschaften: `src/data/mannschaften/*.yaml` (Dateiname = ID, z. B. `herren-1`, `tischtennis-herren`)
 - Abteilungsliste zentral in `src/data/abteilungen.ts`
 - Bildpfade sind Strings (z. B. `/uploads/...webp`), keine Astro-Bildverarbeitung
 
@@ -77,7 +77,12 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 - Bilder: Beitragsbild bzw. erstes Bild im Text → `cover`, alle weiteren → `gallery`.
   Der Text bleibt bildfrei.
 - Skripte: `npm run wp:fetch` (Rohdaten nach `migration/cache/`, nicht im Repo),
-  `npm run wp:convert-posts` (Beiträge + Bilder nach `src/content/beitraege/` und `public/uploads/`).
+  `npm run wp:convert-posts` (Beiträge + Bilder nach `src/content/beitraege/` und `public/uploads/`),
+  `npm run wp:bilder-nachladen` (in `src/data/**/*.yaml` referenzierte, noch fehlende Bilder aus der
+  WordPress-Mediathek laden).
+- Mannschaftsseiten wurden einmalig von Hand in YAML übertragen (zu uneinheitlich für einen Parser).
+  E-Mail-Adressen nur übernommen, wenn sie erkennbar zur Person passen; offene Punkte stehen in
+  `migration/offene-punkte.md`.
   In der Cloud-Session mit `NODE_USE_ENV_PROXY=1` aufrufen. Der Webhoster blockiert Anfragen ohne
   Browser-ähnlichen User-Agent; die Skripte senden `Mozilla/5.0 (compatible; vfbtamm-migration)`.
 - Alte Seiten, die nicht übernommen werden (nur Weiterleitung auf die übergeordnete Seite):

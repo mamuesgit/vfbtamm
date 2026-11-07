@@ -42,6 +42,8 @@ const mannschaften = defineCollection({
     gruppe: z.string().min(1),
     // Steuert die Reihenfolge in Menüs und Übersichten (kleiner = weiter oben).
     reihenfolge: z.number().int().optional(),
+    // Nur Jugend, z. B. "2015" oder "2012/13"
+    jahrgang: z.string().optional(),
     teamfoto: bildpfad.optional(),
     personen: z
       .array(
@@ -60,12 +62,24 @@ const mannschaften = defineCollection({
         z.object({
           tag: z.enum(['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']),
           von: uhrzeit,
-          bis: uhrzeit,
+          // Fehlt bei offenen Angaben wie "ab 14:00 Uhr"
+          bis: uhrzeit.optional(),
           ort: z.string().optional(),
+          // z. B. "alle 2 Wochen", "E-Jugend", "Kinder 4–5 Jahre", "April–Oktober"
+          hinweis: z.string().optional(),
         }),
       )
       .default([]),
+    // Freitext (Markdown)
     beschreibung: z.string().optional(),
+    // Externe Links, z. B. die Mannschaft bei fussball.de
+    links: z
+      .array(z.object({ titel: z.string().min(1), url: z.url() }))
+      .default([]),
+    // Weitere Bilder, z. B. von Turnieren und Ausflügen
+    galerie: z
+      .array(z.object({ bild: bildpfad, beschreibung: z.string().optional() }))
+      .default([]),
   }),
 });
 

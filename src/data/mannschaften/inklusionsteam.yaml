@@ -1,0 +1,12 @@
+name: Inklusionsteam
+abteilung: Fußball
+gruppe: Aktive
+reihenfolge: 40
+teamfoto: /uploads/2025/11/b1d3abdb-8c11-49a2-b339-21a108d98f0a.webp
+personen:
+  - rolle: Trainer
+    name: Sven Koch
+    foto: /uploads/2025/11/903650eb-f5f3-47d9-9ff2-f13400dac844.webp
+    email: sven.koch@theo-lorch-werkstaetten.de
+trainingszeiten:
+  - { tag: Dienstag, von: "17:00", bis: "18:30", hinweis: alle 2 Wochen }

@@ -1,0 +1,16 @@
+name: Kinderturnen
+abteilung: Freizeitsport
+gruppe: Kinder/Jugend
+reihenfolge: 120
+beschreibung: >-
+  „Die Kinder turnen gemeinsam mit viel Spaß – lernen verschiedene Klein- und Großgeräte spielerisch
+  kennen und werden im Umgang damit individuell gefördert. Der Spaß und die Freude an der Bewegung
+  stehen im Vordergrund.“
+personen:
+  - rolle: Ansprechpartnerin
+    name: Anja Knauth-Henze
+    foto: /uploads/2022/12/anja_knauth-henze.webp
+    email: freizeitsport@vfbtamm.de
+trainingszeiten:
+  - { tag: Montag, von: "16:00", bis: "16:45", ort: Schulsporthalle Hohenstange, hinweis: Kinder 3½–4 Jahre }
+  - { tag: Montag, von: "16:45", bis: "17:30", ort: Schulsporthalle Hohenstange, hinweis: Kinder 4–5 Jahre }

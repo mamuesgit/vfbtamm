@@ -1,0 +1,14 @@
+name: Damen
+abteilung: Fußball
+gruppe: Aktive
+reihenfolge: 30
+teamfoto: /uploads/2026/09/0603f722-56ad-4c23-8438-2bca3121f1de.webp
+personen:
+  - rolle: Trainer
+    name: Domenico Scigliano
+    foto: /uploads/2023/10/db4309a6-ea96-4c28-bff3-f452041f461f.webp
+    telefon: 0176 22320387
+    email: scgliano@web.de
+trainingszeiten:
+  - { tag: Montag, von: "20:00", bis: "21:30" }
+  - { tag: Mittwoch, von: "19:30", bis: "21:00" }

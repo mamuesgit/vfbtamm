@@ -1,0 +1,15 @@
+name: F1-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 180
+jahrgang: "2018"
+personen:
+  - rolle: Trainer
+    name: Jochen Vogel
+    telefon: "+4915121722812"
+  - rolle: Trainer
+    name: George Demir
+    foto: /uploads/2026/10/whatsapp-image-2026-10-21-at-20.26.29.webp
+trainingszeiten:
+  - { tag: Montag, von: "17:00", bis: "18:30" }
+  - { tag: Mittwoch, von: "17:00", bis: "18:30" }

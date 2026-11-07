@@ -1,0 +1,10 @@
+name: Rehasport
+abteilung: Freizeitsport
+gruppe: Erwachsene
+reihenfolge: 70
+personen:
+  - rolle: Ansprechpartnerin
+    name: Nikola Hirschmann
+    email: n.hirschmann-vfbtamm@web.de
+trainingszeiten:
+  - { tag: Mittwoch, von: "16:00", bis: "17:15", ort: Schulsporthalle Hohenstange, hinweis: Sport nach Krebs }

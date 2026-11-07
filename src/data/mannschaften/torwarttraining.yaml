@@ -1,0 +1,11 @@
+name: Torwarttraining
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 100
+trainingszeiten:
+  - { tag: Dienstag, von: "17:00", bis: "18:00", hinweis: E-Jugend }
+  - { tag: Dienstag, von: "18:00", bis: "19:00", hinweis: C- und B-Jugend }
+  - { tag: Dienstag, von: "19:00", bis: "20:00", hinweis: A-Jugend }
+  - { tag: Donnerstag, von: "17:00", bis: "18:00" }
+  - { tag: Donnerstag, von: "18:30", bis: "19:30", hinweis: A-Jugend }
+  - { tag: Freitag, von: "17:00", bis: "18:00", hinweis: Mädchen }

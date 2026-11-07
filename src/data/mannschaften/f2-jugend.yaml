@@ -1,0 +1,14 @@
+name: F2-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 190
+jahrgang: "2019"
+teamfoto: /uploads/2026/09/5f3eae62-8559-4fb3-8f5f-e962f740a1ef.webp
+personen:
+  - rolle: Trainer
+    name: Benjamin Buck
+    foto: /uploads/2025/08/c7d7e9e2-59b7-4189-a07c-c12a5e4056bd.webp
+    email: benny.buck93@web.de
+trainingszeiten:
+  - { tag: Montag, von: "17:00", bis: "18:30" }
+  - { tag: Mittwoch, von: "17:00", bis: "18:30" }

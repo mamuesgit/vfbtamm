@@ -1,0 +1,11 @@
+name: Seniorengymnastik
+abteilung: Freizeitsport
+gruppe: Erwachsene
+reihenfolge: 30
+personen:
+  - rolle: Ansprechpartnerin
+    name: Ute Hofmeister
+    email: hofmeister.dieter@t-online.de
+trainingszeiten:
+  - { tag: Dienstag, von: "09:45", bis: "10:45", ort: Egelseehalle, hinweis: Gymnastik Damen Ü60 }
+  - { tag: Dienstag, von: "11:00", bis: "12:00", ort: Egelseehalle, hinweis: Gymnastik Herren Ü60 }

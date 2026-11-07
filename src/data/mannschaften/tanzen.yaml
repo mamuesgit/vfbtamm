@@ -1,0 +1,14 @@
+name: Tanzen
+abteilung: Freizeitsport
+gruppe: Kinder/Jugend
+reihenfolge: 140
+personen:
+  - rolle: Ansprechpartnerin
+    name: Helena Frey
+    foto: /uploads/2026/03/img_6095.webp
+    email: freizeitsport@vfbtamm.de
+trainingszeiten:
+  - { tag: Dienstag, von: "15:30", bis: "16:15", hinweis: Minies (3–5 Jahre) }
+  - { tag: Mittwoch, von: "15:30", bis: "16:15", hinweis: Kids I (6–8 Jahre) }
+  - { tag: Dienstag, von: "16:30", bis: "17:15", hinweis: Kids II (9–11 Jahre) }
+  - { tag: Mittwoch, von: "16:30", bis: "17:15", hinweis: Teens (12–16 Jahre) }

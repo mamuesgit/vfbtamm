@@ -1,0 +1,13 @@
+name: Wandergruppe
+abteilung: Freizeitsport
+gruppe: Erwachsene
+reihenfolge: 10
+personen:
+  - rolle: Ansprechpartner
+    name: Wolfgang Schuh
+    foto: /uploads/2026/05/schuh-wolfgang-1.webp
+  - rolle: Ansprechpartner
+    name: Siegfried Ihde
+    foto: /uploads/2026/05/ihde-siegfried.webp
+trainingszeiten:
+  - { tag: Mittwoch, von: "14:00", ort: nach Vereinbarung, hinweis: 14-tägig }

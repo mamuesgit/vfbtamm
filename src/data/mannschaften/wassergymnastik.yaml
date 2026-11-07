@@ -1,0 +1,10 @@
+name: Wassergymnastik
+abteilung: Freizeitsport
+gruppe: Erwachsene
+reihenfolge: 50
+personen:
+  - rolle: Ansprechpartnerin
+    name: Christa Semm
+    email: 250semm@web.de
+trainingszeiten:
+  - { tag: Dienstag, von: "19:00", bis: "20:00", ort: Hallenbad }

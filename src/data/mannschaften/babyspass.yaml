@@ -1,0 +1,15 @@
+name: Babyspaß
+abteilung: Freizeitsport
+gruppe: Kinder/Jugend
+reihenfolge: 110
+beschreibung: "**Windelflitzer** – Kleinkindturnen für Kinder von 1 bis 3 Jahren."
+personen:
+  - rolle: Ansprechpartnerin
+    name: Helena Frey
+    foto: /uploads/2026/03/img_6095.webp
+    email: freizeitsport@vfbtamm.de
+trainingszeiten:
+  - { tag: Montag, von: "15:30", bis: "16:30", ort: Turnhalle Maystraße, hinweis: 1–3 Jahre }
+  - { tag: Dienstag, von: "15:30", bis: "16:30", ort: Turnhalle Maystraße, hinweis: 1–3 Jahre }
+  - { tag: Donnerstag, von: "10:00", bis: "11:00", ort: Egelseehalle, hinweis: 1–3 Jahre }
+  - { tag: Freitag, von: "16:00", bis: "17:00", ort: Schulsporthalle Hohenstange, hinweis: 1–3 Jahre }

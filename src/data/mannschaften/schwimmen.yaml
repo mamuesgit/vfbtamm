@@ -1,0 +1,22 @@
+name: Schwimmen
+abteilung: Freizeitsport
+gruppe: Kinder/Jugend
+reihenfolge: 130
+beschreibung: |-
+  „Im Anfängerkurs wollen wir den Kindern Erlebnisse, Erfahrungen und den Spaß am Wasser vermitteln.
+  So lernen sie, sich ohne Hilfsmittel und ohne Angst eine Zeit lang beliebig im Wasser
+  fortzubewegen. Für die Teilnahme am Kurs sollen die Kinder die Wassergewöhnung abgeschlossen
+  haben. Hierzu gehört auch, dass sie den Kopf unter Wasser nehmen können.
+
+  In den Aufbaukursen vertiefen wir die bereits gelernten Fähigkeiten. Während der Kurse bleibt auch
+  immer noch ein wenig Zeit zum Spielen, was allen großen Spaß macht. Begehrtes Ziel unserer Kurse
+  ist natürlich das Seepferdchen.“
+
+  Kursbeginn: Januar, April und September.
+personen:
+  - rolle: Kontakt
+    name: Anja Knauth-Henze
+    foto: /uploads/2026/03/anja_knauth-henze.webp
+    email: freizeitsport@vfbtamm.de
+trainingszeiten:
+  - { tag: Dienstag, von: "17:30", bis: "18:15", ort: Hallenbad, hinweis: Schwimmkurs Kinder 5–6 Jahre }
