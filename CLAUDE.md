@@ -80,6 +80,7 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 
 ## Layout und URLs (Schritt 4)
 
+- Vereinsslogan: „vielfältig familiär bewegend“ (im Kopf unter dem Vereinsnamen).
 - Design: Vereinsfarben Schwarz/Weiß mit Grautönen, andere Farben nur kleinflächig. Logo-Quelle
   `assets/vfb-logo-original.png`, ausgeliefert als `public/logo.png`, `favicon.png`, `apple-touch-icon.png`.
   Systemschriften, keine externen Ressourcen. Styles zentral in `src/styles/global.css`.
