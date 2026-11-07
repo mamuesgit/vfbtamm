@@ -56,6 +56,14 @@ am Ende umgestellt wird.
   trainingszeiten[] (tag, von, bis, ort?), beschreibung?
 - Abteilungen: Hauptverein, Fußball, Freizeitsport, Tischtennis
 
+Umsetzung in `src/content.config.ts`:
+- Beiträge: `src/content/beitraege/*.md` (Dateiname = ID)
+- Mannschaften: `src/data/mannschaften/*.yaml` (Dateiname = ID, z. B. `herren-1`), zusätzlich
+  optional `reihenfolge` für die Sortierung
+- `mannschaft` im Beitrag ist eine Referenz auf die Mannschafts-ID; unbekannte IDs brechen den Build ab
+- Abteilungsliste zentral in `src/data/abteilungen.ts`
+- Bildpfade sind Strings (z. B. `/uploads/...webp`), keine Astro-Bildverarbeitung
+
 Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer, Tabelle Trainingszeiten).
 
 ## Migration von WordPress
