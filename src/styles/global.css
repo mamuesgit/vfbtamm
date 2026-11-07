@@ -723,7 +723,7 @@ table {
   font-size: clamp(1.7rem, 1.1rem + 2vw, 2.75rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
 }
 .aufmacher h2 a {
   text-decoration: none;
@@ -731,11 +731,6 @@ table {
 .aufmacher h2 a:hover {
   text-decoration: underline;
   text-decoration-thickness: 3px;
-}
-.aufmacher p {
-  color: var(--grau-hell-auf-schwarz);
-  margin: 0 0 1.5rem;
-  max-width: 34rem;
 }
 .aufmacher__bild {
   display: block;

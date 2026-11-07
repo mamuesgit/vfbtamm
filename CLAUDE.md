@@ -88,7 +88,7 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   Kopf schwarz mit Wappen in Negativ-Version (`public/logo-negativ.png`, aus `assets/vfb-logo-original.png`
   erzeugt); `public/logo.png` (positiv), `favicon.png`, `apple-touch-icon.png`. Styles zentral in
   `src/styles/global.css`.
-- Startseite: Aufmacher-Karussell mit allen Beiträgen mit `aufmacher: true` (CMS: „Auf der Startseite
+- Startseite: Aufmacher-Karussell (Datum, Abteilung, Titel, Bild – kein Textauszug) mit allen Beiträgen mit `aufmacher: true` (CMS: „Auf der Startseite
   hervorheben“), neueste zuerst; wischbar, Pfeile/Punkte, automatischer Wechsel alle 7 s (pausiert bei
   Maus/Fokus/Berührung, Anhalten-Knopf, entfällt bei „Bewegung reduzieren“). Ohne markierte Beiträge entfällt es.
   Der Fanshop ist ein eigener Aufmacher-Beitrag (`2026-11-07-unser-onlineshop.md`, Folienbild

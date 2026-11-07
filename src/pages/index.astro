@@ -5,7 +5,6 @@ import type { Abteilung } from '../data/abteilungen';
 import {
   VEREIN,
   abteilungUrl,
-  auszug,
   beitraege,
   beitraegeUrl,
   beitragUrl,
@@ -65,7 +64,6 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
                         {b.data.title}
                       </a>
                     </h2>
-                    <p>{auszug(b.body, 200)}</p>
                     <a class="knopf knopf--hell" href={beitragUrl(b)} tabindex={i === 0 ? undefined : -1}>
                       Beitrag lesen
                     </a>
