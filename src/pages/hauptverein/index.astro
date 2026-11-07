@@ -1,0 +1,68 @@
+---
+import { getEntry } from 'astro:content';
+import BereichLayout from '../../layouts/BereichLayout.astro';
+import BeitragKurz from '../../components/BeitragKurz.astro';
+import { beitraege, datumNumerisch } from '../../lib/site';
+
+const neueste = (await beitraege('Hauptverein')).slice(0, 6);
+const heute = new Date(new Date().toISOString().slice(0, 10));
+const termine = ((await getEntry('veranstaltungen', 'veranstaltungen'))?.data.veranstaltungen ?? [])
+  .filter((v) => (v.bis ?? v.datum) >= heute)
+  .sort((a, b) => a.datum.getTime() - b.datum.getTime())
+  .slice(0, 4);
+const LINKS = [
+  { text: 'Verein', href: '/hauptverein/verein/', info: 'Sinn und Zweck des VfB' },
+  { text: 'Vorstand', href: '/hauptverein/vorstand/', info: 'Ansprechpartner im Vorstand' },
+  { text: 'Abteilungsleiter', href: '/hauptverein/abteilungsleiter/', info: 'Alle Abteilungen' },
+  { text: 'Mitgliedsbeiträge', href: '/hauptverein/mitgliedsbeitraege/', info: 'Beitragsordnung 2026' },
+  { text: 'Downloads', href: '/hauptverein/downloads/', info: 'Mitgliedsantrag, Satzung …' },
+  { text: 'Vereinschronik', href: '/hauptverein/chronik/', info: 'Seit 1920' },
+];
+---
+
+<BereichLayout abteilung="Hauptverein" title="Hauptverein" intro="Der VfB Tamm 1920 e.V. – Ihr Verein in Tamm.">
+  <ul class="kacheln">
+    {
+      LINKS.map((l) => (
+        <li>
+          <a class="kachel" href={l.href}>
+            <div class="kachel__text">
+              <strong>{l.text}</strong>
+              <span>{l.info}</span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    termine.length > 0 && (
+      <section>
+        <h2>Nächste Termine</h2>
+        <ul class="kompaktliste">
+          {termine.map((t) => (
+            <li>
+              <div class="meta">
+                {datumNumerisch(t.datum)}
+                {t.bis && ` – ${datumNumerisch(t.bis)}`}
+              </div>
+              {t.titel}
+            </li>
+          ))}
+        </ul>
+        <a class="mehr-link" href="/hauptverein/veranstaltungen/">
+          Alle Veranstaltungen →
+        </a>
+      </section>
+    )
+  }
+
+  <section>
+    <h2>Neueste Beiträge</h2>
+    <ul class="beitragsliste">
+      {neueste.map((b) => <BeitragKurz beitrag={b} />)}
+    </ul>
+    <a class="mehr-link" href="/hauptverein/beitraege/">Alle Beiträge Hauptverein →</a>
+  </section>
+</BereichLayout>

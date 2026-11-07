@@ -1,0 +1,12 @@
+---
+// Rendert Markdown aus Datendateien (z. B. "beschreibung" in YAML). Inhalte stammen nur vom Admin.
+import { marked } from 'marked';
+
+interface Props {
+  text?: string;
+}
+const { text } = Astro.props;
+const html = text ? await marked.parse(text) : '';
+---
+
+{html && <div class="text" set:html={html} />}

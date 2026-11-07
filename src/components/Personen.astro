@@ -1,0 +1,18 @@
+---
+import PersonKarte from './PersonKarte.astro';
+
+interface Props {
+  personen: Parameters<typeof PersonKarte>[0]['person'][];
+}
+const { personen } = Astro.props;
+---
+
+{
+  personen.length > 0 && (
+    <ul class="personen">
+      {personen.map((p) => (
+        <PersonKarte person={p} />
+      ))}
+    </ul>
+  )
+}

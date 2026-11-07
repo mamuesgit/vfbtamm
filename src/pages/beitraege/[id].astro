@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { abteilungUrl, auszug, beitraegeUrl, datum, isoDatum, type Beitrag } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const alle = await getCollection('beitraege');
+  return alle.map((beitrag) => ({ params: { id: beitrag.id }, props: { beitrag } }));
+}
+
+const { beitrag } = Astro.props as { beitrag: Beitrag };
+const { title, date, abteilung, cover, gallery = [] } = beitrag.data;
+const { Content } = await render(beitrag);
+---
+
+<Layout title={title} description={auszug(beitrag.body, 155) || title}>
+  <div class="seitenkopf">
+    <div class="container">
+      <div class="brotkrumen">
+        <a href="/">Start</a> / <a href={abteilungUrl(abteilung)}>{abteilung}</a>{' / '}<a href={beitraegeUrl(abteilung)}>Beiträge</a>
+      </div>
+      <h1>{title}</h1>
+      <p><time datetime={isoDatum(date)}>{datum(date)}</time> · {abteilung}</p>
+    </div>
+  </div>
+  <article class="container">
+    <div class="text">
+      {cover && <img class="beitrag__titelbild" src={cover} alt="" decoding="async" />}
+      <Content />
+    </div>
+    {
+      gallery.length > 0 && (
+        <section aria-label="Bildergalerie">
+          <ul class="galerie">
+            {gallery.map((bild, i) => (
+              <li>
+                <a href={bild}>
+                  <img src={bild} alt={`Bild ${i + 2} zum Beitrag`} loading="lazy" decoding="async" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+    <p><a class="mehr-link" href={beitraegeUrl(abteilung)}>← Alle Beiträge {abteilung}</a></p>
+  </article>
+</Layout>

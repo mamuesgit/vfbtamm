@@ -1,0 +1,18 @@
+---
+import { getEntry } from 'astro:content';
+import BereichLayout from '../../layouts/BereichLayout.astro';
+
+const downloads = (await getEntry('downloads', 'downloads'))?.data.downloads ?? [];
+---
+
+<BereichLayout abteilung="Hauptverein" title="Downloads">
+  <ul class="kompaktliste text">
+    {
+      downloads.map((d) => (
+        <li>
+          <a href={d.datei}>{d.titel}</a> <span class="meta">(PDF)</span>
+        </li>
+      ))
+    }
+  </ul>
+</BereichLayout>

@@ -1,0 +1,43 @@
+---
+import { telLink } from '../lib/site';
+
+interface Props {
+  person: {
+    rolle: string;
+    name: string;
+    foto?: string;
+    telefon?: string;
+    email?: string;
+    beschreibung?: string;
+  };
+}
+const { person } = Astro.props;
+const initialen = person.name
+  .replace(/„[^“]*“\s*/g, '')
+  .split(/\s+/)
+  .filter((w) => /^\p{L}/u.test(w))
+  .map((w) => w[0])
+  .slice(0, 2)
+  .join('');
+---
+
+<li class="person">
+  {
+    person.foto ? (
+      <img class="person__foto" src={person.foto} alt="" loading="lazy" decoding="async" />
+    ) : (
+      <span class="person__foto person__initialen" aria-hidden="true">
+        {initialen}
+      </span>
+    )
+  }
+  <div>
+    <div class="person__rolle">{person.rolle}</div>
+    <div class="person__name">{person.name}</div>
+    <div class="person__kontakt">
+      {person.telefon && <a href={telLink(person.telefon)}>{person.telefon}</a>}
+      {person.email && <a href={`mailto:${person.email}`}>{person.email}</a>}
+    </div>
+    {person.beschreibung && <p class="person__beschreibung">{person.beschreibung}</p>}
+  </div>
+</li>

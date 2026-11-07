@@ -1,0 +1,21 @@
+---
+import { auszug, beitragUrl, datum, isoDatum, type Beitrag } from '../lib/site';
+
+interface Props {
+  beitrag: Beitrag;
+  mitAbteilung?: boolean;
+}
+const { beitrag, mitAbteilung = false } = Astro.props;
+const { title, date, cover, abteilung } = beitrag.data;
+---
+
+<li class:list={['beitrag-kurz', { 'beitrag-kurz--ohne-bild': !cover }]}>
+  {cover && <img class="beitrag-kurz__bild" src={cover} alt="" loading="lazy" decoding="async" />}
+  <div>
+    <div class="meta">
+      <time datetime={isoDatum(date)}>{datum(date)}</time>{mitAbteilung && ` · ${abteilung}`}
+    </div>
+    <h3><a href={beitragUrl(beitrag)}>{title}</a></h3>
+    <p>{auszug(beitrag.body)}</p>
+  </div>
+</li>

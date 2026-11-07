@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ABTEILUNGEN } from '../data/abteilungen';
+import { abteilungUrl } from '../lib/site';
+---
+
+<Layout title="Seite nicht gefunden">
+  <div class="seitenkopf">
+    <div class="container">
+      <h1>Seite nicht gefunden</h1>
+      <p>Die aufgerufene Seite gibt es nicht (mehr).</p>
+    </div>
+  </div>
+  <div class="container text">
+    <p>Vielleicht hilft einer dieser Einstiege weiter:</p>
+    <ul>
+      <li><a href="/">Startseite</a></li>
+      {ABTEILUNGEN.map((a) => <li><a href={abteilungUrl(a)}>{a}</a></li>)}
+    </ul>
+  </div>
+</Layout>

@@ -1,17 +1,88 @@
 ---
-const vereinsname = 'VfB Tamm 1920 e.V.';
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { FANSHOP_URL, type Abteilung } from '../data/abteilungen';
+import { VEREIN, beitraege, beitraegeUrl, beitragUrl, datum, isoDatum } from '../lib/site';
+
+const BLOECKE: Abteilung[] = ['Hauptverein', 'Fußball', 'Freizeitsport'];
+const ANZAHL = 6;
+const bloecke = await Promise.all(BLOECKE.map(async (a) => ({ abteilung: a, liste: (await beitraege(a)).slice(0, ANZAHL) })));
+const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? [];
 ---
 
-<html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{vereinsname}</title>
-  </head>
-  <body>
-    <main>
-      <h1>{vereinsname}</h1>
-      <p>Hier entsteht die neue Website des Vereins.</p>
-    </main>
-  </body>
-</html>
+<Layout>
+  <div class="container">
+    <a class="banner" href={FANSHOP_URL} rel="noopener">
+      <img src="/uploads/2026/01/marketing-teaser-728x90-1.webp" alt="Unser Onlineshop – zum Fanshop des VfB Tamm" width="1024" height="127" />
+    </a>
+
+    <h1 class="visually-hidden">{VEREIN.name}</h1>
+
+    <div class="spalten">
+      {
+        bloecke.map(({ abteilung, liste }) => (
+          <section aria-labelledby={`neu-${abteilung}`}>
+            <h2 id={`neu-${abteilung}`}>{abteilung}</h2>
+            <ul class="kompaktliste">
+              {liste.map((b) => (
+                <li>
+                  <div class="meta">
+                    <time datetime={isoDatum(b.data.date)}>{datum(b.data.date)}</time>
+                  </div>
+                  <a href={beitragUrl(b)}>{b.data.title}</a>
+                </li>
+              ))}
+            </ul>
+            <a class="mehr-link" href={beitraegeUrl(abteilung)}>
+              Alle Beiträge {abteilung} →
+            </a>
+          </section>
+        ))
+      }
+    </div>
+
+    <section class="abschnitt" aria-labelledby="sponsoren">
+      <h2 id="sponsoren">Unsere Sponsoren</h2>
+      <ul class="sponsoren">
+        {
+          sponsoren.map((s) => (
+            <li>
+              {s.url ? (
+                <a href={s.url} rel="noopener">
+                  <img src={s.logo} alt={s.name} loading="lazy" decoding="async" />
+                </a>
+              ) : (
+                <span>
+                  <img src={s.logo} alt={s.name} loading="lazy" decoding="async" />
+                </span>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="abschnitt anfahrt" aria-labelledby="anfahrt">
+      <div>
+        <h2 id="anfahrt">Anfahrt</h2>
+        <p>
+          <strong>Sportgelände und Vereinsheim</strong><br />
+          {VEREIN.strasse}<br />
+          {VEREIN.ort}
+        </p>
+        <p>
+          <a class="knopf" href={VEREIN.karteOsm} rel="noopener">Karte (OpenStreetMap)</a>
+          <a class="knopf knopf--hell" href={VEREIN.karteGoogle} rel="noopener">Route (Google Maps)</a>
+        </p>
+      </div>
+      <div>
+        <h2>Kontakt</h2>
+        <p>
+          Telefon: <a href={`tel:${VEREIN.telefon.replace(/\D/g, '')}`}>{VEREIN.telefon}</a><br />
+          E-Mail: <a href={`mailto:${VEREIN.email}`}>{VEREIN.email}</a>
+        </p>
+        <p><a href="/hauptverein/gaststaette/">Zur VfB-Vereinsgaststätte →</a></p>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,61 @@
+---
+// Übersicht einer Abteilung mit Mannschaften/Gruppen: Kacheln je Gruppe + neueste Beiträge
+import BereichLayout from '../layouts/BereichLayout.astro';
+import BeitragKurz from './BeitragKurz.astro';
+import type { Abteilung } from '../data/abteilungen';
+import { beitraege, beitraegeUrl, mannschaften, mannschaftUrl, nachGruppe } from '../lib/site';
+
+interface Props {
+  abteilung: Abteilung;
+  intro?: string;
+  anzahlBeitraege?: number;
+}
+const { abteilung, intro, anzahlBeitraege = 6 } = Astro.props;
+const gruppen = nachGruppe(await mannschaften(abteilung));
+const neueste = (await beitraege(abteilung)).slice(0, anzahlBeitraege);
+---
+
+<BereichLayout abteilung={abteilung} title={abteilung} intro={intro}>
+  <slot />
+  {
+    gruppen.map(([gruppe, liste]) => (
+      <section>
+        <h2>{gruppe}</h2>
+        <ul class="kacheln">
+          {liste.map((m) => (
+            <li>
+              <a class="kachel" href={mannschaftUrl(m)}>
+                {m.data.teamfoto ? (
+                  <img src={m.data.teamfoto} alt="" loading="lazy" decoding="async" />
+                ) : (
+                  <span class="kachel__platzhalter" aria-hidden="true">
+                    <img src="/logo.png" alt="" loading="lazy" decoding="async" />
+                  </span>
+                )}
+                <div class="kachel__text">
+                  <strong>{m.data.name}</strong>
+                  {m.data.jahrgang && <span>Jahrgang {m.data.jahrgang}</span>}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+  {
+    neueste.length > 0 && (
+      <section>
+        <h2>Neueste Beiträge</h2>
+        <ul class="beitragsliste">
+          {neueste.map((b) => (
+            <BeitragKurz beitrag={b} />
+          ))}
+        </ul>
+        <a class="mehr-link" href={beitraegeUrl(abteilung)}>
+          Alle Beiträge {abteilung} →
+        </a>
+      </section>
+    )
+  }
+</BereichLayout>

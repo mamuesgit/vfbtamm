@@ -1,0 +1,40 @@
+---
+import { uhrzeit, WOCHENTAGE } from '../lib/site';
+
+interface Props {
+  zeiten: { tag: string; von: string; bis?: string; ort?: string; hinweis?: string }[];
+}
+const { zeiten } = Astro.props;
+const sortiert = [...zeiten].sort(
+  (a, b) => WOCHENTAGE.indexOf(a.tag as never) - WOCHENTAGE.indexOf(b.tag as never) || a.von.localeCompare(b.von),
+);
+const mitOrt = zeiten.some((z) => z.ort);
+const mitHinweis = zeiten.some((z) => z.hinweis);
+---
+
+{
+  sortiert.length > 0 && (
+    <div class="tabelle-scroll">
+      <table class="tabelle">
+        <thead>
+          <tr>
+            <th scope="col">Tag</th>
+            <th scope="col">Uhrzeit</th>
+            {mitHinweis && <th scope="col">Gruppe / Hinweis</th>}
+            {mitOrt && <th scope="col">Ort</th>}
+          </tr>
+        </thead>
+        <tbody>
+          {sortiert.map((z) => (
+            <tr>
+              <td>{z.tag}</td>
+              <td>{uhrzeit(z.von, z.bis)}</td>
+              {mitHinweis && <td>{z.hinweis}</td>}
+              {mitOrt && <td>{z.ort}</td>}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}

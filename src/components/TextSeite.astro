@@ -1,0 +1,37 @@
+---
+// Markdown-Seite aus der Collection "seiten", wahlweise im Bereich Hauptverein oder allein
+import { getEntry, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import BereichLayout from '../layouts/BereichLayout.astro';
+import type { Abteilung } from '../data/abteilungen';
+
+interface Props {
+  id: string;
+  abteilung?: Abteilung;
+}
+const { id, abteilung } = Astro.props;
+const seite = await getEntry('seiten', id);
+if (!seite) throw new Error(`Seite "${id}" fehlt in src/content/seiten/`);
+const { Content } = await render(seite);
+---
+
+{
+  abteilung ? (
+    <BereichLayout abteilung={abteilung} title={seite.data.title}>
+      <div class="text">
+        <Content />
+      </div>
+    </BereichLayout>
+  ) : (
+    <Layout title={seite.data.title}>
+      <div class="seitenkopf">
+        <div class="container">
+          <h1>{seite.data.title}</h1>
+        </div>
+      </div>
+      <div class="container text">
+        <Content />
+      </div>
+    </Layout>
+  )
+}

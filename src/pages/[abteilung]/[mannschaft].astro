@@ -1,0 +1,86 @@
+---
+// Einheitliches Template für alle Mannschaften und Gruppen
+import { getCollection } from 'astro:content';
+import BereichLayout from '../../layouts/BereichLayout.astro';
+import Personen from '../../components/Personen.astro';
+import Trainingszeiten from '../../components/Trainingszeiten.astro';
+import Markdown from '../../components/Markdown.astro';
+import { ABTEILUNG_SLUG } from '../../data/abteilungen';
+import { mannschaftSlug, type Mannschaft } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const alle = await getCollection('mannschaften');
+  return alle.map((m) => ({
+    params: { abteilung: ABTEILUNG_SLUG[m.data.abteilung], mannschaft: mannschaftSlug(m) },
+    props: { m },
+  }));
+}
+
+const { m } = Astro.props as { m: Mannschaft };
+const d = m.data;
+const untertitel = [d.gruppe, d.jahrgang && `Jahrgang ${d.jahrgang}`].filter(Boolean).join(' · ');
+const leer = !d.teamfoto && !d.beschreibung && !d.personen.length && !d.trainingszeiten.length;
+---
+
+<BereichLayout abteilung={d.abteilung} title={d.name} intro={untertitel}>
+  {d.teamfoto && <img class="beitrag__titelbild" src={d.teamfoto} alt={`Mannschaftsfoto ${d.name}`} decoding="async" />}
+
+  <Markdown text={d.beschreibung} />
+
+  {
+    d.personen.length > 0 && (
+      <section>
+        <h2>{d.abteilung === 'Fußball' ? 'Trainer und Betreuer' : 'Ansprechpartner'}</h2>
+        <Personen personen={d.personen} />
+      </section>
+    )
+  }
+
+  {
+    d.trainingszeiten.length > 0 && (
+      <section>
+        <h2>Trainingszeiten</h2>
+        <Trainingszeiten zeiten={d.trainingszeiten} />
+      </section>
+    )
+  }
+
+  {
+    d.links.length > 0 && (
+      <section>
+        <h2>Links</h2>
+        <ul>
+          {d.links.map((l) => (
+            <li>
+              <a href={l.url} rel="noopener">
+                {l.titel} ↗
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    d.galerie.length > 0 && (
+      <section>
+        <h2>Bilder</h2>
+        <ul class="galerie">
+          {d.galerie.map((g) => (
+            <li>
+              <figure style="margin:0">
+                <a href={g.bild}>
+                  <img src={g.bild} alt={g.beschreibung ?? ''} loading="lazy" decoding="async" />
+                </a>
+                {g.beschreibung && <figcaption>{g.beschreibung}</figcaption>}
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {leer && <p class="hinweis">Für diese Mannschaft liegen noch keine Informationen vor. Bei Fragen: info@vfbtamm.de</p>}
+</BereichLayout>

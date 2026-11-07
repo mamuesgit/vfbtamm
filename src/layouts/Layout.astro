@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import { ABTEILUNGEN, ABTEILUNG_SLUG, BASKETBALL_URL, FANSHOP_URL } from '../data/abteilungen';
+import { VEREIN, abteilungUrl } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = 'Der VfB Tamm 1920 e.V. – Fußball, Freizeitsport, Tischtennis und Basketball in Tamm.' } =
+  Astro.props;
+const seitentitel = title ? `${title} – ${VEREIN.name}` : VEREIN.name;
+const pfad = Astro.url.pathname;
+const aktiv = (slug: string) => pfad.startsWith(`/${slug}/`);
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{seitentitel}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#111111" />
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+    <header class="kopf">
+      <div class="container kopf__inner">
+        <a class="kopf__logo" href="/">
+          <img src="/logo.png" alt="" width="185" height="240" />
+          <span class="kopf__name">
+            VfB Tamm 1920 e.V.
+            <small>Der Sportverein in Tamm</small>
+          </span>
+        </a>
+      </div>
+    </header>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <div class="container">
+      <ul>
+        {
+          ABTEILUNGEN.map((a) => (
+            <li>
+              <a href={abteilungUrl(a)} aria-current={aktiv(ABTEILUNG_SLUG[a]) ? 'page' : undefined}>
+                {a}
+              </a>
+            </li>
+          ))
+        }
+        <li><a href={BASKETBALL_URL} rel="noopener">Basketball ↗</a></li>
+      </ul>
+      </div>
+    </nav>
+
+    <main id="inhalt">
+      <slot />
+    </main>
+
+    <footer class="fuss">
+      <div class="container">
+        <div class="fuss__grid">
+          <div>
+            <h2>{VEREIN.name}</h2>
+            <p>
+              {VEREIN.strasse}<br />
+              {VEREIN.ort}<br />
+              Telefon: <a href={`tel:${VEREIN.telefon.replace(/\D/g, '')}`}>{VEREIN.telefon}</a><br />
+              E-Mail: <a href={`mailto:${VEREIN.email}`}>{VEREIN.email}</a>
+            </p>
+          </div>
+          <div>
+            <h2>Verein</h2>
+            <ul>
+              <li><a href="/hauptverein/vorstand/">Vorstand</a></li>
+              <li><a href="/hauptverein/abteilungsleiter/">Abteilungsleiter</a></li>
+              <li><a href="/hauptverein/mitgliedsbeitraege/">Mitgliedsbeiträge</a></li>
+              <li><a href="/hauptverein/downloads/">Downloads</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Mehr</h2>
+            <ul>
+              <li><a href="/hauptverein/gaststaette/">Vereinsgaststätte</a></li>
+              <li><a href={FANSHOP_URL} rel="noopener">Fanshop ↗</a></li>
+              <li><a href="/impressum/">Impressum</a></li>
+              <li><a href="/datenschutz/">Datenschutz</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="fuss__unten">© {new Date().getFullYear()} {VEREIN.name}</p>
+      </div>
+    </footer>
+  </body>
+</html>

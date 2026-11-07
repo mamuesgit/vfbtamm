@@ -1,0 +1,72 @@
+---
+// Seite innerhalb einer Abteilung: Seitenkopf mit Brotkrumen, links das Bereichsmenü.
+import Layout from './Layout.astro';
+import type { Abteilung } from '../data/abteilungen';
+import { abteilungUrl } from '../lib/site';
+import { bereichsnav } from '../lib/navigation';
+
+interface Props {
+  abteilung: Abteilung;
+  title: string;
+  intro?: string;
+  description?: string;
+  /** Titel im Browser-Tab (Standard: "title – Abteilung") */
+  tabTitel?: string;
+}
+const { abteilung, title, intro, description, tabTitel } = Astro.props;
+const nav = await bereichsnav(abteilung);
+const pfad = Astro.url.pathname.replace(/\/?$/, '/');
+const istStart = pfad === abteilungUrl(abteilung);
+// Beitragsliste: auch Folgeseiten (/beitraege/2/) markieren
+const aktiv = (href: string) =>
+  href === pfad || (href.endsWith('/beitraege/') && pfad.startsWith(href)) ? 'page' : undefined;
+---
+
+<Layout title={tabTitel ?? (istStart ? abteilung : `${title} – ${abteilung}`)} description={description ?? intro}>
+  <div class="seitenkopf">
+    <div class="container">
+      {
+        !istStart && (
+          <div class="brotkrumen">
+            <a href="/">Start</a> / <a href={abteilungUrl(abteilung)}>{abteilung}</a>
+          </div>
+        )
+      }
+      <h1>{title}</h1>
+      {intro && <p>{intro}</p>}
+    </div>
+  </div>
+  <div class="container bereich">
+    <details class="bereichsnav" open>
+      <summary>Menü {abteilung}</summary>
+      <nav class="bereichsnav__inhalt" aria-label={`Menü ${abteilung}`}>
+        {
+          nav.map((gruppe) => (
+            <>
+              {gruppe.titel && <h2>{gruppe.titel}</h2>}
+              <ul>
+                {gruppe.links.map((l) => (
+                  <li>
+                    <a href={l.href} aria-current={aktiv(l.href)}>
+                      {l.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ))
+        }
+      </nav>
+    </details>
+    <div>
+      <slot />
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Auf kleinen Bildschirmen das Bereichsmenü zugeklappt starten (ohne JS bleibt es offen).
+  if (window.matchMedia('(max-width: 56rem)').matches) {
+    document.querySelectorAll('details.bereichsnav').forEach((d) => d.removeAttribute('open'));
+  }
+</script>

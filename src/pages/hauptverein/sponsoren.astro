@@ -1,0 +1,26 @@
+---
+import { getEntry } from 'astro:content';
+import BereichLayout from '../../layouts/BereichLayout.astro';
+
+const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? [];
+---
+
+<BereichLayout abteilung="Hauptverein" title="Unsere Sponsoren" intro="Vielen Dank für die Unterstützung!">
+  <ul class="sponsoren">
+    {
+      sponsoren.map((s) => (
+        <li>
+          {s.url ? (
+            <a href={s.url} rel="noopener">
+              <img src={s.logo} alt={s.name} loading="lazy" decoding="async" />
+            </a>
+          ) : (
+            <span>
+              <img src={s.logo} alt={s.name} loading="lazy" decoding="async" />
+            </span>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</BereichLayout>

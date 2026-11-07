@@ -1,0 +1,21 @@
+---
+import { getEntry } from 'astro:content';
+import BereichLayout from '../layouts/BereichLayout.astro';
+import Personen from './Personen.astro';
+import type { Abteilung } from '../data/abteilungen';
+
+interface Props {
+  abteilung: Abteilung;
+  id: string;
+  title?: string;
+}
+const { abteilung, id, title } = Astro.props;
+const gremium = await getEntry('gremien', id);
+if (!gremium) throw new Error(`Gremium "${id}" fehlt in src/data/gremien/`);
+const { titel, personen, hinweis } = gremium.data;
+---
+
+<BereichLayout abteilung={abteilung} title={title ?? titel}>
+  <Personen personen={personen} />
+  {hinweis && <p class="hinweis">{hinweis}</p>}
+</BereichLayout>

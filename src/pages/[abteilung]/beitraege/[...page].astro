@@ -1,0 +1,45 @@
+---
+import type { GetStaticPaths, Page } from 'astro';
+import BereichLayout from '../../../layouts/BereichLayout.astro';
+import BeitragKurz from '../../../components/BeitragKurz.astro';
+import { ABTEILUNGEN, ABTEILUNG_SLUG, type Abteilung } from '../../../data/abteilungen';
+import { beitraege, type Beitrag } from '../../../lib/site';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const seiten = await Promise.all(
+    ABTEILUNGEN.map(async (abteilung) =>
+      paginate(await beitraege(abteilung), {
+        pageSize: 20,
+        params: { abteilung: ABTEILUNG_SLUG[abteilung] },
+        props: { abteilung },
+      }),
+    ),
+  );
+  return seiten.flat();
+}) satisfies GetStaticPaths;
+
+const { page, abteilung } = Astro.props as { page: Page<Beitrag>; abteilung: Abteilung };
+const titel = `Beiträge ${abteilung}`;
+---
+
+<BereichLayout
+  abteilung={abteilung}
+  title={titel}
+  tabTitel={page.currentPage > 1 ? `${titel} – Seite ${page.currentPage}` : titel}
+  intro={`${page.total} Beiträge, neueste zuerst.`}
+>
+  <ul class="beitragsliste">
+    {page.data.map((b) => <BeitragKurz beitrag={b} />)}
+  </ul>
+  {
+    page.lastPage > 1 && (
+      <nav class="seiten-nav" aria-label="Seiten">
+        {page.url.prev ? <a href={page.url.prev}>← Neuere</a> : <span />}
+        <span>
+          Seite {page.currentPage} von {page.lastPage}
+        </span>
+        {page.url.next ? <a href={page.url.next}>Ältere →</a> : <span />}
+      </nav>
+    )
+  }
+</BereichLayout>

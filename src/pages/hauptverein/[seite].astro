@@ -1,0 +1,10 @@
+---
+import TextSeite from '../../components/TextSeite.astro';
+
+export function getStaticPaths() {
+  return ['verein', 'leitsaetze', 'chronik', 'gaststaette', 'mitgliedsbeitraege'].map((seite) => ({ params: { seite } }));
+}
+const { seite } = Astro.params;
+---
+
+<TextSeite id={seite} abteilung="Hauptverein" />

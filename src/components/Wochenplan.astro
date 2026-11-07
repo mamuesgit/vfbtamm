@@ -1,0 +1,55 @@
+---
+// Wochenplan Freizeitsport: alle Trainingszeiten einer Gruppe nach Wochentag
+import BereichLayout from '../layouts/BereichLayout.astro';
+import { mannschaften, mannschaftUrl, uhrzeit, WOCHENTAGE } from '../lib/site';
+
+interface Props {
+  gruppe: string;
+  title: string;
+}
+const { gruppe, title } = Astro.props;
+const angebote = (await mannschaften('Freizeitsport')).filter((m) => m.data.gruppe === gruppe);
+const eintraege = angebote.flatMap((m) => m.data.trainingszeiten.map((z) => ({ ...z, m })));
+const tage = WOCHENTAGE.map((tag) => ({
+  tag,
+  liste: eintraege.filter((e) => e.tag === tag).sort((a, b) => a.von.localeCompare(b.von)),
+})).filter((t) => t.liste.length);
+---
+
+<BereichLayout abteilung="Freizeitsport" title={title}>
+  {
+    tage.map(({ tag, liste }) => (
+      <section>
+        <h2>{tag}</h2>
+        <div class="tabelle-scroll">
+          <table class="tabelle tabelle--fest">
+            <colgroup>
+              <col style="width: 9.5rem" />
+              <col />
+              <col style="width: 30%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">Uhrzeit</th>
+                <th scope="col">Angebot</th>
+                <th scope="col">Ort</th>
+              </tr>
+            </thead>
+            <tbody>
+              {liste.map((e) => (
+                <tr>
+                  <td style="white-space: nowrap">{uhrzeit(e.von, e.bis)}</td>
+                  <td>
+                    <a href={mannschaftUrl(e.m)}>{e.m.data.name}</a>
+                    {e.hinweis && <div class="meta">{e.hinweis}</div>}
+                  </td>
+                  <td>{e.ort ?? '–'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))
+  }
+</BereichLayout>

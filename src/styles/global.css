@@ -1,0 +1,699 @@
+/* VfB Tamm – Vereinsfarben Schwarz/Weiß. Weitere Farben nur kleinflächig.
+   Schriften: Systemschriften (keine externen Fonts, siehe Datenschutz). */
+
+:root {
+  --schwarz: #111111;
+  --weiss: #ffffff;
+  --grau-900: #222222;
+  --grau-700: #4a4a4a;
+  --grau-500: #767676;
+  --grau-300: #cfcfcf;
+  --grau-100: #f2f2f2;
+  --fokus: #1a5fd0; /* nur für Tastaturfokus */
+  --breite: 72rem;
+  --rand: clamp(1rem, 4vw, 2rem);
+  --radius: 4px;
+  --schrift: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--schrift);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--schwarz);
+  background: var(--weiss);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+:focus-visible {
+  outline: 3px solid var(--fokus);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin: 1.6em 0 0.5em;
+  text-wrap: balance;
+}
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-top: 0;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+p,
+ul,
+ol,
+table {
+  margin: 0 0 1em;
+}
+
+.container {
+  max-width: var(--breite);
+  margin-inline: auto;
+  padding-inline: var(--rand);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--schwarz);
+  color: var(--weiss);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---------- Kopf ---------- */
+
+.kopf {
+  background: var(--weiss);
+  border-bottom: 1px solid var(--grau-300);
+}
+.kopf__inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.75rem;
+}
+.kopf__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+}
+.kopf__logo img {
+  height: 4.5rem;
+  width: auto;
+}
+.kopf__name {
+  font-weight: 800;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+.kopf__name small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--grau-700);
+  letter-spacing: 0.04em;
+}
+
+.hauptnav {
+  background: var(--schwarz);
+  color: var(--weiss);
+}
+.hauptnav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hauptnav a {
+  display: block;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  border-bottom: 3px solid transparent;
+}
+.hauptnav li:first-child a {
+  padding-left: 0;
+}
+@media (max-width: 40rem) {
+  .hauptnav li:first-child a {
+    padding-left: 0.6rem;
+  }
+  .hauptnav ul {
+    margin-inline: -0.6rem;
+  }
+}
+.hauptnav a:hover,
+.hauptnav a[aria-current] {
+  border-bottom-color: var(--weiss);
+}
+@media (max-width: 40rem) {
+  .kopf__logo img {
+    height: 3.5rem;
+  }
+  .kopf__name {
+    font-size: 1.1rem;
+  }
+  .hauptnav a {
+    padding: 0.65rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ---------- Fuß ---------- */
+
+.fuss {
+  background: var(--schwarz);
+  color: var(--weiss);
+  margin-top: 4rem;
+  padding-block: 2.5rem;
+  font-size: 0.95rem;
+}
+.fuss__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+.fuss h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.fuss ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.fuss li {
+  margin-bottom: 0.3rem;
+}
+.fuss__unten {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--grau-700);
+  color: var(--grau-300);
+  font-size: 0.85rem;
+}
+
+/* ---------- Seiten mit Bereichsnavigation ---------- */
+
+.seitenkopf {
+  background: var(--grau-100);
+  border-bottom: 1px solid var(--grau-300);
+  padding-block: 1.75rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.seitenkopf h1 {
+  margin: 0;
+}
+.seitenkopf p {
+  margin: 0.4rem 0 0;
+  color: var(--grau-700);
+}
+.brotkrumen {
+  font-size: 0.85rem;
+  color: var(--grau-700);
+  margin-bottom: 0.4rem;
+}
+.brotkrumen a {
+  text-decoration: none;
+}
+.brotkrumen a:hover {
+  text-decoration: underline;
+}
+
+.bereich {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  align-items: start;
+}
+@media (max-width: 56rem) {
+  .bereich {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.bereichsnav {
+  font-size: 0.95rem;
+}
+.bereichsnav summary {
+  display: none;
+}
+.bereichsnav h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--grau-700);
+  margin: 1.25rem 0 0.35rem;
+}
+.bereichsnav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bereichsnav a {
+  display: block;
+  padding: 0.3rem 0.6rem;
+  border-left: 3px solid transparent;
+  text-decoration: none;
+}
+.bereichsnav a:hover {
+  background: var(--grau-100);
+}
+.bereichsnav a[aria-current] {
+  border-left-color: var(--schwarz);
+  font-weight: 700;
+}
+@media (max-width: 56rem) {
+  .bereichsnav {
+    border: 1px solid var(--grau-300);
+    border-radius: var(--radius);
+  }
+  .bereichsnav summary {
+    display: block;
+    padding: 0.7rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .bereichsnav__inhalt {
+    padding: 0 1rem 1rem;
+  }
+  .bereichsnav h2:first-child {
+    margin-top: 0;
+  }
+}
+
+/* ---------- Fließtext ---------- */
+
+.text {
+  max-width: 46rem;
+}
+.text img {
+  margin: 1.5rem 0 0.5rem;
+  border-radius: var(--radius);
+}
+.text img + em,
+.text p:has(> img) + p > em:only-child {
+  color: var(--grau-700);
+  font-size: 0.9rem;
+}
+.text table,
+.tabelle {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+}
+.text th,
+.text td,
+.tabelle th,
+.tabelle td {
+  text-align: left;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--grau-300);
+  vertical-align: top;
+}
+.text th,
+.tabelle th {
+  font-weight: 700;
+  border-bottom: 2px solid var(--schwarz);
+}
+.tabelle-scroll {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Beitragslisten ---------- */
+
+.beitragsliste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+.beitrag-kurz {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--grau-300);
+}
+.beitrag-kurz--ohne-bild {
+  grid-template-columns: minmax(0, 1fr);
+}
+.beitrag-kurz__bild {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+  border-radius: var(--radius);
+  background: var(--grau-100);
+}
+.beitrag-kurz h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+.beitrag-kurz h3 a {
+  text-decoration: none;
+}
+.beitrag-kurz h3 a:hover {
+  text-decoration: underline;
+}
+.beitrag-kurz p {
+  margin: 0;
+  color: var(--grau-700);
+  font-size: 0.95rem;
+}
+.meta {
+  font-size: 0.85rem;
+  color: var(--grau-700);
+  margin-bottom: 0.25rem;
+}
+@media (max-width: 30rem) {
+  .beitrag-kurz {
+    grid-template-columns: 6rem minmax(0, 1fr);
+  }
+}
+
+/* Kompakte Liste (Startseite) */
+.kompaktliste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.kompaktliste li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--grau-300);
+}
+.kompaktliste a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.kompaktliste a:hover {
+  text-decoration: underline;
+}
+.kompaktliste .meta {
+  margin: 0;
+}
+
+.mehr-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+/* ---------- Kacheln ---------- */
+
+.kacheln {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+}
+.kachel {
+  display: block;
+  height: 100%;
+  border: 1px solid var(--grau-300);
+  border-radius: var(--radius);
+  text-decoration: none;
+  overflow: hidden;
+  background: var(--weiss);
+}
+.kachel:hover {
+  border-color: var(--schwarz);
+}
+.kachel img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  width: 100%;
+  background: var(--grau-100);
+}
+.kachel__platzhalter {
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  background: var(--grau-100);
+}
+.kachel .kachel__platzhalter img {
+  aspect-ratio: auto;
+  width: auto;
+  height: 5.5rem;
+  object-fit: contain;
+  background: none;
+  opacity: 0.25;
+}
+.tabelle--fest {
+  table-layout: fixed;
+}
+.kachel__text {
+  padding: 0.7rem 0.9rem 0.8rem;
+}
+.kachel strong {
+  display: block;
+}
+.kachel span {
+  font-size: 0.85rem;
+  color: var(--grau-700);
+}
+
+/* ---------- Personen ---------- */
+
+.personen {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+.person {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  border: 1px solid var(--grau-300);
+  border-radius: var(--radius);
+  padding: 0.9rem;
+  height: 100%;
+}
+.person__foto {
+  width: 4.5rem;
+  height: 4.5rem;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--grau-100);
+}
+.person__initialen {
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--grau-700);
+  font-size: 1.2rem;
+}
+.person__rolle {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--grau-700);
+}
+.person__name {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.person__kontakt {
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.person__kontakt a {
+  display: block;
+}
+.person__beschreibung {
+  font-size: 0.9rem;
+  color: var(--grau-700);
+  margin: 0.4rem 0 0;
+}
+
+/* ---------- Beitrag ---------- */
+
+.beitrag__titelbild {
+  width: 100%;
+  max-height: 34rem;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+.galerie {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
+.galerie img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+  border-radius: var(--radius);
+  background: var(--grau-100);
+}
+.galerie figcaption {
+  font-size: 0.85rem;
+  color: var(--grau-700);
+  margin-top: 0.3rem;
+}
+
+/* ---------- Seitennummerierung ---------- */
+
+.seiten-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+.seiten-nav span {
+  color: var(--grau-700);
+  font-weight: 400;
+}
+
+/* ---------- Startseite ---------- */
+
+.banner {
+  display: block;
+  margin: 1.5rem 0 2rem;
+}
+.banner img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+.spalten {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+.spalten h2 {
+  margin-top: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--schwarz);
+}
+.abschnitt {
+  margin-top: 3.5rem;
+}
+
+.sponsoren {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
+.sponsoren li {
+  border: 1px solid var(--grau-300);
+  border-radius: var(--radius);
+  background: var(--weiss);
+  height: 7.5rem;
+}
+.sponsoren a,
+.sponsoren span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem;
+}
+.sponsoren img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.anfahrt {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  background: var(--grau-100);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.anfahrt h2 {
+  margin-top: 0;
+}
+.knopf {
+  display: inline-block;
+  background: var(--schwarz);
+  color: var(--weiss);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 0.5rem 0.5rem 0;
+}
+.knopf:hover {
+  background: var(--grau-700);
+}
+.knopf--hell {
+  background: var(--weiss);
+  color: var(--schwarz);
+  border: 1px solid var(--schwarz);
+}
+.knopf--hell:hover {
+  background: var(--grau-100);
+}
+
+.hinweis {
+  border-left: 3px solid var(--schwarz);
+  background: var(--grau-100);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

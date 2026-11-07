@@ -1,0 +1,38 @@
+---
+import { getEntry } from 'astro:content';
+import BereichLayout from '../../layouts/BereichLayout.astro';
+import { datumNumerisch, tagKurz } from '../../lib/site';
+
+const termine = ((await getEntry('veranstaltungen', 'veranstaltungen'))?.data.veranstaltungen ?? []).sort(
+  (a, b) => a.datum.getTime() - b.datum.getTime(),
+);
+const heute = new Date(new Date().toISOString().slice(0, 10));
+---
+
+<BereichLayout abteilung="Hauptverein" title="Veranstaltungen" intro="Termine des VfB Tamm.">
+  <div class="tabelle-scroll">
+    <table class="tabelle">
+      <thead>
+        <tr><th scope="col">Datum</th><th scope="col">Veranstaltung</th></tr>
+      </thead>
+      <tbody>
+        {
+          termine.map((t) => (
+            <tr style={(t.bis ?? t.datum) < heute ? 'color: var(--grau-500)' : undefined}>
+              <td style="white-space: nowrap">
+                {tagKurz(t.datum)}, {datumNumerisch(t.datum)}
+                {t.bis && (
+                  <>
+                    {' '}
+                    – {tagKurz(t.bis)}, {datumNumerisch(t.bis)}
+                  </>
+                )}
+              </td>
+              <td>{t.titel}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</BereichLayout>

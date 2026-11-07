@@ -78,6 +78,23 @@ Umsetzung in `src/content.config.ts`:
 
 Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer, Tabelle Trainingszeiten).
 
+## Layout und URLs (Schritt 4)
+
+- Design: Vereinsfarben Schwarz/Weiß mit Grautönen, andere Farben nur kleinflächig. Logo-Quelle
+  `assets/vfb-logo-original.png`, ausgeliefert als `public/logo.png`, `favicon.png`, `apple-touch-icon.png`.
+  Systemschriften, keine externen Ressourcen. Styles zentral in `src/styles/global.css`.
+- `src/layouts/Layout.astro` (Kopf, Hauptnavigation, Fuß), `src/layouts/BereichLayout.astro`
+  (Seitenkopf + Bereichsmenü links, auf dem Handy aufklappbar). Hilfsfunktionen in `src/lib/site.ts`,
+  Bereichsmenüs in `src/lib/navigation.ts`.
+- URLs: `/` · `/{abteilung}/` · `/{abteilung}/beitraege/` (+ `/2/`, `/3/` … je 20) ·
+  `/{abteilung}/{mannschaft}/` (Tischtennis ohne Präfix, z. B. `/tischtennis/herren/`) ·
+  `/beitraege/{id}/` · `/hauptverein/{verein,leitsaetze,chronik,gaststaette,mitgliedsbeitraege,vorstand,
+  abteilungsleiter,downloads,sponsoren,veranstaltungen}/` · `/fussball/trainingszeiten/` ·
+  `/freizeitsport/{abteilungsleitung,wochenplan-erwachsene,wochenplan-kinder}/` · `/tischtennis/kontakt/` ·
+  `/impressum/` · `/datenschutz/`. Abteilungs-Slugs in `src/data/abteilungen.ts`.
+- Trainingszeiten-Übersicht (Fußball) und Wochenpläne (Freizeitsport) werden aus den Mannschaftsdateien erzeugt.
+- „Nächste Termine“ (Hauptverein) und das Ausgrauen vergangener Termine richten sich nach dem Build-Datum.
+
 ## Migration von WordPress
 
 - Beiträge und Medien über die WordPress-REST-API von https://www.vfbtamm.de/wp-json/wp/v2/ holen

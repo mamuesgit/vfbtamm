@@ -1,0 +1,47 @@
+---
+import BereichLayout from '../../layouts/BereichLayout.astro';
+import { mannschaften, mannschaftUrl, nachGruppe, uhrzeit, WOCHENTAGE } from '../../lib/site';
+
+const gruppen = nachGruppe(await mannschaften('Fußball'));
+const sortiere = <T extends { tag: string; von: string }>(z: T[]) =>
+  [...z].sort((a, b) => WOCHENTAGE.indexOf(a.tag as never) - WOCHENTAGE.indexOf(b.tag as never) || a.von.localeCompare(b.von));
+---
+
+<BereichLayout abteilung="Fußball" title="Trainingszeiten" intro="Alle Trainingszeiten der Fußballabteilung im Überblick.">
+  {
+    gruppen.map(([gruppe, liste]) => (
+      <section>
+        <h2>{gruppe}</h2>
+        <div class="tabelle-scroll">
+          <table class="tabelle">
+            <thead>
+              <tr>
+                <th scope="col">Mannschaft</th>
+                <th scope="col">Training</th>
+              </tr>
+            </thead>
+            <tbody>
+              {liste.map((m) => (
+                <tr>
+                  <td>
+                    <a href={mannschaftUrl(m)}>{m.data.name}</a>
+                  </td>
+                  <td>
+                    {m.data.trainingszeiten.length === 0
+                      ? '–'
+                      : sortiere(m.data.trainingszeiten).map((z) => (
+                          <div>
+                            {z.tag} {uhrzeit(z.von, z.bis)}
+                            {z.hinweis && ` (${z.hinweis})`}
+                          </div>
+                        ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))
+  }
+</BereichLayout>
