@@ -22,6 +22,10 @@ am Ende umgestellt wird.
 ## Wichtige Entscheidungen
 
 - **Keine eigene Benutzerverwaltung / Auth bauen.** Login ausschließlich über das CMS.
+- **Datenschutz:** Die Datenschutzerklärung (`src/content/seiten/datenschutz.md`) geht davon aus, dass
+  die Website keine Cookies, kein Tracking und keine Inhalte von Drittanbietern einbindet (keine Google
+  Fonts, keine eingebetteten Karten/Videos, keine externen Skripte). Schriften und Skripte lokal ausliefern;
+  Anfahrt nur als Link oder statisches Bild. Wird davon abgewichen, die Datenschutzerklärung anpassen.
 - **Bilder bleiben im Git-Repo.** Optimierung beim Upload durch Sveltia (WebP, max. ca. 1600 px Breite).
   Astro soll Bilder nicht aufwendig beim Build verarbeiten (Build-Zeit), Bilder werden direkt ausgeliefert.
 - **Autoren (max. 3 Personen inkl. Admin)** dürfen im CMS nur Beiträge bearbeiten. Felder:

@@ -16,8 +16,6 @@ Für die Gestaltung der Seiten ist der Vorstand des Vereins verantwortlich.
 
 Sollten Sie per E-Mail Fragen zu uns und/oder unserem Internetauftritt haben, so nutzen Sie bitte folgende Adresse: info (a) vfbtamm.de
 
-Telefonnummern siehe unter Kontaktseite.
-
 ## Weitere Hinweise
 
 Namentlich gezeichnete Beiträge geben die Meinung des Autors wieder und decken sich nicht unbedingt mit der des Webmasters. Alle Texte, Fotos und Graphiken auf dieser Homepage unterliegen urheberrechtlichem Schutz. Das Speichern und/oder Weiterverarbeiten sämtlicher Daten dieser Website ist jenseits der browser- oder betriebssystembedingten temporalen Speicherung ohne die Genehmigung der Urheber unzulässig und kann jederzeitige zivilrechtliche und strafrechtliche Schritte nach sich ziehen. Lediglich das Downloaden von Texten zum persönlichen, individuellen und nicht gewerblichen Gebrauch ist erlaubt.

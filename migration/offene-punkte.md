@@ -2,14 +2,17 @@
 
 Bitte prüfen und die Dateien in `src/data/` bzw. `src/content/seiten/` bei Bedarf anpassen.
 
-## Vor dem Go-live zwingend
+## Vor dem Go-live
 
-- **Datenschutzerklärung neu schreiben** (`src/content/seiten/datenschutz.md`). Die übernommene Fassung
-  ist die WordPress-Standardvorlage (Kommentare, Gravatar, Login-Cookies) und passt nicht zur neuen Seite.
-  Neu zu beschreiben sind u. a.: Hosting bei Cloudflare, Server-Logs, Sveltia CMS mit GitHub-Login (nur Autoren),
-  externe Links (fussball.de, Fanshop). Die Google-Maps-Einbettung der Gaststätte wurde nicht übernommen.
-- **Impressum prüfen** (`src/content/seiten/impressum.md`): Verweis „Telefonnummern siehe unter Kontaktseite“ –
-  eine Kontaktseite gibt es nicht; Angaben zum vertretungsberechtigten Vorstand prüfen.
+- **Datenschutzerklärung** wurde für die neue Seite neu geschrieben (`src/content/seiten/datenschutz.md`,
+  Stand November 2026). Bitte vom Vorstand prüfen lassen, insbesondere:
+  - Der Auftragsverarbeitungsvertrag mit Cloudflare ist bei Cloudflare Bestandteil der Nutzungsbedingungen
+    (Customer DPA) – im Cloudflare-Konto unter Einstellungen bestätigen bzw. ablegen.
+  - Kein Datenschutzbeauftragter angegeben. Pflicht erst, wenn in der Regel mind. 20 Personen ständig
+    mit der Verarbeitung personenbezogener Daten beschäftigt sind (§ 38 BDSG) – vom Verein zu prüfen.
+- **Impressum:** Hinweis „Telefonnummern siehe unter Kontaktseite“ entfernt. Noch prüfen, ob der
+  vertretungsberechtigte Vorstand vollständig genannt ist (bei mehreren gemeinsam Vertretungsberechtigten
+  laut Satzung alle aufführen).
 
 ## Seiten und Kontakte
 
