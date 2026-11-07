@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vfbtamm",
+  "compatibility_date": "2026-11-01",
+  // Reine statische Website: kein Worker-Code, nur Static Assets aus dem Astro-Build.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
