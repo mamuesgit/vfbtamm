@@ -1,3 +1,5 @@
+// HINWEIS: Seit das CMS live ist, nur noch mit Bedacht ausführen – überschreibt migrierte Beiträge
+// mit dem WordPress-Stand (Änderungen daran über das CMS gingen verloren). Löscht nichts.
 // Konvertiert die WordPress-Beiträge aus migration/cache/ (siehe fetch.mjs)
 // in Markdown-Dateien für die Collection "beitraege".
 //
@@ -11,8 +13,8 @@
 // Bereits heruntergeladene Originale liegen in migration/cache/originals/ und
 // werden nicht erneut geladen.
 
-import { mkdir, writeFile, rm } from 'node:fs/promises';
-import { ROOT, readJson, htmlZuMarkdown, cleanTitle, bildUebernehmen as bildLaden, dateiUebernehmen as dateiLaden } from './lib.mjs';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { ROOT, readJson, htmlZuMarkdown, cleanTitle, cleanSlug, beitragsDateiname, bildUebernehmen as bildLaden, dateiUebernehmen as dateiLaden } from './lib.mjs';
 
 const OUT_POSTS = new URL('src/content/beitraege/', ROOT);
 
@@ -32,14 +34,6 @@ const kategorieSlug = new Map(categories.map((c) => [c.id, c.slug]));
 
 // ---------- Hilfsfunktionen ----------
 
-function cleanSlug(slug) {
-  return decodeURIComponent(slug)
-    .toLowerCase()
-    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
-    .replace(/[^a-z0-9-]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-}
 
 /** Original-URL eines Bildes: über die Media-ID, sonst WordPress-Größensuffix entfernen. */
 function originalUrl(imgTag) {
@@ -75,7 +69,8 @@ const yamlString = (s) => JSON.stringify(s);
 
 // ---------- Konvertierung ----------
 
-await rm(OUT_POSTS, { recursive: true, force: true });
+// ACHTUNG: Seit das CMS live ist, liegen in src/content/beitraege/ auch neue Beiträge der Autoren.
+// Das Skript überschreibt daher nur die aus WordPress stammenden Dateien und löscht nichts.
 await mkdir(OUT_POSTS, { recursive: true });
 
 let anzahl = 0;
@@ -90,10 +85,7 @@ for (const [i, post] of posts.entries()) {
     continue;
   }
 
-  const datum = post.date.slice(0, 10);
-  let dateiname = `${datum}-${cleanSlug(post.slug) || post.id}`;
-  if (dateinamen.has(dateiname)) dateiname += `-${post.id}`;
-  dateinamen.add(dateiname);
+  const dateiname = beitragsDateiname(post, dateinamen);
 
   let html = post.content.rendered;
 

@@ -8,6 +8,8 @@ backend:
   branch: main
   # Login-Worker (sveltia-cms-auth) bei Cloudflare – URL nach dem Einrichten eintragen
   base_url: https://sveltia-cms-auth.mamuesmailbox.workers.dev
+  # Nur „Mit GitHub anmelden“ anbieten (kein Zugriffstoken)
+  auth_methods: [oauth]
   commit_messages:
     create: 'Beitrag erstellt: {{slug}}'
     update: 'Beitrag geändert: {{slug}}'

@@ -111,6 +111,20 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 - Das CMS selbst lädt im Redaktionsbereich Schriften (jsDelivr), Sprachdateien (unpkg) und eine
   GitHub-Statusmeldung – nur für Autoren, in der Datenschutzerklärung (Abschnitt 9) genannt.
 
+## Weiterleitungen und Nachbearbeitung (Schritt 6)
+
+- `public/_redirects` (Cloudflare, 301): alte WordPress-Adressen → neue Seiten. Erzeugt mit
+  `npm run build && npm run wp:redirects` aus `migration/cache/` – nicht von Hand ändern. Das Skript prüft jedes
+  Ziel gegen `dist/` und bricht bei fehlenden Zielen ab. Enthalten: alle Beiträge (`/JJJJ/MM/TT/slug/`), geänderte
+  Seiten (Liste `SEITEN` im Skript), Original-Bilder der Mediathek (`/wp-content/uploads/…` → `/uploads/….webp`),
+  alte Downloads, WordPress-Kategorien/Feeds (dynamische Regeln). Limit: 2000 statische + 100 dynamische Regeln.
+  Testen: `npx wrangler dev` (zeigt „Parsed N valid redirect rules“).
+- Wird eine Mannschaft/Seite umbenannt, `SEITEN` im Skript anpassen und neu erzeugen.
+- `src/lib/links-ergaenzen.mjs` (Astro-Integration): ergänzt nach dem Build Links ohne Protokoll
+  (`vfbtamm.de` → `https://…`, `name@domain.de` → `mailto:…`).
+- **`npm run wp:convert-posts` nicht mehr routinemäßig ausführen:** Es überschreibt migrierte Beiträge mit dem
+  WordPress-Stand (spätere Änderungen über das CMS gingen verloren). Es löscht keine Dateien mehr.
+
 ## Migration von WordPress
 
 - Beiträge und Medien über die WordPress-REST-API von https://www.vfbtamm.de/wp-json/wp/v2/ holen

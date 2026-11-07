@@ -88,6 +88,26 @@ export function cleanTitle(html) {
   return decodeEntities(html.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim();
 }
 
+export function cleanSlug(slug) {
+  return decodeURIComponent(slug)
+    .toLowerCase()
+    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+    .replace(/[^a-z0-9-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+/**
+ * Dateiname (= ID) eines migrierten Beitrags: JJJJ-MM-TT-slug, bei Doppelungen mit WordPress-ID.
+ * `vergeben` muss in derselben Reihenfolge wie posts.json gefüllt werden (convert-posts und redirects).
+ */
+export function beitragsDateiname(post, vergeben) {
+  let name = `${post.date.slice(0, 10)}-${cleanSlug(post.slug) || post.id}`;
+  if (vergeben.has(name)) name += `-${post.id}`;
+  vergeben.add(name);
+  return name;
+}
+
 // ---------- HTML → Markdown ----------
 
 /** WordPress-HTML vor der Umwandlung glätten. */

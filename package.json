@@ -12,7 +12,8 @@
     "wp:convert-posts": "node scripts/wp-export/convert-posts.mjs",
     "wp:bilder-nachladen": "node scripts/wp-export/bilder-nachladen.mjs",
     "wp:convert-pages": "node scripts/wp-export/convert-pages.mjs",
-    "prebuild": "node scripts/cms-kopieren.mjs"
+    "prebuild": "node scripts/cms-kopieren.mjs",
+    "wp:redirects": "node scripts/wp-export/redirects.mjs"
   },
   "dependencies": {
     "astro": "^7.4.7",
