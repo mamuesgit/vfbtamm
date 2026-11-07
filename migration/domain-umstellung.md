@@ -85,18 +85,45 @@ Hinweise:
 
 ## Vorlage: E-Mail an den Hoster
 
-> Betreff: Nameserver-Änderung für vfbtamm.de
+Erst absenden, wenn die Domain in Cloudflare angelegt ist (dann sind die beiden Nameserver bekannt).
+Am besten von einer Vereinsadresse (z. B. info@vfbtamm.de) senden, damit der Hoster sie dem Vertrag zuordnen kann.
+Platzhalter in `<…>` ergänzen.
+
+> **Betreff:** vfbtamm.de – Umstellung der Nameserver auf Cloudflare (Domain und E-Mail bleiben bei Ihnen)
 >
-> Guten Tag,
+> Sehr geehrte Damen und Herren,
 >
-> für unsere Domain **vfbtamm.de** (Account vfbtamm-de) möchten wir die Nameserver auf Cloudflare umstellen:
+> der VfB Tamm 1920 e.V. stellt seine Vereinswebsite auf ein neues System um. Die Website wird künftig über
+> Cloudflare ausgeliefert. Dafür muss Cloudflare die DNS-Verwaltung unserer Domain übernehmen. Wir möchten Sie
+> deshalb bitten, für die Domain **vfbtamm.de** die Nameserver wie folgt umzustellen:
 >
 > - `<NAMESERVER 1 von Cloudflare>`
 > - `<NAMESERVER 2 von Cloudflare>`
 >
-> Die Domain-Registrierung und das Hosting-Paket inklusive E-Mail-Postfächern sollen unverändert bei Ihnen
-> bleiben; die DNS-Einträge für den Mailserver übernehmen wir in Cloudflare. Falls für die Domain DNSSEC
-> aktiv ist, bitten wir, es im Zuge der Umstellung zu deaktivieren.
+> Wichtig ist uns dabei:
 >
-> Vielen Dank und viele Grüße
+> - **Die Domain soll bei Ihnen registriert bleiben.** Es handelt sich ausdrücklich um keinen Domain-Umzug,
+>   sondern nur um eine Änderung der Nameserver.
+> - **Hosting-Paket und E-Mail-Postfächer bleiben unverändert bei Ihnen.** Die bestehenden DNS-Einträge für den
+>   Mailserver (MX, `mail.vfbtamm.de`, IMAP/POP/SMTP, Autodiscover, SPF, DMARC) übernehmen wir vorab 1:1 in
+>   Cloudflare, damit der E-Mail-Verkehr ohne Unterbrechung weiterläuft.
+> - **DNSSEC:** Falls für vfbtamm.de DNSSEC aktiv ist, bitten wir, es im Zuge der Umstellung zu deaktivieren.
+>
+> Außerdem hätten wir noch folgende Fragen:
+>
+> 1. Ändert sich die IP-Adresse Ihres Mailservers (derzeit 91.233.87.220) gelegentlich? Da Sie die DNS-Zone nach
+>    der Umstellung nicht mehr selbst pflegen, wären wir für einen Hinweis bei künftigen Änderungen dankbar.
+> 2. Bleibt unsere bisherige Website während der Übergangszeit weiterhin unter https://vfbtamm-de.prossl.de
+>    erreichbar?
+> 3. Entstehen für die Umstellung Kosten, und mit welcher Bearbeitungszeit können wir rechnen?
+>
+> Für Rückfragen stehe ich Ihnen gerne zur Verfügung. Vielen Dank im Voraus für Ihre Unterstützung!
+>
+> Mit freundlichen Grüßen
+>
+> `<Vorname Nachname>`
+> `<Funktion im Verein>`
 > VfB Tamm 1920 e.V.
+> Asperger Straße 3, 71732 Tamm
+> `<Telefon>` · `<E-Mail>`
+> Kundennummer / Account: `vfbtamm-de` (ggf. Kundennummer aus den Rechnungen ergänzen)
