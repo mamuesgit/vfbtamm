@@ -6,6 +6,7 @@ jahrgang: "2018"
 personen:
   - rolle: Trainer
     name: Jochen Vogel
+    foto: /uploads/personen/jochen-vogel.webp
     telefon: "+4915121722812"
   - rolle: Trainer
     name: George Demir
