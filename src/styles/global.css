@@ -1060,6 +1060,9 @@ table {
   background: var(--flaeche);
 }
 
+.knopf-zeile {
+  margin: 0 0 2rem;
+}
 .hinweis {
   border-left: 4px solid var(--schwarz);
   background: var(--flaeche);

@@ -59,7 +59,8 @@ am Ende umgestellt wird.
 - `mannschaften`: name, abteilung, gruppe (z. B. Aktive/Jugend/Erwachsene), reihenfolge?,
   jahrgang?, teamfoto?, personen[] (rolle als Freitext, name, foto?, telefon?, email?),
   trainingszeiten[] (tag, von, bis?, ort?, hinweis?), beschreibung? (Markdown),
-  links[] (titel, url), galerie[] (bild, beschreibung?)
+  links[] (titel, url – auf der Mannschaftsseite als Knopf, z. B. „Zur Mannschaft auf fussball.de“),
+  galerie[] (bild, beschreibung?)
 - Abteilungen: Hauptverein, Fußball, Freizeitsport, Tischtennis
 
 Umsetzung in `src/content.config.ts`:

@@ -19,5 +19,5 @@ trainingszeiten:
   - { tag: Montag, von: "19:00", bis: "20:30" }
   - { tag: Donnerstag, von: "18:30", bis: "20:00" }
 links:
-  - titel: Die Mannschaft bei FUSSBALL.DE
+  - titel: Zur Mannschaft auf fussball.de
     url: https://www.fussball.de/mannschaft/vfb-tamm-i-vfb-tamm-wuerttemberg/-/saison/2223/team-id/01HGNP4EPS000000VV0AG80NVV0A1VPF
