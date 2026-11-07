@@ -8,9 +8,8 @@ export const VEREIN = {
   ort: '71732 Tamm',
   telefon: '07141/9747328',
   email: 'info@vfbtamm.de',
-  // Nur Links, keine eingebettete Karte (Datenschutz)
-  karteOsm: 'https://www.openstreetmap.org/search?query=Asperger%20Stra%C3%9Fe%203%2C%2071732%20Tamm',
-  karteGoogle: 'https://www.google.com/maps/search/?api=1&query=Asperger+Stra%C3%9Fe+3%2C+71732+Tamm',
+  // Nur ein Link, keine eingebettete Karte (Datenschutz)
+  karte: 'https://www.google.com/maps/search/?api=1&query=Asperger+Stra%C3%9Fe+3%2C+71732+Tamm',
 };
 
 export type Beitrag = CollectionEntry<'beitraege'>;

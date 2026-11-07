@@ -225,8 +225,7 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
           {VEREIN.ort}
         </p>
         <p>
-          <a class="knopf" href={VEREIN.karteOsm} rel="noopener">Karte öffnen</a>
-          <a class="knopf knopf--hell" href={VEREIN.karteGoogle} rel="noopener">Route planen</a>
+          <a class="knopf" href={VEREIN.karte} rel="noopener">Karte öffnen</a>
         </p>
       </div>
       <div>
@@ -235,16 +234,18 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
           Telefon: <a href={`tel:${VEREIN.telefon.replace(/\D/g, '')}`}>{VEREIN.telefon}</a><br />
           E-Mail: <a href={`mailto:${VEREIN.email}`}>{VEREIN.email}</a>
         </p>
-        <p><a href="/hauptverein/gaststaette/">Zur VfB-Vereinsgaststätte</a></p>
       </div>
     </section>
   </div>
 </Layout>
 
 <script>
-  // Aufmacher-Karussell: Wischen/Scrollen, Pfeile, Punkte und automatischer Wechsel (alle 7 s).
-  // Der automatische Wechsel pausiert bei Maus/Fokus/Berührung, lässt sich anhalten und entfällt
-  // bei „Bewegung reduzieren“.
+  // Aufmacher-Karussell: Wischen/Scrollen, Pfeile, Punkte und automatischer Wechsel alle 5 s.
+  // Der Wechsel läuft standardmäßig. Er pausiert nur, solange die Maus über dem Karussell ist, die
+  // Tastatur darin bedient wird (sichtbarer Fokus) oder ein Finger es berührt, und lässt sich über
+  // „Anhalten“ dauerhaft stoppen. Nach jeder Bedienung beginnen die 5 s von vorn.
+  // Bei „Bewegung reduzieren“ wird ohne Gleitanimation umgeblättert.
+  const INTERVALL = 5000;
   const spur = document.getElementById('aufmacher-spur');
   const steuerung = document.getElementById('aufmacher-steuerung');
   if (spur && steuerung) {
@@ -252,9 +253,13 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
     const punkte = [...steuerung.querySelectorAll<HTMLButtonElement>('[data-folie]')];
     const pause = steuerung.querySelector<HTMLButtonElement>('.aufmacher__pause')!;
     const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const bereich = spur.closest('section')!;
     let aktuell = 0;
-    let angehalten = ruhig;
-    let unterbrochen = false;
+    let angehalten = false;
+    let maus = false;
+    let tastatur = false;
+    let finger = false;
+    let timer: number | undefined;
 
     const markiere = (i: number) => {
       aktuell = i;
@@ -265,10 +270,22 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
         ),
       );
     };
+
+    // Nächsten automatischen Wechsel planen (Zeit beginnt jedes Mal von vorn)
+    const plane = () => {
+      clearTimeout(timer);
+      if (angehalten) return;
+      timer = window.setTimeout(() => {
+        if (maus || tastatur || finger || document.hidden) return plane();
+        geheZu(aktuell + 1);
+      }, INTERVALL);
+    };
+
     const geheZu = (i: number) => {
       const ziel = (i + folien.length) % folien.length;
       spur.scrollTo({ left: folien[ziel].offsetLeft, behavior: ruhig ? 'auto' : 'smooth' });
       markiere(ziel);
+      plane();
     };
 
     let scrollTimer: number | undefined;
@@ -276,7 +293,10 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
       clearTimeout(scrollTimer);
       scrollTimer = window.setTimeout(() => {
         const i = Math.round(spur.scrollLeft / (folien[1].offsetLeft - folien[0].offsetLeft));
-        if (i !== aktuell) markiere(Math.max(0, Math.min(folien.length - 1, i)));
+        if (i !== aktuell) {
+          markiere(Math.max(0, Math.min(folien.length - 1, i)));
+          plane();
+        }
       }, 80);
     });
 
@@ -291,19 +311,24 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
       angehalten = an;
       pause.setAttribute('aria-pressed', String(an));
       pause.textContent = an ? 'Abspielen' : 'Anhalten';
+      plane();
     };
-    if (ruhig) setzePause(true);
     pause.addEventListener('click', () => setzePause(!angehalten));
 
-    const bereich = spur.closest('section')!;
-    bereich.addEventListener('mouseenter', () => (unterbrochen = true));
-    bereich.addEventListener('mouseleave', () => (unterbrochen = false));
-    bereich.addEventListener('focusin', () => (unterbrochen = true));
-    bereich.addEventListener('focusout', () => (unterbrochen = false));
-    spur.addEventListener('touchstart', () => setzePause(true), { passive: true });
+    bereich.addEventListener('mouseenter', () => (maus = true));
+    bereich.addEventListener('mouseleave', () => {
+      maus = false;
+      plane();
+    });
+    // Nur Tastaturfokus unterbricht – ein Mausklick auf Pfeil/Punkt soll das Abspielen nicht stoppen
+    bereich.addEventListener('focusin', (e) => (tastatur = (e.target as HTMLElement).matches(':focus-visible')));
+    bereich.addEventListener('focusout', () => (tastatur = false));
+    spur.addEventListener('touchstart', () => (finger = true), { passive: true });
+    spur.addEventListener('touchend', () => {
+      finger = false;
+      plane();
+    });
 
-    window.setInterval(() => {
-      if (!angehalten && !unterbrochen && !document.hidden) geheZu(aktuell + 1);
-    }, 7000);
+    plane();
   }
 </script>

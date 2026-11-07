@@ -89,14 +89,15 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   erzeugt); `public/logo.png` (positiv), `favicon.png`, `apple-touch-icon.png`. Styles zentral in
   `src/styles/global.css`.
 - Startseite: Aufmacher-Karussell (Datum, Abteilung, Titel, Bild – kein Textauszug) mit allen Beiträgen mit `aufmacher: true` (CMS: „Auf der Startseite
-  hervorheben“), neueste zuerst; wischbar, Pfeile/Punkte, automatischer Wechsel alle 7 s (pausiert bei
-  Maus/Fokus/Berührung, Anhalten-Knopf, entfällt bei „Bewegung reduzieren“). Ohne markierte Beiträge entfällt es.
+  hervorheben“), neueste zuerst; wischbar, Pfeile/Punkte, automatischer Wechsel alle 5 s, standardmäßig an
+  (pausiert nur während Maus darüber/Tastaturfokus/Berührung, „Anhalten“-Knopf; bei „Bewegung reduzieren“
+  ohne Gleitanimation). Ohne markierte Beiträge entfällt es.
   Der Fanshop ist ein eigener Aufmacher-Beitrag (`2026-11-07-unser-onlineshop.md`, Folienbild
   `public/uploads/beitraege/fanshop-aufmacher.webp`); das alte Banner wird nicht mehr angezeigt.
   Darunter „Spielberichte“-Leiste (Ergebnisse
   werden mit `spielergebnis()` in `src/lib/site.ts` aus Titeln wie „Herren 1: A – VfB Tamm 1:6 (1:3)“
   gelesen), Nachrichten in drei Spalten mit kleinen Vorschaubildern, „Mitmachen“, Sponsoren (Logos in
-  Graustufen), Anfahrt.
+  Graustufen), Anfahrt (nur Link „Karte öffnen“ zu Google Maps) und Kontakt.
 - Gestaltungsregeln: keine angehängten Pfeile „→“ an Linktexten, keine Trennpunkte „·“ in Metazeilen,
   keine Großbuchstaben-Etiketten, keine Schatten/Verläufe. Bewegung nur gezielt (Einblendung der ersten Aufmacher-Folie, Karussell-Wechsel),
   `prefers-reduced-motion` wird beachtet.

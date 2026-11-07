@@ -934,6 +934,9 @@ table {
 .abschnitt__kopf h2 {
   margin-top: 0;
 }
+.ergebnisse + .container > .spalten.abschnitt:first-child {
+  margin-top: 2.25rem;
+}
 .spalten {
   display: grid;
   gap: 2.5rem;
