@@ -257,6 +257,26 @@ table {
 .fuss li {
   margin-bottom: 0.35rem;
 }
+.app-installieren button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+.app-installieren button:hover {
+  text-decoration-thickness: 2px;
+}
+.app-installieren p {
+  margin: 0.4rem 0 0;
+  color: var(--grau-hell-auf-schwarz);
+  font-size: 0.9rem;
+  max-width: 22rem;
+}
 .fuss__unten {
   margin-top: 2.5rem;
   padding-top: 1rem;

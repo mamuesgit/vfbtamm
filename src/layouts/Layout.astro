@@ -24,6 +24,8 @@ const aktiv = (slug: string) => pfad.startsWith(`/${slug}/`);
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="VfB Tamm" />
     <meta name="theme-color" content="#111111" />
   </head>
   <body>
@@ -91,11 +93,54 @@ const aktiv = (slug: string) => pfad.startsWith(`/${slug}/`);
               <li><a href={FANSHOP_URL} rel="noopener">Fanshop<span class="visually-hidden"> (externe Seite)</span> ↗</a></li>
               <li><a href="/impressum/">Impressum</a></li>
               <li><a href="/datenschutz/">Datenschutz</a></li>
+              <li class="app-installieren" hidden>
+                <button type="button" aria-expanded="false" aria-controls="app-hinweis">Als App installieren</button>
+                <p id="app-hinweis" hidden></p>
+              </li>
             </ul>
           </div>
         </div>
         <p class="fuss__unten">© {new Date().getFullYear()} {VEREIN.name}</p>
       </div>
     </footer>
+    <script>
+      // „Als App installieren“ im Fuß: Chrome/Edge/Android zeigen den eigenen Installationsdialog,
+      // andere Browser (z. B. Safari auf dem iPhone) bekommen eine kurze Anleitung.
+      // Bereits als App geöffnet → der Eintrag bleibt ausgeblendet.
+      const eintrag = document.querySelector<HTMLElement>('.app-installieren');
+      const alsApp = matchMedia('(display-mode: standalone)').matches || (navigator as { standalone?: boolean }).standalone;
+      if (eintrag && !alsApp) {
+        const knopf = eintrag.querySelector('button')!;
+        const hinweis = eintrag.querySelector<HTMLElement>('#app-hinweis')!;
+        let dialog: (Event & { prompt: () => Promise<void> }) | null = null;
+        eintrag.hidden = false;
+
+        addEventListener('beforeinstallprompt', (e) => {
+          e.preventDefault();
+          dialog = e as typeof dialog;
+        });
+        addEventListener('appinstalled', () => (eintrag.hidden = true));
+
+        const ua = navigator.userAgent;
+        const ios = /iPhone|iPad|iPod/.test(ua) || (ua.includes('Macintosh') && navigator.maxTouchPoints > 1);
+        const anleitung = ios
+          ? 'Tippen Sie in Safari auf das Teilen-Symbol und dann auf „Zum Home-Bildschirm“.'
+          : /Android/.test(ua)
+            ? 'Öffnen Sie das Browsermenü (⋮) und wählen Sie „App installieren“ oder „Zum Startbildschirm hinzufügen“.'
+            : 'Im Browsermenü „App installieren“ bzw. „Seite als App installieren“ wählen (z. B. in Chrome oder Edge). Safari am Mac: Ablage → „Zum Dock hinzufügen“.';
+
+        knopf.addEventListener('click', async () => {
+          if (dialog) {
+            await dialog.prompt();
+            dialog = null;
+            return;
+          }
+          const offen = hinweis.hidden;
+          hinweis.textContent = anleitung;
+          hinweis.hidden = !offen;
+          knopf.setAttribute('aria-expanded', String(offen));
+        });
+      }
+    </script>
   </body>
 </html>

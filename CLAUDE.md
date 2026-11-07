@@ -111,6 +111,11 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   `/impressum/` · `/datenschutz/`. Abteilungs-Slugs in `src/data/abteilungen.ts`.
 - Trainingszeiten-Übersicht (Fußball) und Wochenpläne (Freizeitsport) werden aus den Mannschaftsdateien erzeugt.
 - „Nächste Termine“ (Hauptverein) und das Ausgrauen vergangener Termine richten sich nach dem Build-Datum.
+- Als App installierbar: `public/manifest.webmanifest` + Symbole `public/icon-192.png`, `icon-512.png`,
+  `icon-maskable-512.png`, `apple-touch-icon.png` (Wappen negativ auf Schwarz). „Als App installieren“ im Fuß:
+  Chrome/Edge/Android → eigener Installationsdialog (`beforeinstallprompt`), sonst kurze Anleitung (iPhone:
+  Teilen → Zum Home-Bildschirm). Bewusst **kein Service Worker** (würde Daten auf dem Gerät speichern →
+  Datenschutzerklärung müsste angepasst werden).
 
 ## Redaktionssystem (Schritt 5)
 
