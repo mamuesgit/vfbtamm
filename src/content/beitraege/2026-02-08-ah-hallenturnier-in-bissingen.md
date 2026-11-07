@@ -1,0 +1,23 @@
+---
+title: "AH: Hallenturnier in Bissingen"
+date: 2026-02-08T21:25:34
+abteilung: Fußball
+cover: /uploads/2026/02/grafik-2.webp
+gallery:
+  - /uploads/2026/02/grafik-3.webp
+---
+**3\. Platz!  Turniersieger-Besieger!**
+
+Die Oldies Ü-60 des VfB Tamm trumpfen auf zum erfolgreichen Start in’s Sportjahr 2026. Beim AH-Turnier für Mannschaften Ü-60, einmal mehr hervorragend ausgerichtet und organisiert von 08 Bissingen galt es für den VfB Tamm, gut abzuschneiden und den Erfolg der letzten Teilnahme zu bestätigen. Als Titelverteidiger bestreitet man üblicherweise das Eröffnungsspiel gegen den Gastgeber 08 Bissingen. Die beiden spielstarken Team’s lieferten sich ein spannendes Duell. Mit einem platzierten Flachschuß gingen die 08-er in Führung, doch daran, das Auftaktspiel verloren zu geben, verschwendete insbesondere Valie keinen Gedanken. Ball erobert, kurzer Blick, strammer Schuß und schon
+
+zappelte das Runde zum 1:1 Ausgleich im Tordreieck vom Eckigen. Gute Möglichkeiten auf beiden Seiten blieben ungenutzt und führten zu einer gerechten Punkteteilung. Bei der Unterlandauswahl trafen wir auf ein Team gemischt aus ehemaligen Oberliga-, Landes- und Bezirksligaspielern. Gegen diese Auswahl zeigten wir unsere stärkste Turnierleistung, ließen den Gegner nicht in’s Spiel kommen, hätten bei effektiverer Chancenauswertung nach Toren von Wolfi und Reiner durchaus deutlicher als 2:1 gewinnen können. Wie sich im Turnierverlauf zeigen sollte wurden wir dadurch die einzigen TURNIERSIEGER-BESIEGER! Nach ausgeglichenen 12 Minuten Spielzeit hatte die Überlinger Ü-60 Auswahl in unserem 3. Spiel das bessere Ende für sich. Den 0:1 Rückstand konnte Steini zwar egalisieren; die erneute Führung zum 1:2 brachte das Team vom Bodensee jedoch glücklich über die Runden. Mit Hohenhaslach trafen wir VfB-ler im 4. Spiel auf einen der Favoriten auf den Turniersieg. Entsprechend motoviert begannen wir das Spiel. Wolfi sorgte mit einem „vollen Pfund“ mit seiner linken Klebe für die verdiente Führung. Schade, dass die ansonsten guten Schiedsrichterleistungen über das gesamte Turnier gerade in diesem Spiel start zu wünschen übrig ließ. Reiner hatte sich gegen seinen körperlich deutlich überlegenen Gegenspieler durchgesetzt. Dem daraus resultierende Trikot-Test hielt das Trikot zwar stand,
+
+die eigentlich logische Konsequenz, 2 Minuten Zeitstrafe, erfolgte zu unserer und zur Überraschung aller Zuschauer jedoch nicht. Auch als ein Haslacher Stürmer, bekannt dafür, dass er gerne Ringen und Fußball verwechselt, Joachim an den Hals ging, blieb die Pfeife der Pfeife an der Pfeife aus, was dann auch das 1:1 zur Folge hatte. Unmut und Ärger, wenn auch berechtigt, sind schlecht Fußballer. 2 weitere Gegentore und damit eine1:3 Niederlage waren die Folge. Jetzt galt es in den letzten 3 Spielen das Punktekonto zu verbessern. Zunächst stand uns mit Ehingen das Team gegenüber, welches Hohenhaslach die erste Niederlage beigebracht hatte. Die Abwehr stand sicher, Goalie Manne, das gesamte Turnier über ein zuverlässiger Rückhalt, der auch den einen oder anderen „Unhaltbaren“ entschärfte, hielt seinen Kasten sauber und die Tammer Offensive glänze mit 2 blitzsauber herausgespielten Toren beim 2:0 Sieg. Der SKV Ingersheim mußte
+
+verletzungsbedingt ohne seinen etatmäßigen Torhüter antreten, ein Handycap, dass die VfB-ler gekonnt zu nutzen wussten. Reiner, gedankenschnell mit Absatzkick, eröffnete den Torreigen gegen einen chancenlosen SKV. Wolfi, Steini, Valdano und Joachim legten zur 5:0 Führung nach, ehe den tapferen Ingersheimern der Ehrentreffer zum 1:5 gelang. Im 7. Und letzten Spiel stand uns mit dem SV Bergfelden/Holzhausen eine weitere spielfreudige Mannschaft gegenüber. Manne, unterstützt durch das erneut toll funktionierende Abwehrbollwerk, hielt mal wieder hinten die Null. Ball erobern, kontern und dann clever und gekonnt über den gegnerischen Goalie gelupft, so avancierte Reiner in
+
+diesem Spiel zum Matchwinner. Um letzte Zweifel am 3. Sieg in Folge zu beseitige legte erneut Reiner das verdiente 2:0 nach.  Damit standen zum Abschluß auf der Habenseite 13 Punkte und ein toller 3. Platz zu buche. Besonders bemerkenswert: das Tammer Team war zwar mit einem Spieler knapp unter 60 angetreten, dafür jedoch – wie übrigens auch die Ingersheimer – mit einem Kader, der ausschließlich aus Spielern des eigenen Vereins bestand. Für den VfB Tamm spielten:
+
+Manne Müller, Joachim Stepper, Walter Nesper, Volker Kemle, Reiner Schäffer, Martin Stein, Wolfi Kellner.
+
+Tore: zu viele, darum Namen der Torschützen ohne Gewähr. Torschützen: alle, außer Manne, gehaltene Bälle: keiner, außer Manne. Wertvollster Spieler: alle, einschließlich Manne!

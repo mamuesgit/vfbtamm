@@ -1,0 +1,8 @@
+---
+title: "C1-Junioren: VfB Tamm – SGM Asperg/Möglingen 3:0"
+date: 2022-10-30T20:32:08
+abteilung: Fußball
+---
+**VfB unmittelbar vor Aufstieg in Leistungsstaffel!**
+
+Das letzte Heimspiel der Vorrunde gegen den Nachbarn Asperg/Möglingen sollte zu einem großem Fußballfest in Tamm gipfeln, doch leider ereilte uns die offenbar personell bedingte Absage seitens des Gegners. Eine von der SGM gewünschte Verlegung würde den ohnehin recht straffen Terminplan unserer Tammer dermaßen durcheinanderwirbeln daß uns die drei Punkte in den nächsten Tagen vom „grünen Tisch“ zugeschrieben werden sollten und wir somit lediglich einen einzigen Zähler für den Wiederaufstieg in die Leistungsstaffel benötigen. Diesen ausgerechnet auf dem Platz des noch punktlosen Schlusslichts Vaihingen/Enz einzufahren scheint mehr als aussichtsreich, geht es doch auch vielmehr darum die unfassbare Dominanz mit der der VfB das Feld anführt im Schlussspurt noch einmal deutlich auszubauen. Das aus diesem Grunde für einen Besuch empfehlenswerte Auswärtsspiel startet am Samstag, den 12.11.2022 um 15:00 Uhr. Trotz des Spielausfalls war unsere C1 dennoch bei diesem äußerst herrlichen Herbstwetter nicht untätig. Rechtzeitig gelang es den Verantwortlichen mit dem FSV Waiblingen einen mehr als angemessenen Ersatzgegner zu finden. Dieses wichtige Testspiel endete übrigens durch einen herrlichen Treffer von Vincent mit 1:0 für unsere Schwarzweißen. Mannschaft und Trainer sehen sich gut gerüstet für die künftigen Aufgaben, insbesondere die Doppelbelastung mit dem Bezirkspokal. Auch hier scheint man zu spüren daß der VfB schon mit einer Hand zum Pott greifen will…

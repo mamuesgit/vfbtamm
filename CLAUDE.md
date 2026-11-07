@@ -25,11 +25,12 @@ am Ende umgestellt wird.
 - **Bilder bleiben im Git-Repo.** Optimierung beim Upload durch Sveltia (WebP, max. ca. 1600 px Breite).
   Astro soll Bilder nicht aufwendig beim Build verarbeiten (Build-Zeit), Bilder werden direkt ausgeliefert.
 - **Autoren (max. 3 Personen inkl. Admin)** dürfen im CMS nur Beiträge bearbeiten. Felder:
-  Titel, Datum, Abteilung (Pflicht, Dropdown), Mannschaft (optional, Dropdown), Titelbild,
+  Titel, Datum, Abteilung (Pflicht, Dropdown), Titelbild,
   Bildergalerie, Text (Markdown, Toolbar auf Basics reduziert: fett, kursiv, Link, Liste).
 - **Mannschaften, Trainer, Trainingszeiten, Sponsoren, Vorstand** sind NICHT im CMS sichtbar.
   Sie werden als Datendateien im Repo gepflegt (vom Admin, ändern sich ca. einmal pro Saison).
-- Beiträge mit Mannschafts-Zuordnung erscheinen zusätzlich auf der jeweiligen Mannschaftsseite.
+- **Beiträge haben keine Mannschafts-Zuordnung.** Die Mannschaft ergibt sich nur aus dem Titel
+  (z. B. "Herren 1: …"); wichtig ist allein die Abteilung.
 
 ## Seitenstruktur (aus Analyse der alten Seite)
 
@@ -50,7 +51,7 @@ am Ende umgestellt wird.
 
 ## Datenmodell (Astro Content Collections)
 
-- `beitraege`: title, date, abteilung, mannschaft?, cover?, gallery[]?, body
+- `beitraege`: title, date, abteilung, cover?, gallery[]?, body
 - `mannschaften`: name, abteilung, gruppe (z. B. Aktive/Jugend/Erwachsene), teamfoto?,
   personen[] (rolle: Trainer/Betreuer, name, foto?, telefon?, email?),
   trainingszeiten[] (tag, von, bis, ort?), beschreibung?
@@ -60,7 +61,6 @@ Umsetzung in `src/content.config.ts`:
 - Beiträge: `src/content/beitraege/*.md` (Dateiname = ID)
 - Mannschaften: `src/data/mannschaften/*.yaml` (Dateiname = ID, z. B. `herren-1`), zusätzlich
   optional `reihenfolge` für die Sortierung
-- `mannschaft` im Beitrag ist eine Referenz auf die Mannschafts-ID; unbekannte IDs brechen den Build ab
 - Abteilungsliste zentral in `src/data/abteilungen.ts`
 - Bildpfade sind Strings (z. B. `/uploads/...webp`), keine Astro-Bildverarbeitung
 
@@ -72,8 +72,18 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   (Netzwerkzugriff auf vfbtamm.de muss in der Cloud-Umgebung erlaubt sein).
 - Pro Bild nur die größte Version übernehmen, auf ca. 1600 px verkleinern, als WebP speichern.
   WordPress-Zwischengrößen ignorieren.
-- WordPress-Kategorien auf die Abteilungen mappen; Mannschaft wenn möglich aus dem Titel
-  ableiten (Muster z. B. "Herren 1: ...", "E1-Jugend: ...").
+- WordPress-Kategorien auf die Abteilungen mappen (`psg-news` wird nicht übernommen,
+  die PSG wurde 2023 aufgelöst). Keine Mannschafts-Zuordnung.
+- Bilder: Beitragsbild bzw. erstes Bild im Text → `cover`, alle weiteren → `gallery`.
+  Der Text bleibt bildfrei.
+- Skripte: `npm run wp:fetch` (Rohdaten nach `migration/cache/`, nicht im Repo),
+  `npm run wp:convert-posts` (Beiträge + Bilder nach `src/content/beitraege/` und `public/uploads/`).
+  In der Cloud-Session mit `NODE_USE_ENV_PROXY=1` aufrufen. Der Webhoster blockiert Anfragen ohne
+  Browser-ähnlichen User-Agent; die Skripte senden `Mozilla/5.0 (compatible; vfbtamm-migration)`.
+- Alte Seiten, die nicht übernommen werden (nur Weiterleitung auf die übergeordnete Seite):
+  PSG, B2-Jugend, Mädchen B, Mädchen C, Hygienekonzept, Vereinspielplan, Veranstaltungen-Unterseiten
+  (Kategorien, Meine Buchungen, Schlagwörter, Veranstaltungsorte). Übernommen wird zusätzlich:
+  Mitgliedsbeiträge (Hauptverein).
 - Mannschaftsseiten (Elementor) in Datendateien überführen.
 - **Weiterleitungen** für alte URLs einrichten (Beiträge: `/JJJJ/MM/TT/slug/`, Seiten wie
   `/fussball/d1_jugend/`), damit Links aus Google und Facebook weiter funktionieren.

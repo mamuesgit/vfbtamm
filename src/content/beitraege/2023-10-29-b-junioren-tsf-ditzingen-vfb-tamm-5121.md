@@ -1,0 +1,12 @@
+---
+title: "B-Junioren: TSF Ditzingen – VfB Tamm 5:1(2:1)"
+date: 2023-10-29T20:22:46
+abteilung: Fußball
+---
+**Starker VfB bietet Tabellenführer lange Zeit Paroli**
+
+„Oben dranbleiben“ hieß die Devise der Tammer und so fuhr man als zweitplatzierter entsprechend motiviert zum Topspiel gegen den bisher noch ungeschlagenen Tabellenführer TSF Ditzingen. Blättert man in deren Historie so liest man welch klangvolle Namen dort einst in der Jugend ihre Fußballschuhe schnürten: von Fredi Bobic oder dem Südafrikaner Sean Dundee über Serge Gnabry bis hin zum späteren Gewinner der Champions League Mario Mandzukic. Wenn dies keinen zusätzlichen Ansporn bedeutet hier und heute etwas Zählbares zu entführen.
+
+Die Partie startete mit reichlich Feuer. Ditzingen arbeitete sich mühsam nach vorne, wurde jedoch im letzten Moment immer wieder von dem leidenschaftlich um jeden Ball kämpfenden VfB daran gestört den Abschluss zu finden. Nach einer Tammer Unaufmerksamkeit gelang ihnen dann bereits in der achten Spielminute der frühe Führungstreffer zum 1:0. Unbeeindruckt suchten die Gäste auch ihrerseits den Weg nach vorn, meist durch temporeiche Überraschungskonter. Einen gelang es Cedric nur zehn Minuten später in gewohnt cooler Manier zum Ausgleich abzuschließen. Das Duell war sehr kurzweilig und auch nach der erneuten Führung der Platzherren (27.) noch immer offen und ohne erkennbaren Leistungsunterschied. Nach dem Seitenwechsel vereitelten, beziehungsweise versemmelten, beide Teams hüben wie drüben so mancherlei Hochkaräter. In Minute 47 war das Momentum erneut auf Seiten der Gastgeber, die auf 3:1 (49.) erhöhten  und sich mit diesem Vorsprung etwas Luft verschaffen konnten zumal die aufopfernd agierenden VfBler die Heimmannschaft durch ihre auf hohem Niveau befindliche Spielweise nur sehr schwer zur Entfaltung kommen ließ. Ein Doppelschlag binnen drei Minuten (66./69.) machte dann spätestens in dieser Phase alle Hoffnungen auf ein Comeback und einem damit verknüpften Punktgewinn zunichte. Das Ergebnis geht auch in dieser Höhe gegen einen heute sich schlichtweg noch einen Tick besser präsentierenden Gegner in Ordnung.
+
+Am kommenden Sonntag hat unser junges Team frei und kann sich nach diesem kräftezehrenden Match ausreichend regenerieren und sich auf das vorletzte Spiel vorbereiten welches am Sonntag den 12.11. um 10:30 Uhr in Markgröningen angepfiffen wird. Ein Gegner welcher im Schnitt bislang sieben Kisten pro Partie hat schlucken müssen – für den VfB möglicherweise gerade recht um sich so manchen Ergebnisfrust von der Seele zu ballern…

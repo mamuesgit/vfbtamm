@@ -1,0 +1,10 @@
+---
+title: "Herren 2: SV Gebersheim – VfB Tamm 1:2(0:1)"
+date: 2024-05-12T21:38:00
+abteilung: Fußball
+---
+**Bartholomäus entscheidet Gipfeltreffen !**
+
+Am vergangenen Sonntag war die Tammer Zweitvertretung zu Gast in Gebersheim.Die Begegnung der beiden Mannschaften war aufgrund der Tabellensituation schon vor dem Anpfiff äußerst vielversprechendSowohl die Tammer als Tabellenführer, als auch der Gastgeber, befinden sich mitten im Meisterschaftskampf der Kreisliga B6.Die Tammer Mannschaft kam an diesem Sonntag sehr gut in die Partie und konnte so immer wieder gute Angriffsaktionen auf das Gehäuse des Gebersheimer Keepers starten.In der 19. Spielminute war es Außenverteidiger E. Öztürk der aus halblinker Position die verdiente Führung für die Tammer erzielen konnte.Nach der Führung wurde der Gastgeber immer besser und schnürte die Tammer Mannschaft immer weiter in deren eigener Hälfte ein.Nach einem unglücklichen Klärungsversuch in der Hintermannschaft der Gäste konnten die Gebersheimer schließlich zu diesem Zeitpunkt verdient ausgleichen.Nach dem Seitenwechsel wurde das Tammer Spiel wieder deutlich besser. Auf schwierigem Geläuf versuchte man nun immer wieder die Angriffsaktionen spielerisch zu meistern.Aber auch die Gastgeber warfen nochmal alles in die Waagschale um den Tabellenführer zu stürzen. In der zweiten Hälfte war es ein absolut ausgeglichenes Spiel das in beide Richtungen hätte laufen können.Rund 5 Minuten vor dem Ende der Partie schlug unser Mittelfeldmotor F. Bartholomäus zur Freude der zahlreichen Tammer Zuschauer zu. Nach einem Missglückten Klärungsversuch des Gebersheimer Keepersschaltete F. Bartholomäus gedankenschnell und konnte mit einem schönen Lupfer die Gäste auf die Siegerstraße bringen.Nach diesem enorm wichtigen Sieg bleibt die zweite Tammer Mannschaft weiter Tabellenführer und hat somit am letzten Spieltag alles in der eigenen Hand.Die Tammer Jungs bedanken sich herzlich für den tollen Support bei den mitgereisten Zuschauern.
+
+**Vorschau: Letztes und entscheidendes Punktspiel ist am Sonntag, 02.06.2024 um 13:00 Uhr in Tamm !**

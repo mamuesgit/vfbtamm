@@ -1,0 +1,14 @@
+---
+title: "B-Junioren: SGM Hirschl-Schöckingen/Heimerdingen – VfB Tamm – 1:1 (1:0)"
+date: 2024-04-14T20:29:57
+abteilung: Fußball
+---
+**Hochverdienter Punkt nach packendem Finish erkämpft**
+
+Dem siegreichen Start in die Rückrunde sollten nun durch einen weiteren Erfolg im ersten Auswärtsspiel bei der Spielgemeinschaft Hirschlanden-Schöckingen/Heimerdingen weitere Punkte folgen. Passgenau auf dieses Unterfangen eingestellt zogen unsere VfB-Junioren bei herrlichem Frühlingswetter los ins beschauliche Heimerdingen um dort den bisherigen Erfolg zu untermauern.
+
+Zu Beginn war es noch nicht ganz die Kost welche einen wohlschmeckenden Brunch vermuten ließ. Der VfB mühte sich in den gewohnten Takt zu schalten und der Gastgeber war darauf bedacht diese Absicht auf robuste Weise zu zerstören. Nicht nur dies, denn mit ihrem quasi ersten nennenswerten Angriff gelang es der SGM bereits in der frühen Phase (7. Minute) die glückliche Führung zum 1:0. Tamm zeigte sich dadurch wenig geschockt und arbeitete unbeirrt an der Egalisierung dieses unbefriedigenden Zwischenstandes. In Spielminute 31 wurde der angeschlagene Fabian durch Marko M. ersetzt und nach der Pause folgten in der 51. Minute Marco I. für Cedric sowie nach exakt einer absolvierten Stunde Marco Mele für Mario S. Die Partie nahm so langsam Fahrt auf, auch wenn hüben wie drüben zunächst noch manch lange Bälle auf die Spitzen streckenweise an den klassischen Kick-and-Rush des Fußball-Mutterlandes erinnerten. Allerdings zeichnete sich jetzt mehr und mehr eine Überlegenheit unserer Schwarzweißen ab die sich allein schon in der zunehmenden Quote der fast schon hundertprozentigen Torchancen zeigte. Ebenso spricht die Tatsache Bände, dass die Lederkugel dreimal (!) das Aluminuimgeräusch erschallen ließ. Dies bedeutete wohl den letzten Wachrüttler denn bei nur noch wenigen regulär auf der Uhr verbleibenden Sekunden gibt es die x-te Ecke für Tamm, getreten von Antoni (in der 63. für Daniele eingewechselt) von der linken Seite. Seine Hereingabe verwertete Leandro zum überfälligen Ausgleich! Jetzt brachen alle Dämme und es entwickelte ein Spiel auf ein Tor bei dem nun auch Fabian wieder mitwirkte frische Impulse nach vorn zu setzen. Zu spät, denn es blieb unseren Moralhelden verwehrt sich ein zweites Mal durch einen Treffer zu belohnen. Somit blieb es beim leistungsungerechten Unentschieden mit dem die Spielgemeinschaft sicher besser bedient sein dürfte als der haushoch überlegene Gast aus Tamm.
+
+Mit der heute an den Tag gelegten Einstellung braucht man sich keineswegs zu sorgen was die vor uns stehenden Partien betrifft.
+
+Am kommenden Mittwoch, den 17.04. um 18:30 Uhr steht bereits die nächste Auswärtsaufgabe beim TV Pflugfelden auf dem Arbeitsplan bevor es dann beim nächsten Heimspiel am 21.04. zum Frühschoppen-Kracher um 10:30 Uhr gegen den bislang noch ungeschlagenen Klassenprimus TSF Ditzingen kommt. Hierzu ist jegliche Unterstützung willkommen.

@@ -1,0 +1,14 @@
+---
+title: "FINALE WFV Ü-70"
+date: 2024-07-01T17:13:36
+abteilung: Fußball
+---
+Fußball ist unser Leben, dem König Fußball gehört die Welt …
+
+Wer kann das so nachweislich von sich behaupten wie über 70-jährige, jung geblieben Oldies die sich am **Freitag, den 5. Juli um 16.00 Uhr auf dem Rasenplatz in Tamm** gegenüberstehen, den da richtet der WFV das Finale zur Württembergischen Meisterschaft der Ü-70 Mannschaften aus. Aufeinander treffen dabei die Teams Auswahl Unterland gegen den FSV 08 Bietigheim-Bissingen. Eigentlich fast unglaublich, doch hier stehen sich tatsächlich 2 Teams gegenüber bei denen alle Kicker bereits 70 Jahre und älter sind. Auch wenn Fairness, Kameradschaft und Freundschaft an erster Stelle stehen, tut das den sportlichen Recken bezüglich Ehrgeiz und Siegeswille keinen Abbruch.
+
+Für das Team Unterland, das sich 2019 zum WFV-Meister Ü70 gekürt hat, sind gemeldet: Alfred Kulka  TV Flein, mit 76 Jahren. 1969 das Double mit WFV Pokalsieger und Meister der 2. Amateurliga, 1971 Meister Bezirksliga und Bezirkspokalsieger Unterland, 44 mal goldenes Sportabzeichen. Aufstieg und Erfahrung in der Landesliga bei der SG Stetten bringt der 70-er Klaus Wolf mit. Oldie der Truppe ist mit 78 Josef Adamansky der mit dem TSV Biberach zu Meisterehren kam. Burkard Ulbrich, TGV Beilstein und Horst Selinger, TSV Talheim mit 75 Jahren haben in den Jahren 1967 und 68 Aufstiege und Meisterschaft gefeiert. Mit Mustafa Eroglu, 71 Jahre, von der SV Leingarten, ergänzt ein weiterer spielstarker 70-er das Team Unterland.
+
+Nicht weniger namhafte Spieler sind für den FVS 08 Bissingen am Start. Der Titelverteidiger und amtierende Ü-70 Meister geht mit diesem Team in’s Finale: Oldies der Oldie’s sind mit 77 Jahren Klaus Wirkner der für die 08-er und Hermann Sandner der für den TSV Asperg in der 2. Amateurliga spielte. Für 08 In der 2. Amateurliga lief auch Wolfgang Müller mit seinen heute 76 Jahren auf. Ebenfalls 76 sind Franz Moser der auf erfolgreiche Zeiten bei Schwieberdingen und 08 verweisen kann und Jürgen Cebulla der für Ötisheim und Mühlacker die Kickstiefel geschnürt hat. Rolf Linkenheil mit seinen 75 spielte nicht nur für seine 08-er erfolgreich in der 2. Amateurliga. Das Wappen der Spvgg Bissingen auf der Brust trugen früher Hans Reiss 72 und Josef Pfeifer 71. Walter Brändle, mit 72 Jahren ein „Kirchheimer Gewächs und mit 70 das „Nesthäkchen“ Manfred Eppler aus Herzogsweiler vervollständigen das Team der 08-er.
+
+Gespielt wir auf ein verkleinertes Spielfeld über 2 x 25 Minuten. Geleitet wird das Finale von WFV-Schiedsrichter Allesandro Squillante, der für den VfB Tamm gemeldet ist. Der Eintritt ist kostenlos, jedoch ganz sicher nicht umsonst und könnte die perfekte Einstimmung auf das Spiel der deutschen Nationalmannschaft gegen Spanien sein. Die Oldies freuen sich auf zahlreiche Zuschauer.

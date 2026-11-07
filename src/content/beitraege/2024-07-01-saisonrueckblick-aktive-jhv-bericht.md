@@ -1,0 +1,22 @@
+---
+title: "Saisonrückblick Aktive: JHV Bericht"
+date: 2024-07-01T17:12:43
+abteilung: Fußball
+---
+es ist immer schön, wenn ein Abteilungsleiter im abgelaufenen Jahr von einer Meisterschaft berichten darf.
+
+Dennoch haben die VfB Aktiven ihr vorgegebenes Saisonziel nicht erreicht. Dafür war die Erste Mannschaft des VfB Tamm mit dem erreichten vierten Platz verantwortlich. Vor der Saison wurde uns vom Verband mitgeteilt, daß es nur einen Aufsteiger geben wird, um eine Regulierung der einzelnen Staffeln durchzuführen und somit die Relegation für diese Saison entfällt. Die Erste Mannschaft startete erfolgreich mit drei Siegen in die Saison. Ihren ersten Dämpfer erhielt man am vierten Spieltag in Weil der Stadt, als man nach einer 0:2 Führung zur Pause, das Spiel noch mit 3:2 verloren hatte. Am siebten Spieltag kam es schon zu einem ersten Showdown gegen den ungeschlagenen Tabellenführer der SpVgg Renningen. Tamm mußte punkten um den Anschluss nicht zu verlieren. Trotz des besten Saisonspiel und 90 Minuten Einbahnstraßen- Fußball schaffte es der VfB nicht, den Ball im gegnerischen Tor unterzubringen. Im Gegenteil, nach einem einzigen Angriff der Renninger verhalf der VfB durch ein Eigentor ihnen zum Sieg.
+
+Diese Niederlage nahm viel Euphorie aus der Mannschaft. Erst im letzten Spiel vor der Winterpause keimte nochmals Hoffnung auf, als man einen Auswärtssieg in Gebersheim, dem damaligen engsten Verfolger des Tabellenführers, erringen konnte. Nach der Winterpause startete man zunächst mit einem Sieg, doch weitere unerklärliche Punktverluste gegen Weissach, Weil der Stadt und Ditzingen folgten. In der Zwischenzeit wurde auch bekannt, daß beide Trainer Alfonso Garcia der sich mehr Zeit für seine Familie und die Enkel nehmen möchte und Franco Buono, dessen Vertrag nicht verlängert wurde, den VfB Tamm zum Saisonende verlassen würden. Dadurch dezimierte sich fortan die Trainingsbeteiligung der Spieler. Dies machte sich auch auf dem Spielfeld bemerkbar. Nur noch beim Auswärtsspiel beim SKV Rutesheim wusste der VfB Tamm zu überzeugen. Bis zum vorletzten Spieltag lag der VfB Tamm auf dem zweiten Tabellenplatz. Nach dem letzten Spieltag, als man spielfrei war, rutschte man auf Rang vier. Neben den Trainern werden auch zahlreiche Spieler der Ersten Mannschaft den VfB Tamm verlassen. Eine Neuorientierung beim VfB wurde schon nach der Winterpause vorgenommen. Meistertrainer der Zweiten Mannschaft Denis Flöter wird zum Cheftrainer beim VfB Tamm befördert. Dazu folgen Aaron Volkert und Peter Rösch. Betreuer bleibt weiterhin Jürgen Seel. Zahlreiche ehemalige Spieler der ersten bzw. zweiten Mannschaft folgen ins Team. Vielen Dank an die Trainer Alfonso Garcia und Franco Buono, die den VfB Tamm in den letzten Jahren nicht in die Bezirksliga führten, aber zu einem Spitzenteam in der Kreisliga A formten.
+
+Eine überragende Saison spielte unsere Zweite Mannschaft in der Kreisliga B und wurde mit dem Meistertitel belohnt.
+
+Vom ersten Spieltag an führte der VfB Tamm die Tabellenspitze an. Die Trainer Denis Flöter, Mark Tessari und dessen Betreuer Micha Walz, Aaron Volkert und Peter Rösch brachten Woche für Woche eine motivierte Mannschaft aufs Feld, wo Kameradschaft an erster Stelle stand. Ohne Punktverlust bestritt man die Vorrunde. Eine Niederlage gegen Korntal und ein Punktverlust gegen den härtesten Konkurrenten FC Gerlingen, machten den Endspurt nochmals spannend. Mit einem überragenden Sieg im vorletzten Spiel in Gebersheim legte man den Grundstein zur Meisterschaft. Das Finale in Tamm gewann man mit 11:0 gegen den TSV Malmsheim und feierte die hochverdiente Meisterschaft. Im Anschluss ging es für einige Akteure zum Feiern nach Mallorca. Herzlichen Glückwunsch zu einer überzeugenden Saison.
+
+Danke für die gute Zusammenarbeit mit der Vorstandschaft, Fabio und dessen Jugendabteilung, meinem gesamten Trainer- und Betreuerteam, unserem „WfV Mann“ Gary Merkle, Festausschuss Axel Nitsche-Pflumm mit Team, unserem Kassierer Wolfgang Keller, Platz Kassiererin Claudine Grub, allen Sponsoren, allen VfB Abteilungen und meiner rechten Hand „Jürgen Seel“ sowie unsere zahlreichen Zuschauer.
+
+Ihr alle seid verantwortlich dafür, daß der VfB Tamm in der Zwischenzeit zu einem Top-Club im Bereich Enz/Murr zählt.
+
+**VfB Tamm wechselt in der Kreisliga A1!**
+
+Der Wunsch in der A3 Liga ( Bietigheimer Staffel ) zu spielen konnte durch den Verband nicht erfüllt werden aber mit dem Wechsel in die Kreisliga A1( Staffel Ludwigsburg ) spart der VfB und deren Fans enorme Fahrtkosten.

@@ -1,4 +1,4 @@
-import { defineCollection, reference } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { ABTEILUNGEN } from './data/abteilungen';
@@ -23,9 +23,6 @@ const beitraege = defineCollection({
     title: z.string().min(1),
     date: z.coerce.date(),
     abteilung: z.enum(ABTEILUNGEN),
-    // ID einer Mannschaft (Dateiname ohne Endung, z. B. "herren-1").
-    // Unbekannte IDs lassen den Build fehlschlagen.
-    mannschaft: reference('mannschaften').optional(),
     cover: bildpfad.optional(),
     gallery: z.array(bildpfad).optional(),
   }),

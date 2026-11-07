@@ -1,0 +1,10 @@
+---
+title: "Spender-Danke"
+date: 2024-12-08T20:24:57
+abteilung: Hauptverein
+---
+200 Fußbälle, mindesten 5 Trikot-Sätze, Trainingsanzüge, reichlich Tornetze, 2 kleine Trainingstore, Koordinations,- und Fitnessgeräte, Eckfahnen, 1. Hilfe-Ausstattung, etwa 100 Kisten Pausensprudel, Strom für die Flutlichtanlage, Linienmarkiergerät und Farbe dazu; Auslagen für Schiedsrichter, Kosten für Aus- und Weiterbildung von Trainern und Übungsleitern; das ist noch längst nicht alles, was so an jährlichen Unkosten auf unseren VfB Tamm zukommt. Aufwendungen, die ohne Unterstützung von Sponsoren, Freunden und Förderern des Vereins gar nicht zu stemmen wären.
+
+Kleine Geschichte vom Saisonauftakt gefällig: Training, Koordination, Balltechnik, Torschuß, Spiel. Spieler: wo ist der Ball? Trainer:  fangt ruhig schon mal ohne an, das härtet ab. Jugendleiter: Hilfe! 40 Spieler in der B-Jugend und der F-Jugend; Bälle alt und kaputt. Die Damenmannschaft braucht Sporttaschen und Trainings-Shirts. Vorstand Marketing: ich kenn da jemanden!  Nachfrage bei den Firmen FD Friedrich und Aeropur: Spende von Uwe Lauterbach eingegangen, je 22 Bälle und passende Balltaschen für die F,- und die B-Jugend, Sporttaschen und Shirts für die Damenmannschaft erhalten! Sportbetrieb läuft, die Jugendmannschaften haben ausreichend Spiel,- und Trainingsbälle, Fußball-Training mit Ball macht halt doch mehr Spaß. Notstand behoben dank Spende der Firmen FD Friedrich und Aeropur. Ganz herzlichen Dank sagen dir, lieber Uwe, die Jugendmannschaften von F,- und B-Jugend und unsere Damenmannschaft für die tolle Unterstützung.
+
+Für ebenso tolle Unterstützung bedanken wir uns u.a. bei Michael Rieger Hausgeräte/Küchenstudio, Denis Biney Deutsche Vermögensberatung, Gianluca Arra und Marco Scognamilio Gaststätte Ochsen, Kai Klaus Schwäbische Immobilienwerte, Franz Badmann Rathausapotheke, Manfred Münchow Stukkateur, Alfonso Mauriello Württembergische Versicherung, Vito Merola Sams Sportbekleidung, Dadas Barbershop, Opel Weller Autohaus, Toms Autolädle Denis Schmidt und Sören Kühn GbR ReStart Bildungsakademie GmbH, Thaci Gartengestaltung, Gertänkehandel Clais Müller oder Otto Baier Maschienenfabrik.
