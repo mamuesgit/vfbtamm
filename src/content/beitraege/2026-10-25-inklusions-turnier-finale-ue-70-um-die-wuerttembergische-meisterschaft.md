@@ -1,12 +1,14 @@
 ---
-title: "Inklusions-Turnier, Finale Ü-70 um die Württembergische Meisterschaft."
+title: Inklusions-Turnier, Finale Ü-70 um die Württembergische Meisterschaft.
 date: 2026-10-25T20:10:30
 abteilung: Hauptverein
+aufmacher: true
 cover: /uploads/2026/10/wuerttemb.-meister-ue70.webp
 gallery:
   - /uploads/2026/10/wimpel-uebergabe.webp
   - /uploads/2026/10/finalisten-ue70-meisterschaft.webp
 ---
+
 WM-Spieler der deutschen Nationalmannschaft Ü 70 zu Gast in Tamm.
 
 Begeisterndes Auftaktprogramm für den neuen Kunstrasenplatz.
