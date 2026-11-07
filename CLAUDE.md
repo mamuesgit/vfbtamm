@@ -96,6 +96,21 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 - Trainingszeiten-Übersicht (Fußball) und Wochenpläne (Freizeitsport) werden aus den Mannschaftsdateien erzeugt.
 - „Nächste Termine“ (Hauptverein) und das Ausgrauen vergangener Termine richten sich nach dem Build-Datum.
 
+## Redaktionssystem (Schritt 5)
+
+- Sveltia CMS unter `/admin/`: `public/admin/index.html` + `public/admin/config.yml`. Das CMS-Skript wird
+  nicht von einem CDN geladen, sondern vor jedem Build aus `node_modules/@sveltia/cms` nach `public/admin/`
+  kopiert (`scripts/cms-kopieren.mjs`, npm `prebuild`; die Kopie ist in `.gitignore`). Update: `npm update @sveltia/cms`.
+- Nur die Collection `beitraege` ist im CMS. Neue Bilder → `public/uploads/beitraege/`, im Browser auf
+  max. 1600 px verkleinert und als WebP gespeichert. Datum wird als `YYYY-MM-DDTHH:mm:ss` (lokale Zeit)
+  gespeichert, Dateiname `JJJJ-MM-TT-titel.md`. Leere optionale Felder werden weggelassen.
+- Konfiguration gegen das Schema prüfen: `node_modules/@sveltia/cms/schema/sveltia-cms.json`.
+- Login: GitHub-OAuth über den Worker `sveltia-cms-auth` (eigenes Cloudflare-Projekt, nicht in diesem Repo),
+  URL in `backend.base_url`. Worker-Variablen: `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` (verschlüsselt),
+  `ALLOWED_DOMAINS`. Zugriff hat, wer im GitHub-Repo Schreibrechte hat (Collaborator).
+- Das CMS selbst lädt im Redaktionsbereich Schriften (jsDelivr), Sprachdateien (unpkg) und eine
+  GitHub-Statusmeldung – nur für Autoren, in der Datenschutzerklärung (Abschnitt 9) genannt.
+
 ## Migration von WordPress
 
 - Beiträge und Medien über die WordPress-REST-API von https://www.vfbtamm.de/wp-json/wp/v2/ holen

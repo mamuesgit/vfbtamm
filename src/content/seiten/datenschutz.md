@@ -80,6 +80,8 @@ Unsere Website enthält Links zu externen Angeboten, z. B. zu fussball.de, mytis
 
 Die Beiträge auf dieser Website werden von wenigen berechtigten Vereinsmitgliedern über ein Redaktionssystem (Sveltia CMS) unter der Adresse /admin gepflegt. Die Anmeldung erfolgt über ein Konto bei **GitHub** (GitHub, Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA, ein Unternehmen der Microsoft Corporation); die Inhalte der Website werden bei GitHub gespeichert. Für die Anmeldung wird ein Anmeldedienst bei Cloudflare genutzt.
 
+Beim Öffnen des Redaktionssystems lädt der Browser zudem Schriftarten vom Dienst jsDelivr (cdn.jsdelivr.net), Sprachdateien und eine Versionsprüfung von unpkg.com sowie eine Statusmeldung von githubstatus.com. Dabei wird die IP-Adresse an diese Anbieter übermittelt.
+
 Diese Verarbeitung betrifft ausschließlich die Autorinnen und Autoren, nicht die Besucherinnen und Besucher der Website. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren Pflege der Website). GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: [https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement)
 
 ## 10. Ihre Rechte

@@ -11,13 +11,15 @@
     "wp:fetch": "node scripts/wp-export/fetch.mjs",
     "wp:convert-posts": "node scripts/wp-export/convert-posts.mjs",
     "wp:bilder-nachladen": "node scripts/wp-export/bilder-nachladen.mjs",
-    "wp:convert-pages": "node scripts/wp-export/convert-pages.mjs"
+    "wp:convert-pages": "node scripts/wp-export/convert-pages.mjs",
+    "prebuild": "node scripts/cms-kopieren.mjs"
   },
   "dependencies": {
     "astro": "^7.4.7",
     "marked": "^18.1.3"
   },
   "devDependencies": {
+    "@sveltia/cms": "^0.261.0",
     "sharp": "^0.35.5",
     "turndown": "^7.2.5",
     "wrangler": "^4.158.0"

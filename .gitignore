@@ -18,3 +18,7 @@ npm-debug.log*
 
 # WordPress-Rohdaten (Migration)
 migration/cache/
+
+# Sveltia CMS (wird beim Build aus node_modules kopiert)
+public/admin/sveltia-cms.js
+public/admin/chunks/
