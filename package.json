@@ -10,7 +10,8 @@
     "astro": "astro",
     "wp:fetch": "node scripts/wp-export/fetch.mjs",
     "wp:convert-posts": "node scripts/wp-export/convert-posts.mjs",
-    "wp:bilder-nachladen": "node scripts/wp-export/bilder-nachladen.mjs"
+    "wp:bilder-nachladen": "node scripts/wp-export/bilder-nachladen.mjs",
+    "wp:convert-pages": "node scripts/wp-export/convert-pages.mjs"
   },
   "dependencies": {
     "astro": "^7.4.7"

@@ -10,6 +10,17 @@ import { ABTEILUNGEN } from './data/abteilungen';
  */
 const bildpfad = z.string().min(1);
 
+/** Ansprechperson (Trainer, Vorstand, Abteilungsleitung …) */
+const person = z.object({
+  // z. B. "Trainer", "Co-Trainer", "Übungsleiterin", "Vorstand Finanzen"
+  rolle: z.string().min(1),
+  name: z.string().min(1),
+  foto: bildpfad.optional(),
+  telefon: z.string().optional(),
+  email: z.email().optional(),
+  beschreibung: z.string().optional(),
+});
+
 /** Uhrzeit im Format HH:MM, z. B. "18:30". */
 const uhrzeit = z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, 'Uhrzeit im Format HH:MM angeben');
 
@@ -45,18 +56,7 @@ const mannschaften = defineCollection({
     // Nur Jugend, z. B. "2015" oder "2012/13"
     jahrgang: z.string().optional(),
     teamfoto: bildpfad.optional(),
-    personen: z
-      .array(
-        z.object({
-          // z. B. "Trainer", "Co-Trainer", "Betreuer", "Übungsleiterin"
-          rolle: z.string().min(1),
-          name: z.string().min(1),
-          foto: bildpfad.optional(),
-          telefon: z.string().optional(),
-          email: z.email().optional(),
-        }),
-      )
-      .default([]),
+    personen: z.array(person).default([]),
     trainingszeiten: z
       .array(
         z.object({
@@ -83,4 +83,55 @@ const mannschaften = defineCollection({
   }),
 });
 
-export const collections = { beitraege, mannschaften };
+/**
+ * Statische Seiten (Verein, Chronik, Impressum …): Markdown in src/content/seiten/,
+ * vom Admin im Repo gepflegt (nicht im CMS). Dateiname = ID.
+ */
+const seiten = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/seiten' }),
+  schema: z.object({
+    title: z.string().min(1),
+  }),
+});
+
+/**
+ * Gremien und Kontaktlisten (Vorstand, Abteilungsleiter …): YAML in src/data/gremien/.
+ */
+const gremien = defineCollection({
+  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/data/gremien' }),
+  schema: z.object({
+    titel: z.string().min(1),
+    reihenfolge: z.number().int().optional(),
+    personen: z.array(person).default([]),
+    hinweis: z.string().optional(),
+  }),
+});
+
+// Einzelne Listen-Dateien in src/data/ (je eine Datei = ein Eintrag mit einer Liste)
+const liste = (datei: string, schema: z.ZodType) =>
+  defineCollection({ loader: glob({ pattern: datei, base: './src/data' }), schema });
+
+const sponsoren = liste(
+  'sponsoren.yaml',
+  z.object({
+    sponsoren: z.array(z.object({ name: z.string().min(1), logo: bildpfad, url: z.url().optional() })),
+  }),
+);
+
+const downloads = liste(
+  'downloads.yaml',
+  z.object({
+    downloads: z.array(z.object({ titel: z.string().min(1), datei: z.string().startsWith('/') })),
+  }),
+);
+
+const veranstaltungen = liste(
+  'veranstaltungen.yaml',
+  z.object({
+    veranstaltungen: z.array(
+      z.object({ datum: z.coerce.date(), bis: z.coerce.date().optional(), titel: z.string().min(1) }),
+    ),
+  }),
+);
+
+export const collections = { beitraege, mannschaften, seiten, gremien, sponsoren, downloads, veranstaltungen };

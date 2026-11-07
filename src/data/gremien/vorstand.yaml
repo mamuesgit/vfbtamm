@@ -1,0 +1,43 @@
+titel: Der Vorstand
+reihenfolge: 10
+personen:
+  - rolle: 1. Vorsitzender
+    name: Wolfgang Kellner
+    foto: /uploads/2023/10/22aebf7f-d959-44af-b6ed-a03417af9a81.webp
+    telefon: 07141/602080
+    email: info@vfbtamm.de
+  - rolle: Vorstand Sport
+    name: Uwe Kerler
+    foto: /uploads/2023/10/df089a20-0282-468c-9b16-0bda86955ff6.webp
+    telefon: 07142/779916
+    email: info@vfbtamm.de
+  - rolle: Vorstand Finanzen
+    name: Torsten Müller
+    foto: /uploads/2023/10/404938ff-cd91-4ec9-95b2-8c06bffe0470.webp
+    telefon: 07141/3873544
+    email: info@vfbtamm.de
+  - rolle: Vorstand Veranstaltungsmanagement
+    name: Jörg Kellner
+    foto: /uploads/2023/10/1465ce73-45c7-422e-a5af-4db46935868d.webp
+    telefon: 0171/8045712
+    email: info@vfbtamm.de
+  - rolle: Vorstand Marketing
+    name: Andre Zimmermann
+    foto: /uploads/2025/09/2025-09-25-23_23_38-window.webp
+    telefon: 0162 9216958
+    email: marketing@vfbtamm.de
+  - rolle: Vorstand Jugend
+    name: Alessandro Squillante
+    foto: /uploads/2026/10/alessandro_squillante_gross.webp
+    telefon: 0170/4655067
+    email: vorstand_jugend@vfbtamm.de
+  - rolle: Technischer Leiter
+    name: Aaron Volkert
+    email: technischerleiter@vfbtamm.de
+    beschreibung: >-
+      Der technische Leiter ist Ansprechpartner für alle technischen Fragen rund um das
+      Sportgelände Aspergerstr. 3 und das Vereinsheim. Er koordiniert die Aufgaben der Dienstleister
+      und ist Kontaktperson seines Aufgabengebiets zur Stadtverwaltung.
+hinweis: >-
+  Sollten Sie hier nicht den richtigen Ansprechpartner gefunden haben, senden Sie eine Mail an
+  info@vfbtamm.de. Diese Mail wird dann an die betreffende Stelle/Person weitergeleitet.

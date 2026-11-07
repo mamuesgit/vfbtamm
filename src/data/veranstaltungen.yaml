@@ -1,0 +1,13 @@
+# Vereinstermine (vom Admin gepflegt). datum im Format JJJJ-MM-TT, bis nur bei mehrtägigen Terminen.
+veranstaltungen:
+  - { datum: 2026-01-31, titel: Altpapiersammlung durch die Fußball-Aktiven }
+  - { datum: 2026-02-07, titel: Brunch ab 11:00 Uhr für Jubilare und Funktionäre 2025 }
+  - { datum: 2026-03-06, titel: Sportplatzputzete }
+  - { datum: 2026-03-20, titel: Abteilungsversammlung Fußball-Jugend }
+  - { datum: 2026-05-09, titel: Altpapiersammlung durch die Fußball-AH }
+  - { datum: 2026-06-19, bis: 2026-06-22, titel: Parkplatzfest VfB Tamm }
+  - { datum: 2026-06-25, titel: Jahreshauptversammlung im Vereinsheim ab 19:30 Uhr }
+  - { datum: 2026-07-18, bis: 2026-07-19, titel: Fleckafescht am Rathausplatz }
+  - { datum: 2026-08-03, bis: 2026-08-08, titel: Fußballcamp }
+  - { datum: 2026-09-12, titel: Altpapiersammlung durch die Basketballer }
+  - { datum: 2026-11-07, titel: Altpapiersammlung durch die Fußball-Aktiven }

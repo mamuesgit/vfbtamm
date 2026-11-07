@@ -1,0 +1,12 @@
+# Downloads (vom Admin gepflegt). Dateien liegen in public/downloads/.
+downloads:
+  - titel: VfB-Mitgliedsantrag
+    datei: /downloads/mitgliedsantrag-2026.pdf
+  - titel: Satzung
+    datei: /downloads/satzung.pdf
+  - titel: Passantrag Spielerpass
+    datei: /downloads/passantrag-spielerpass.pdf
+  - titel: Einverständniserklärung Spielerfoto
+    datei: /downloads/einverstaendnis-spielerfoto.pdf
+  - titel: Beitragsordnung
+    datei: /downloads/beitragsordnung-2026.pdf

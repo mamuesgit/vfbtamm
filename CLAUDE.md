@@ -61,7 +61,15 @@ am Ende umgestellt wird.
 Umsetzung in `src/content.config.ts`:
 - Beiträge: `src/content/beitraege/*.md` (Dateiname = ID)
 - Mannschaften: `src/data/mannschaften/*.yaml` (Dateiname = ID, z. B. `herren-1`, `tischtennis-herren`)
+- Seiten: `src/content/seiten/*.md` (Verein, Leitsätze, Chronik, Gaststätte, Mitgliedsbeiträge,
+  Impressum, Datenschutz) – Markdown mit Bildern im Text, nicht im CMS
+- Gremien: `src/data/gremien/*.yaml` (Vorstand, Abteilungsleiter, Abteilungsleitung Freizeitsport,
+  Kontakt Tischtennis) – titel, reihenfolge?, personen[], hinweis?
+- Listen: `src/data/sponsoren.yaml`, `src/data/downloads.yaml` (Dateien in `public/downloads/`),
+  `src/data/veranstaltungen.yaml` – je eine Datei, laden mit `getEntry('sponsoren', 'sponsoren')` usw.
+- Personen (Mannschaften und Gremien) haben dasselbe Schema: rolle, name, foto?, telefon?, email?, beschreibung?
 - Abteilungsliste zentral in `src/data/abteilungen.ts`
+- Fanshop-Banner für die Startseite: `/uploads/2026/01/marketing-teaser-728x90-1.webp`, Link https://vfbtamm.fan12.de/
 - Bildpfade sind Strings (z. B. `/uploads/...webp`), keine Astro-Bildverarbeitung
 
 Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer, Tabelle Trainingszeiten).
@@ -79,8 +87,13 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 - Skripte: `npm run wp:fetch` (Rohdaten nach `migration/cache/`, nicht im Repo),
   `npm run wp:convert-posts` (Beiträge + Bilder nach `src/content/beitraege/` und `public/uploads/`),
   `npm run wp:bilder-nachladen` (in `src/data/**/*.yaml` referenzierte, noch fehlende Bilder aus der
-  WordPress-Mediathek laden).
-- Mannschaftsseiten wurden einmalig von Hand in YAML übertragen (zu uneinheitlich für einen Parser).
+  WordPress-Mediathek laden), `npm run wp:convert-pages` (einmaliger Export der Textseiten nach
+  `src/content/seiten/`; die Dateien wurden danach von Hand nachbearbeitet – nicht erneut ausführen,
+  sonst werden die Änderungen überschrieben).
+- Mannschaftsseiten, Vorstand, Abteilungsleiter, Sponsoren, Downloads und Veranstaltungen wurden
+  einmalig von Hand in YAML übertragen (zu uneinheitlich für einen Parser). Mitgliedsbeiträge nach der
+  Beitragsordnung 2026 neu geschrieben (alte Seite veraltet). Übersichtsseiten (Startseite, Abteilungen)
+  waren reine Beitragslisten und werden von Astro erzeugt.
   E-Mail-Adressen nur übernommen, wenn sie erkennbar zur Person passen; offene Punkte stehen in
   `migration/offene-punkte.md`.
   In der Cloud-Session mit `NODE_USE_ENV_PROXY=1` aufrufen. Der Webhoster blockiert Anfragen ohne

@@ -12,8 +12,7 @@
 // werden nicht erneut geladen.
 
 import { mkdir, writeFile, rm } from 'node:fs/promises';
-import TurndownService from 'turndown';
-import { ROOT, readJson, bildUebernehmen as bildLaden, dateiUebernehmen as dateiLaden } from './lib.mjs';
+import { ROOT, readJson, htmlZuMarkdown, cleanTitle, bildUebernehmen as bildLaden, dateiUebernehmen as dateiLaden } from './lib.mjs';
 
 const OUT_POSTS = new URL('src/content/beitraege/', ROOT);
 
@@ -32,22 +31,6 @@ const media = new Map((await readJson('media.json')).map((m) => [m.id, m]));
 const kategorieSlug = new Map(categories.map((c) => [c.id, c.slug]));
 
 // ---------- Hilfsfunktionen ----------
-
-function decodeEntities(s) {
-  return s
-    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&');
-}
-
-function cleanTitle(html) {
-  return decodeEntities(html.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim();
-}
 
 function cleanSlug(slug) {
   return decodeURIComponent(slug)
@@ -86,55 +69,6 @@ async function dateiUebernehmen(url, beitrag) {
     fehler.push(`${beitrag}: Datei ${url} – ${e.message}`);
     return url;
   }
-}
-
-// ---------- HTML → Markdown ----------
-
-const turndown = new TurndownService({
-  headingStyle: 'atx',
-  bulletListMarker: '-',
-  emDelimiter: '*',
-  strongDelimiter: '**',
-});
-turndown.remove(['style', 'script', 'noscript', 'figcaption']);
-// Emojis bindet WordPress als <img alt="✨"> ein → als Text übernehmen, alle anderen Bilder entfernen.
-turndown.addRule('bilder', {
-  filter: 'img',
-  replacement: (_, node) => {
-    const alt = node.getAttribute('alt') || '';
-    const src = node.getAttribute('src') || '';
-    const istEmoji = (src === '' || /s\.w\.org\/images\/core\/emoji/.test(src)) && alt && [...alt].length <= 3;
-    return istEmoji ? alt : '';
-  },
-});
-// Aufklappbare Blöcke (<details>/<summary>): Inhalt als normale Absätze übernehmen
-// (die Zusammenfassung enthält oft schon den ganzen Text, Hervorhebungen bleiben erhalten).
-turndown.addRule('summary', {
-  filter: ['details', 'summary'],
-  replacement: (content) => `\n\n${content.trim()}\n\n`,
-});
-// <br> wird auf der alten Seite fast immer als Absatztrenner benutzt → echter Absatz
-turndown.addRule('umbruch', {
-  filter: 'br',
-  replacement: () => '\n\n',
-});
-// Links, die nur noch ein (entferntes) Bild enthielten, ganz weglassen
-turndown.addRule('leereLinks', {
-  filter: (node) => node.nodeName === 'A' && !node.textContent.trim(),
-  replacement: () => '',
-});
-turndown.keep(['table']);
-
-function markdownAufraeumen(md) {
-  return md
-    .replace(/ /g, ' ')
-    .replace(/[ \t]+$/gm, '')
-    // Fettdruck, der durch einen Absatz unterbrochen wurde, wieder schließen/öffnen
-    .replace(/\*\*([^*\n]+)\n\n([^*\n]+)\*\*/g, '**$1**\n\n**$2**')
-    .replace(/^\*\*\s*\*\*$/gm, '')
-    .replace(/^[ \t]*\*\*[ \t]*$/gm, '')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 }
 
 const yamlString = (s) => JSON.stringify(s);
@@ -186,17 +120,7 @@ for (const [i, post] of posts.entries()) {
     html = html.replaceAll(url, await dateiUebernehmen(url, dateiname));
   }
 
-  // Umbrüche am Anfang/Ende von Hervorhebungen nach außen ziehen,
-  // z. B. <strong>Titel<br></strong>Text → <strong>Titel</strong><br>Text
-  html = html
-    .replace(/((?:<br\s*\/?>\s*)+)(<\/(?:strong|b|em|i)>)/gi, '$2$1')
-    .replace(/(<(?:strong|b|em|i)(?:\s[^>]*)?>)((?:\s*<br\s*\/?>)+)/gi, '$2$1')
-    // Umbrüche mitten in einer Hervorhebung: Hervorhebung schließen und danach neu öffnen
-    .replace(/<(strong|b|em|i)(\s[^>]*)?>([\s\S]*?)<\/\1>/gi, (_, tag, attrs = '', inhalt) =>
-      `<${tag}${attrs}>` + inhalt.replace(/<br\s*\/?>/gi, `</${tag}><br><${tag}>`) + `</${tag}>`,
-    );
-
-  const body = markdownAufraeumen(turndown.turndown(html));
+  const body = htmlZuMarkdown(html);
 
   const fm = [
     '---',

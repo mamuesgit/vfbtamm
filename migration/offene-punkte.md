@@ -1,6 +1,29 @@
-# Offene Punkte aus der Migration (Mannschaftsseiten)
+# Offene Punkte aus der Migration
 
-Bitte prüfen und die YAML-Dateien in `src/data/mannschaften/` bei Bedarf anpassen.
+Bitte prüfen und die Dateien in `src/data/` bzw. `src/content/seiten/` bei Bedarf anpassen.
+
+## Vor dem Go-live zwingend
+
+- **Datenschutzerklärung neu schreiben** (`src/content/seiten/datenschutz.md`). Die übernommene Fassung
+  ist die WordPress-Standardvorlage (Kommentare, Gravatar, Login-Cookies) und passt nicht zur neuen Seite.
+  Neu zu beschreiben sind u. a.: Hosting bei Cloudflare, Server-Logs, Sveltia CMS mit GitHub-Login (nur Autoren),
+  externe Links (fussball.de, Fanshop). Die Google-Maps-Einbettung der Gaststätte wurde nicht übernommen.
+- **Impressum prüfen** (`src/content/seiten/impressum.md`): Verweis „Telefonnummern siehe unter Kontaktseite“ –
+  eine Kontaktseite gibt es nicht; Angaben zum vertretungsberechtigten Vorstand prüfen.
+
+## Seiten und Kontakte
+
+- **Mitgliedsbeiträge:** Die alte Seite (2022) war veraltet (z. B. 85 € statt 95 €). Die neue Seite basiert auf
+  der Beitragsordnung 2026 (`public/downloads/beitragsordnung-2026.pdf`).
+- **Vorstand:** Rolle „1. Vorsitzende“ als „1. Vorsitzender“ übernommen, „Veranstaltungsmanagment“ korrigiert.
+- **Abteilungsleiter Fußball Aktive:** Name „Axel Nitsche-Pflumm“, Bilddatei heißt „Nitsche-Pfumm“ – Schreibweise prüfen.
+- **Tischtennis-Kontakt:** Thomas Scheer hat zwei Telefonnummern (07141/913999 bei den Abteilungsleitern,
+  0173 7208191 auf der TT-Kontaktseite). Jugendleiter und Jugendtrainer waren leer und fehlen.
+- **Sponsoren:** Namen anhand der Logos vergeben, Webadressen nur, wo sie auf dem Logo stehen. Die
+  Vereinsgaststätte steht (wie auf der alten Seite) mit in der Sponsorenliste.
+- **Veranstaltungen:** Nur Termine 2026 vorhanden; für 2027 in `src/data/veranstaltungen.yaml` ergänzen.
+
+# Mannschaftsseiten
 
 ## Nicht übernommene E-Mail-Adressen
 

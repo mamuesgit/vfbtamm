@@ -1,0 +1,50 @@
+# Sponsoren (vom Admin gepflegt). Reihenfolge = Anzeige-Reihenfolge.
+# url nur angeben, wenn bekannt.
+sponsoren:
+  - name: Rathaus Apotheke Tamm
+    logo: /uploads/2022/09/rathaus-apotheke-tamm.webp
+  - name: Pizzeria Da Alfonso
+    logo: /uploads/2022/05/alfonso.webp
+  - name: Allianz Jan D. Krüger
+    logo: /uploads/2022/09/krueger.webp
+  - name: Vahldiek AG Blumengroßhandel
+    logo: /uploads/2022/09/vahldiek-a.webp
+    url: https://www.blumen-vahldiek.de
+  - name: VfB-Vereinsgaststätte
+    logo: /uploads/2022/09/vfb-spaeth.webp
+  - name: artwork Werbetechnik
+    logo: /uploads/2022/09/artworc.webp
+    url: https://www.diewerbetechnik.com
+  - name: aeropur
+    logo: /uploads/2022/09/aeropur.webp
+    url: https://www.aeropur.de
+  - name: RTS Steuerberater
+    logo: /uploads/2022/09/rts.webp
+  - name: M. Eberhardt Solar
+    logo: /uploads/2024/07/solar.webp
+  - name: Fahrschule Englert & Co. GmbH
+    logo: /uploads/2024/05/englert.webp
+  - name: Szielasko Haustechnik
+    logo: /uploads/2022/05/szielasko.webp
+  - name: FD Friedrich Clean and Care
+    logo: /uploads/2022/09/fdfriedrich.webp
+  - name: M. Bopp GmbH Fliesenlegen
+    logo: /uploads/2022/05/bopp.webp
+    url: https://www.fliesenlegen-mit-phantasie.de
+  - name: Mild Haustechnik
+    logo: /uploads/2022/10/img-20220831-wa0002.webp
+  - name: Karl Stein Recycling-Center
+    logo: /uploads/2024/05/stein.webp
+  - name: Kellner Elektrotechnik GmbH
+    logo: /uploads/2022/05/kellner.webp
+  - name: Rieger Hausgeräte Küchenstudio
+    logo: /uploads/2022/09/rieger.webp
+  - name: Reisinger Schlosserei + Metallbau
+    logo: /uploads/2022/09/reisinger.webp
+  - name: Winkler
+    logo: /uploads/2024/07/logo_winkler_4c_claim1.webp
+  - name: SMF Konstruktionen
+    logo: /uploads/2022/09/smf.webp
+    url: https://www.smf-konstruktionen.de
+  - name: Schuh Zürn
+    logo: /uploads/2022/09/zuern.webp
