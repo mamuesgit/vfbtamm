@@ -98,3 +98,40 @@ export function telLink(telefon: string) {
   const zweiNummern = teile.length > 1 && teile.every((t) => t.replace(/\D/g, '').length >= 8);
   return 'tel:' + (zweiNummern ? teile[0] : telefon).replace(/[^\d+]/g, '');
 }
+
+// ---------- Spielergebnisse aus Beitragstiteln ----------
+
+export interface Ergebnis {
+  mannschaft: string;
+  heim: string;
+  gast: string;
+  toreHeim: number;
+  toreGast: number;
+  ausgang: 'sieg' | 'remis' | 'niederlage';
+}
+
+/**
+ * Liest ein Spielergebnis aus einem Titel wie
+ * „Herren 1: DJK Ludwigsburg 2 – VfB Tamm 1:6 (1:3)“. Gibt null zurück, wenn der Titel
+ * nicht diesem Muster folgt oder der VfB Tamm keine der beiden Mannschaften ist.
+ */
+export function spielergebnis(titel: string): Ergebnis | null {
+  const m = titel.match(
+    /^([^:]{1,30}):\s*(.+?)\s+[–-]\s+(.+?)\s+(\d{1,2})\s*:\s*(\d{1,2})\s*(?:\(\s*\d{1,2}\s*:\s*\d{1,2}\s*\))?\s*$/,
+  );
+  if (!m) return null;
+  const [, mannschaft, heim, gast, h, g] = m;
+  const vfbHeim = /vfb\s*tamm/i.test(heim);
+  const vfbGast = /vfb\s*tamm/i.test(gast);
+  if (vfbHeim === vfbGast) return null;
+  const eigene = vfbHeim ? +h : +g;
+  const gegner = vfbHeim ? +g : +h;
+  return {
+    mannschaft: mannschaft.trim(),
+    heim: heim.trim(),
+    gast: gast.trim(),
+    toreHeim: +h,
+    toreGast: +g,
+    ausgang: eigene > gegner ? 'sieg' : eigene < gegner ? 'niederlage' : 'remis',
+  };
+}

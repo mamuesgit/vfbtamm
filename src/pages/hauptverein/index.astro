@@ -21,7 +21,7 @@ const LINKS = [
 ---
 
 <BereichLayout abteilung="Hauptverein" title="Hauptverein" intro="Der VfB Tamm 1920 e.V. – Ihr Verein in Tamm.">
-  <ul class="kacheln">
+  <ul class="kacheln kacheln--text">
     {
       LINKS.map((l) => (
         <li>
@@ -52,7 +52,7 @@ const LINKS = [
           ))}
         </ul>
         <a class="mehr-link" href="/hauptverein/veranstaltungen/">
-          Alle Veranstaltungen →
+          Alle Veranstaltungen
         </a>
       </section>
     )
@@ -63,6 +63,6 @@ const LINKS = [
     <ul class="beitragsliste">
       {neueste.map((b) => <BeitragKurz beitrag={b} />)}
     </ul>
-    <a class="mehr-link" href="/hauptverein/beitraege/">Alle Beiträge Hauptverein →</a>
+    <a class="mehr-link" href="/hauptverein/beitraege/">Alle Beiträge Hauptverein</a>
   </section>
 </BereichLayout>

@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 const { m } = Astro.props as { m: Mannschaft };
 const d = m.data;
-const untertitel = [d.gruppe, d.jahrgang && `Jahrgang ${d.jahrgang}`].filter(Boolean).join(' · ');
+const untertitel = d.jahrgang ? `${d.gruppe}, Jahrgang ${d.jahrgang}` : d.gruppe;
 const leer = !d.teamfoto && !d.beschreibung && !d.personen.length && !d.trainingszeiten.length;
 ---
 

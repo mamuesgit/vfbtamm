@@ -28,7 +28,9 @@ const aktiv = (href: string) =>
       {
         !istStart && (
           <div class="brotkrumen">
-            <a href="/">Start</a> / <a href={abteilungUrl(abteilung)}>{abteilung}</a>
+            <a href="/">Start</a>
+            <span aria-hidden="true">/</span>
+            <a href={abteilungUrl(abteilung)}>{abteilung}</a>
           </div>
         )
       }

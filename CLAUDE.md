@@ -81,9 +81,19 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 ## Layout und URLs (Schritt 4)
 
 - Vereinsslogan: „vielfältig familiär bewegend“ (im Kopf unter dem Vereinsnamen).
-- Design: Vereinsfarben Schwarz/Weiß mit Grautönen, andere Farben nur kleinflächig. Logo-Quelle
-  `assets/vfb-logo-original.png`, ausgeliefert als `public/logo.png`, `favicon.png`, `apple-touch-icon.png`.
-  Systemschriften, keine externen Ressourcen. Styles zentral in `src/styles/global.css`.
+- Design: Vereinsfarben Schwarz/Weiß (reines `#000`), kühles Hellgrau `#EEF0EE` für Flächen. Weitere Farben
+  nur kleinflächig und mit Bedeutung: Rasengrün `#1F8A4C` / Rot `#C4362E` als Ergebnis-Punkte (Sieg/Niederlage).
+  Schrift: Archivo (variabel, lokal über `@fontsource-variable/archivo`, keine externen Fonts). Überschriften im
+  breiten Schnitt (`font-stretch: 125%`) – angelehnt an „TAMM“ im Wappen –, Fließtext normal breit.
+  Kopf schwarz mit Wappen in Negativ-Version (`public/logo-negativ.png`, aus `assets/vfb-logo-original.png`
+  erzeugt); `public/logo.png` (positiv), `favicon.png`, `apple-touch-icon.png`. Styles zentral in
+  `src/styles/global.css`.
+- Startseite: Aufmacher (neuester Beitrag mit Titelbild unter den letzten fünf), Ergebnisleiste (Ergebnisse
+  werden mit `spielergebnis()` in `src/lib/site.ts` aus Titeln wie „Herren 1: A – VfB Tamm 1:6 (1:3)“
+  gelesen), Nachrichten in drei Spalten, „Mitmachen“, Sponsoren (Logos in Graustufen), Fanshop, Anfahrt.
+- Gestaltungsregeln: keine angehängten Pfeile „→“ an Linktexten, keine Trennpunkte „·“ in Metazeilen,
+  keine Großbuchstaben-Etiketten, keine Schatten/Verläufe. Bewegung nur einmal (Einblendung des Aufmachers),
+  `prefers-reduced-motion` wird beachtet.
 - `src/layouts/Layout.astro` (Kopf, Hauptnavigation, Fuß), `src/layouts/BereichLayout.astro`
   (Seitenkopf + Bereichsmenü links, auf dem Handy aufklappbar). Hilfsfunktionen in `src/lib/site.ts`,
   Bereichsmenüs in `src/lib/navigation.ts`.

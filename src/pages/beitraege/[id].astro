@@ -17,10 +17,14 @@ const { Content } = await render(beitrag);
   <div class="seitenkopf">
     <div class="container">
       <div class="brotkrumen">
-        <a href="/">Start</a> / <a href={abteilungUrl(abteilung)}>{abteilung}</a>{' / '}<a href={beitraegeUrl(abteilung)}>Beiträge</a>
+        <a href="/">Start</a><span aria-hidden="true">/</span><a href={abteilungUrl(abteilung)}>{abteilung}</a><span
+          aria-hidden="true">/</span><a href={beitraegeUrl(abteilung)}>Beiträge</a>
       </div>
       <h1>{title}</h1>
-      <p><time datetime={isoDatum(date)}>{datum(date)}</time> · {abteilung}</p>
+      <p class="meta">
+        <time datetime={isoDatum(date)}>{datum(date)}</time>
+        <a class="marke" href={abteilungUrl(abteilung)}>{abteilung}</a>
+      </p>
     </div>
   </div>
   <article class="container">
@@ -43,6 +47,6 @@ const { Content } = await render(beitrag);
         </section>
       )
     }
-    <p><a class="mehr-link" href={beitraegeUrl(abteilung)}>← Alle Beiträge {abteilung}</a></p>
+    <p><a class="mehr-link" href={beitraegeUrl(abteilung)}>Weitere Beiträge {abteilung}</a></p>
   </article>
 </Layout>

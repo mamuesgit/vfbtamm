@@ -1,5 +1,5 @@
 ---
-import { auszug, beitragUrl, datum, isoDatum, type Beitrag } from '../lib/site';
+import { abteilungUrl, auszug, beitragUrl, datum, isoDatum, type Beitrag } from '../lib/site';
 
 interface Props {
   beitrag: Beitrag;
@@ -13,7 +13,8 @@ const { title, date, cover, abteilung } = beitrag.data;
   {cover && <img class="beitrag-kurz__bild" src={cover} alt="" loading="lazy" decoding="async" />}
   <div>
     <div class="meta">
-      <time datetime={isoDatum(date)}>{datum(date)}</time>{mitAbteilung && ` · ${abteilung}`}
+      <time datetime={isoDatum(date)}>{datum(date)}</time>
+      {mitAbteilung && <a class="marke" href={abteilungUrl(abteilung)}>{abteilung}</a>}
     </div>
     <h3><a href={beitragUrl(beitrag)}>{title}</a></h3>
     <p>{auszug(beitrag.body)}</p>

@@ -1,4 +1,5 @@
 ---
+import '@fontsource-variable/archivo/wdth.css';
 import '../styles/global.css';
 import { ABTEILUNGEN, ABTEILUNG_SLUG, BASKETBALL_URL, FANSHOP_URL } from '../data/abteilungen';
 import { VEREIN, abteilungUrl } from '../lib/site';
@@ -30,30 +31,32 @@ const aktiv = (slug: string) => pfad.startsWith(`/${slug}/`);
     <header class="kopf">
       <div class="container kopf__inner">
         <a class="kopf__logo" href="/">
-          <img src="/logo.png" alt="" width="185" height="240" />
+          <img src="/logo-negativ.png" alt="" width="185" height="240" />
           <span class="kopf__name">
             VfB Tamm 1920 e.V.
             <small>vielfältig familiär bewegend</small>
           </span>
         </a>
-      </div>
-    </header>
-    <nav class="hauptnav" aria-label="Hauptnavigation">
-      <div class="container">
-      <ul>
-        {
-          ABTEILUNGEN.map((a) => (
+        <nav class="hauptnav" aria-label="Hauptnavigation">
+          <ul>
+            {
+              ABTEILUNGEN.map((a) => (
+                <li>
+                  <a href={abteilungUrl(a)} aria-current={aktiv(ABTEILUNG_SLUG[a]) ? 'page' : undefined}>
+                    {a}
+                  </a>
+                </li>
+              ))
+            }
             <li>
-              <a href={abteilungUrl(a)} aria-current={aktiv(ABTEILUNG_SLUG[a]) ? 'page' : undefined}>
-                {a}
+              <a class="extern" href={BASKETBALL_URL} rel="noopener">
+                Basketball<span class="visually-hidden"> (externe Seite)</span> ↗
               </a>
             </li>
-          ))
-        }
-        <li><a href={BASKETBALL_URL} rel="noopener">Basketball ↗</a></li>
-      </ul>
+          </ul>
+        </nav>
       </div>
-    </nav>
+    </header>
 
     <main id="inhalt">
       <slot />
@@ -61,6 +64,7 @@ const aktiv = (slug: string) => pfad.startsWith(`/${slug}/`);
 
     <footer class="fuss">
       <div class="container">
+        <p class="fuss__slogan" aria-hidden="true">vielfältig familiär bewegend</p>
         <div class="fuss__grid">
           <div>
             <h2>{VEREIN.name}</h2>
@@ -84,7 +88,7 @@ const aktiv = (slug: string) => pfad.startsWith(`/${slug}/`);
             <h2>Mehr</h2>
             <ul>
               <li><a href="/hauptverein/gaststaette/">Vereinsgaststätte</a></li>
-              <li><a href={FANSHOP_URL} rel="noopener">Fanshop ↗</a></li>
+              <li><a href={FANSHOP_URL} rel="noopener">Fanshop<span class="visually-hidden"> (externe Seite)</span> ↗</a></li>
               <li><a href="/impressum/">Impressum</a></li>
               <li><a href="/datenschutz/">Datenschutz</a></li>
             </ul>

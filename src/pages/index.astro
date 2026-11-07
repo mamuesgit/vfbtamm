@@ -2,23 +2,109 @@
 import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { FANSHOP_URL, type Abteilung } from '../data/abteilungen';
-import { VEREIN, beitraege, beitraegeUrl, beitragUrl, datum, isoDatum } from '../lib/site';
+import {
+  VEREIN,
+  abteilungUrl,
+  auszug,
+  beitraege,
+  beitraegeUrl,
+  beitragUrl,
+  datum,
+  isoDatum,
+  spielergebnis,
+} from '../lib/site';
+
+const alle = await beitraege();
+
+// Aufmacher: der neueste Beitrag mit Titelbild unter den letzten fünf, sonst der neueste überhaupt
+const aufmacher = alle.slice(0, 5).find((b) => b.data.cover) ?? alle[0];
+
+// Ergebnisleiste: die letzten Spielberichte mit erkennbarem Ergebnis im Titel
+const ergebnisse = (await beitraege('Fußball'))
+  .map((b) => ({ b, e: spielergebnis(b.data.title) }))
+  .filter((x) => x.e)
+  .slice(0, 8);
+const AUSGANG = { sieg: 'Sieg', remis: 'Unentschieden', niederlage: 'Niederlage' };
 
 const BLOECKE: Abteilung[] = ['Hauptverein', 'Fußball', 'Freizeitsport'];
-const ANZAHL = 6;
-const bloecke = await Promise.all(BLOECKE.map(async (a) => ({ abteilung: a, liste: (await beitraege(a)).slice(0, ANZAHL) })));
+const ANZAHL = 5;
+const bloecke = await Promise.all(
+  BLOECKE.map(async (a) => ({
+    abteilung: a,
+    liste: (await beitraege(a)).filter((b) => b.id !== aufmacher?.id).slice(0, ANZAHL),
+  })),
+);
 const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? [];
 ---
 
 <Layout>
+  <h1 class="visually-hidden">{VEREIN.name}</h1>
+
+  {
+    aufmacher && (
+      <section class="aufmacher" aria-label="Aktuell">
+        <div class="container aufmacher__inner">
+          <div class="aufmacher__text">
+            <div class="meta">
+              <time datetime={isoDatum(aufmacher.data.date)}>{datum(aufmacher.data.date)}</time>
+              <a class="marke" href={abteilungUrl(aufmacher.data.abteilung)}>
+                {aufmacher.data.abteilung}
+              </a>
+            </div>
+            <h2>
+              <a href={beitragUrl(aufmacher)}>{aufmacher.data.title}</a>
+            </h2>
+            <p>{auszug(aufmacher.body, 200)}</p>
+            <a class="knopf knopf--hell" href={beitragUrl(aufmacher)}>
+              Beitrag lesen
+            </a>
+          </div>
+          {aufmacher.data.cover && (
+            <div class="aufmacher__bild">
+              <img src={aufmacher.data.cover} alt="" decoding="async" fetchpriority="high" />
+            </div>
+          )}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    ergebnisse.length > 0 && (
+      <section class="ergebnisse" aria-labelledby="ergebnisse">
+        <div class="container">
+          <div class="ergebnisse__kopf">
+            <h2 id="ergebnisse">Ergebnisse</h2>
+            <a href="/fussball/beitraege/">Alle Spielberichte</a>
+          </div>
+          <ul class="ergebnisse__liste">
+            {ergebnisse.map(({ b, e }) => (
+              <li>
+                <a class={`ergebnis ergebnis--${e!.ausgang}`} href={beitragUrl(b)}>
+                  <span class="ergebnis__kopf">
+                    <span class="ergebnis__mannschaft">{e!.mannschaft}</span>
+                    <span class="ergebnis__ausgang">
+                      <time datetime={isoDatum(b.data.date)}>{datum(b.data.date).replace(/ \d{4}$/, '')}</time>
+                      <span class="visually-hidden">, {AUSGANG[e!.ausgang]}</span>
+                    </span>
+                  </span>
+                  <span class="ergebnis__paarung">
+                    <span class:list={{ vfb: /vfb\s*tamm/i.test(e!.heim) }}>{e!.heim}</span>
+                    <span class="ergebnis__tore">{e!.toreHeim}</span>
+                    <span class:list={{ vfb: /vfb\s*tamm/i.test(e!.gast) }}>{e!.gast}</span>
+                    <span class="ergebnis__tore">{e!.toreGast}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
   <div class="container">
-    <a class="banner" href={FANSHOP_URL} rel="noopener">
-      <img src="/uploads/2026/01/marketing-teaser-728x90-1.webp" alt="Unser Onlineshop – zum Fanshop des VfB Tamm" width="1024" height="127" />
-    </a>
-
-    <h1 class="visually-hidden">{VEREIN.name}</h1>
-
-    <div class="spalten">
+    <div class="spalten abschnitt">
       {
         bloecke.map(({ abteilung, liste }) => (
           <section aria-labelledby={`neu-${abteilung}`}>
@@ -34,12 +120,34 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
               ))}
             </ul>
             <a class="mehr-link" href={beitraegeUrl(abteilung)}>
-              Alle Beiträge {abteilung} →
+              Alle Beiträge {abteilung}
             </a>
           </section>
         ))
       }
     </div>
+
+    <section class="abschnitt" aria-labelledby="mitmachen">
+      <h2 id="mitmachen">Mitmachen beim VfB</h2>
+      <div class="mitmachen">
+        <a href="/fussball/trainingszeiten/">
+          <strong>Fußball</strong>
+          <span>Trainingszeiten aller Mannschaften</span>
+        </a>
+        <a href="/freizeitsport/wochenplan-erwachsene/">
+          <strong>Freizeitsport</strong>
+          <span>Wochenplan für Erwachsene</span>
+        </a>
+        <a href="/freizeitsport/wochenplan-kinder/">
+          <strong>Kinder und Jugend</strong>
+          <span>Turnen, Schwimmen, Tanzen</span>
+        </a>
+        <a href="/hauptverein/mitgliedsbeitraege/">
+          <strong>Mitglied werden</strong>
+          <span>Beiträge und Mitgliedsantrag</span>
+        </a>
+      </div>
+    </section>
 
     <section class="abschnitt" aria-labelledby="sponsoren">
       <h2 id="sponsoren">Unsere Sponsoren</h2>
@@ -62,6 +170,16 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
       </ul>
     </section>
 
+    <a class="banner abschnitt" href={FANSHOP_URL} rel="noopener">
+      <img
+        src="/uploads/2026/01/marketing-teaser-728x90-1.webp"
+        alt="Unser Onlineshop – zum Fanshop des VfB Tamm (externe Seite)"
+        width="1024"
+        height="127"
+        loading="lazy"
+      />
+    </a>
+
     <section class="abschnitt anfahrt" aria-labelledby="anfahrt">
       <div>
         <h2 id="anfahrt">Anfahrt</h2>
@@ -71,8 +189,8 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
           {VEREIN.ort}
         </p>
         <p>
-          <a class="knopf" href={VEREIN.karteOsm} rel="noopener">Karte (OpenStreetMap)</a>
-          <a class="knopf knopf--hell" href={VEREIN.karteGoogle} rel="noopener">Route (Google Maps)</a>
+          <a class="knopf" href={VEREIN.karteOsm} rel="noopener">Karte öffnen</a>
+          <a class="knopf knopf--hell" href={VEREIN.karteGoogle} rel="noopener">Route planen</a>
         </p>
       </div>
       <div>
@@ -81,7 +199,7 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
           Telefon: <a href={`tel:${VEREIN.telefon.replace(/\D/g, '')}`}>{VEREIN.telefon}</a><br />
           E-Mail: <a href={`mailto:${VEREIN.email}`}>{VEREIN.email}</a>
         </p>
-        <p><a href="/hauptverein/gaststaette/">Zur VfB-Vereinsgaststätte →</a></p>
+        <p><a href="/hauptverein/gaststaette/">Zur VfB-Vereinsgaststätte</a></p>
       </div>
     </section>
   </div>
