@@ -7,7 +7,7 @@ teamfoto: /uploads/mannschaften/c1-jugend-2026.webp
 personen:
   - rolle: Trainer
     name: Carmine „Nino“ D'Allesandro
-    foto: /uploads/2025/09/63cfa00c-b241-434e-8296-52e3a1979391.webp
+    foto: /uploads/personen/carmine-d-allesandro.webp
     email: nino83@freenet.de
 trainingszeiten:
   - { tag: Dienstag, von: "18:30", bis: "20:00" }

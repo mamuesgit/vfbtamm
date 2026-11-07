@@ -6,7 +6,7 @@ jahrgang: 2020 und jünger
 personen:
   - rolle: Trainer
     name: Ilhan Karaca
-    foto: /uploads/2026/10/36b317fe-0b08-48fa-85ad-23d5ac1129c2.webp
+    foto: /uploads/personen/ilhan-karaca.webp
     email: ilhan.karaca@gmx.net
 trainingszeiten:
   - { tag: Montag, von: "17:00", bis: "18:30" }

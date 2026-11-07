@@ -63,6 +63,13 @@ mit miriam@muellers-web.de), Torwarttraining („Torspieltrainer“ ohne Namen).
 - **Jahrgänge:** C1 und C2 haben beide 2012/13, D1 und D2 beide 2015 – so stand es auf der alten Seite.
 - **Schwimmen:** Kontaktname war „Anja Knauth-Heize“, übernommen als „Anja Knauth-Henze“.
 
+## Personenfotos
+
+Alle Personenfotos wurden auf quadratische Kopf-und-Schulter-Ausschnitte geprüft (`public/uploads/personen/`).
+Nur in sehr kleiner Auflösung vorhanden – bei Gelegenheit neue Fotos besorgen:
+- Jürgen Seel (Herren 1, Betreuer): Original nur 92 × 128 px
+- Florian Ziegler (Herren 1, Physiotherapeut): Original nur 115 × 176 px
+
 ## Nicht übernommene Seiten (bekommen später eine Weiterleitung)
 
 PSG, B2-Jugend, Mädchen B, Mädchen C, Hygienekonzept, Vereinspielplan,
