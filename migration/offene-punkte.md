@@ -56,8 +56,11 @@ mit miriam@muellers-web.de), Torwarttraining („Torspieltrainer“ ohne Namen).
 
 ## Vermutlich veraltet
 
-- **fussball.de-/mytischtennis-Links** zeigen auf die Saison 2022/23 (Herren 1, Herren 2, A-Jugend,
-  C2-Jugend, Tischtennis Herren). Bei der Jugend ändert sich die Team-ID meist jede Saison.
+- **fussball.de-Links** sind für Saison 2026/27 aktualisiert (Herren 1/2, Damen, A, C1/C2, D1/D2, E1/E2;
+  Quelle: gespeicherte Vereinsseite). Zu jeder neuen Saison neu eintragen – die Adresse enthält die Saison
+  (`/saison/2627/`), und bei der Jugend ändern sich die Team-IDs. F-Jugend, Bambini, AH, Inklusionsteam und
+  Torwarttraining haben keine fussball.de-Mannschaftsseite.
+- **mytischtennis-Link** (Tischtennis Herren) zeigt noch auf die Saison 2022/23.
 - **Tischtennis Jugend** hat auf der alten Seite keinerlei Inhalt.
 - **Tischtennis Herren** ohne Trainingszeiten.
 - **Jahrgänge:** C1 und C2 haben beide 2012/13, D1 und D2 beide 2015 – so stand es auf der alten Seite.
