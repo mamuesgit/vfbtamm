@@ -101,7 +101,7 @@ collections:
         widget: boolean
         default: false
         required: false
-        hint: Nur für besondere Beiträge (z. B. neue Angebote, Feste). Oben auf der Startseite erscheint immer der neueste markierte Beitrag – am besten mit Titelbild.
+        hint: Nur für besondere Beiträge (z. B. neue Angebote, Feste, Onlineshop). Alle markierten Beiträge laufen oben auf der Startseite im Karussell durch, der neueste zuerst – am besten mit Titelbild im Querformat. Häkchen wieder entfernen, wenn der Beitrag nicht mehr aktuell ist.
       - name: cover
         label: Titelbild
         widget: image

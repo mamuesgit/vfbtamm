@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { FANSHOP_URL, type Abteilung } from '../data/abteilungen';
+import type { Abteilung } from '../data/abteilungen';
 import {
   VEREIN,
   abteilungUrl,
@@ -16,8 +16,9 @@ import {
 
 const alle = await beitraege();
 
-// Aufmacher: der neueste Beitrag, der im CMS als „Auf der Startseite hervorheben“ markiert ist
-const aufmacher = alle.find((b) => b.data.aufmacher);
+// Aufmacher-Karussell: alle im CMS als „Auf der Startseite hervorheben“ markierten Beiträge, neueste zuerst
+const aufmacher = alle.filter((b) => b.data.aufmacher);
+const aufmacherIds = new Set(aufmacher.map((b) => b.id));
 
 // Ergebnisleiste: die letzten Spielberichte mit erkennbarem Ergebnis im Titel
 const ergebnisse = (await beitraege('Fußball'))
@@ -31,7 +32,7 @@ const ANZAHL = 5;
 const bloecke = await Promise.all(
   BLOECKE.map(async (a) => ({
     abteilung: a,
-    liste: (await beitraege(a)).filter((b) => b.id !== aufmacher?.id).slice(0, ANZAHL),
+    liste: (await beitraege(a)).filter((b) => !aufmacherIds.has(b.id)).slice(0, ANZAHL),
   })),
 );
 const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? [];
@@ -40,44 +41,78 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
 <Layout>
   <h1 class="visually-hidden">{VEREIN.name}</h1>
 
-  <section class="aufmacher" aria-label="Aktuell">
-    {
-      aufmacher && (
-        <div class="container aufmacher__inner">
-          <div class="aufmacher__text">
-            <div class="meta">
-              <time datetime={isoDatum(aufmacher.data.date)}>{datum(aufmacher.data.date)}</time>
-              <a class="marke" href={abteilungUrl(aufmacher.data.abteilung)}>
-                {aufmacher.data.abteilung}
-              </a>
-            </div>
-            <h2>
-              <a href={beitragUrl(aufmacher)}>{aufmacher.data.title}</a>
-            </h2>
-            <p>{auszug(aufmacher.body, 200)}</p>
-            <a class="knopf knopf--hell" href={beitragUrl(aufmacher)}>
-              Beitrag lesen
-            </a>
-          </div>
-          {aufmacher.data.cover && (
-            <div class="aufmacher__bild">
-              <img src={aufmacher.data.cover} alt="" decoding="async" fetchpriority="high" />
+  {
+    aufmacher.length > 0 && (
+      <section class="aufmacher" aria-roledescription="Karussell" aria-label="Aktuelles vom VfB">
+        <div class="container">
+          <ul class="aufmacher__spur" id="aufmacher-spur" aria-live="off">
+            {aufmacher.map((b, i) => (
+              <li
+                class="aufmacher__folie"
+                aria-roledescription="Folie"
+                aria-label={`${i + 1} von ${aufmacher.length}: ${b.data.title}`}
+              >
+                <div class="aufmacher__inner">
+                  <div class="aufmacher__text">
+                    <div class="meta">
+                      <time datetime={isoDatum(b.data.date)}>{datum(b.data.date)}</time>
+                      <a class="marke" href={abteilungUrl(b.data.abteilung)} tabindex={i === 0 ? undefined : -1}>
+                        {b.data.abteilung}
+                      </a>
+                    </div>
+                    <h2>
+                      <a href={beitragUrl(b)} tabindex={i === 0 ? undefined : -1}>
+                        {b.data.title}
+                      </a>
+                    </h2>
+                    <p>{auszug(b.body, 200)}</p>
+                    <a class="knopf knopf--hell" href={beitragUrl(b)} tabindex={i === 0 ? undefined : -1}>
+                      Beitrag lesen
+                    </a>
+                  </div>
+                  {b.data.cover && (
+                    <a class="aufmacher__bild" href={beitragUrl(b)} tabindex="-1" aria-hidden="true">
+                      <img
+                        src={b.data.cover}
+                        alt=""
+                        decoding="async"
+                        loading={i === 0 ? 'eager' : 'lazy'}
+                        fetchpriority={i === 0 ? 'high' : undefined}
+                      />
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+          {aufmacher.length > 1 && (
+            <div class="aufmacher__steuerung" id="aufmacher-steuerung">
+              <button type="button" data-schritt="-1" aria-label="Vorheriger Beitrag">
+                ‹
+              </button>
+              <div class="aufmacher__punkte">
+                {aufmacher.map((b, i) => (
+                  <button
+                    type="button"
+                    class="aufmacher__punkt"
+                    data-folie={i}
+                    aria-label={`Beitrag ${i + 1}: ${b.data.title}`}
+                    aria-current={i === 0 ? 'true' : 'false'}
+                  />
+                ))}
+              </div>
+              <button type="button" data-schritt="1" aria-label="Nächster Beitrag">
+                ›
+              </button>
+              <button type="button" class="aufmacher__pause" aria-pressed="false">
+                Anhalten
+              </button>
             </div>
           )}
         </div>
-      )
-    }
-    <div class="container aufmacher__shop">
-      <a class="banner" href={FANSHOP_URL} rel="noopener">
-        <img
-          src="/uploads/2026/01/marketing-teaser-728x90-1.webp"
-          alt="Unser Onlineshop – zum Fanshop des VfB Tamm (externe Seite)"
-          width="1024"
-          height="127"
-        />
-      </a>
-    </div>
-  </section>
+      </section>
+    )
+  }
 
   {
     ergebnisse.length > 0 && (
@@ -207,3 +242,70 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
     </section>
   </div>
 </Layout>
+
+<script>
+  // Aufmacher-Karussell: Wischen/Scrollen, Pfeile, Punkte und automatischer Wechsel (alle 7 s).
+  // Der automatische Wechsel pausiert bei Maus/Fokus/Berührung, lässt sich anhalten und entfällt
+  // bei „Bewegung reduzieren“.
+  const spur = document.getElementById('aufmacher-spur');
+  const steuerung = document.getElementById('aufmacher-steuerung');
+  if (spur && steuerung) {
+    const folien = [...spur.children] as HTMLElement[];
+    const punkte = [...steuerung.querySelectorAll<HTMLButtonElement>('[data-folie]')];
+    const pause = steuerung.querySelector<HTMLButtonElement>('.aufmacher__pause')!;
+    const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let aktuell = 0;
+    let angehalten = ruhig;
+    let unterbrochen = false;
+
+    const markiere = (i: number) => {
+      aktuell = i;
+      punkte.forEach((p, n) => p.setAttribute('aria-current', String(n === i)));
+      folien.forEach((f, n) =>
+        f.querySelectorAll('a:not(.aufmacher__bild)').forEach((a) =>
+          n === i ? a.removeAttribute('tabindex') : a.setAttribute('tabindex', '-1'),
+        ),
+      );
+    };
+    const geheZu = (i: number) => {
+      const ziel = (i + folien.length) % folien.length;
+      spur.scrollTo({ left: folien[ziel].offsetLeft, behavior: ruhig ? 'auto' : 'smooth' });
+      markiere(ziel);
+    };
+
+    let scrollTimer: number | undefined;
+    spur.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => {
+        const i = Math.round(spur.scrollLeft / (folien[1].offsetLeft - folien[0].offsetLeft));
+        if (i !== aktuell) markiere(Math.max(0, Math.min(folien.length - 1, i)));
+      }, 80);
+    });
+
+    steuerung.addEventListener('click', (e) => {
+      const knopf = (e.target as HTMLElement).closest('button');
+      if (!knopf) return;
+      if (knopf.dataset.schritt) geheZu(aktuell + Number(knopf.dataset.schritt));
+      else if (knopf.dataset.folie) geheZu(Number(knopf.dataset.folie));
+    });
+
+    const setzePause = (an: boolean) => {
+      angehalten = an;
+      pause.setAttribute('aria-pressed', String(an));
+      pause.textContent = an ? 'Abspielen' : 'Anhalten';
+    };
+    if (ruhig) setzePause(true);
+    pause.addEventListener('click', () => setzePause(!angehalten));
+
+    const bereich = spur.closest('section')!;
+    bereich.addEventListener('mouseenter', () => (unterbrochen = true));
+    bereich.addEventListener('mouseleave', () => (unterbrochen = false));
+    bereich.addEventListener('focusin', () => (unterbrochen = true));
+    bereich.addEventListener('focusout', () => (unterbrochen = false));
+    spur.addEventListener('touchstart', () => setzePause(true), { passive: true });
+
+    window.setInterval(() => {
+      if (!angehalten && !unterbrochen && !document.hidden) geheZu(aktuell + 1);
+    }, 7000);
+  }
+</script>

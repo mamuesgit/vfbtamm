@@ -73,7 +73,7 @@ Umsetzung in `src/content.config.ts`:
   `src/data/veranstaltungen.yaml` – je eine Datei, laden mit `getEntry('sponsoren', 'sponsoren')` usw.
 - Personen (Mannschaften und Gremien) haben dasselbe Schema: rolle, name, foto?, telefon?, email?, beschreibung?
 - Abteilungsliste zentral in `src/data/abteilungen.ts`
-- Fanshop-Banner für die Startseite: `/uploads/2026/01/marketing-teaser-728x90-1.webp`, Link https://vfbtamm.fan12.de/
+- Fanshop: https://vfbtamm.fan12.de/ (Aufmacher-Beitrag „Unser Onlineshop“, Link im Fuß)
 - Bildpfade sind Strings (z. B. `/uploads/...webp`), keine Astro-Bildverarbeitung
 
 Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer, Tabelle Trainingszeiten).
@@ -88,13 +88,17 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   Kopf schwarz mit Wappen in Negativ-Version (`public/logo-negativ.png`, aus `assets/vfb-logo-original.png`
   erzeugt); `public/logo.png` (positiv), `favicon.png`, `apple-touch-icon.png`. Styles zentral in
   `src/styles/global.css`.
-- Startseite: Aufmacher (neuester Beitrag mit `aufmacher: true`, im CMS „Auf der Startseite hervorheben“;
-  ohne markierten Beitrag entfällt er), direkt darunter das Fanshop-Banner, „Spielberichte“-Leiste (Ergebnisse
+- Startseite: Aufmacher-Karussell mit allen Beiträgen mit `aufmacher: true` (CMS: „Auf der Startseite
+  hervorheben“), neueste zuerst; wischbar, Pfeile/Punkte, automatischer Wechsel alle 7 s (pausiert bei
+  Maus/Fokus/Berührung, Anhalten-Knopf, entfällt bei „Bewegung reduzieren“). Ohne markierte Beiträge entfällt es.
+  Der Fanshop ist ein eigener Aufmacher-Beitrag (`2026-11-07-unser-onlineshop.md`, Folienbild
+  `public/uploads/beitraege/fanshop-aufmacher.webp`); das alte Banner wird nicht mehr angezeigt.
+  Darunter „Spielberichte“-Leiste (Ergebnisse
   werden mit `spielergebnis()` in `src/lib/site.ts` aus Titeln wie „Herren 1: A – VfB Tamm 1:6 (1:3)“
   gelesen), Nachrichten in drei Spalten mit kleinen Vorschaubildern, „Mitmachen“, Sponsoren (Logos in
   Graustufen), Anfahrt.
 - Gestaltungsregeln: keine angehängten Pfeile „→“ an Linktexten, keine Trennpunkte „·“ in Metazeilen,
-  keine Großbuchstaben-Etiketten, keine Schatten/Verläufe. Bewegung nur einmal (Einblendung des Aufmachers),
+  keine Großbuchstaben-Etiketten, keine Schatten/Verläufe. Bewegung nur gezielt (Einblendung der ersten Aufmacher-Folie, Karussell-Wechsel),
   `prefers-reduced-motion` wird beachtet.
 - `src/layouts/Layout.astro` (Kopf, Hauptnavigation, Fuß), `src/layouts/BereichLayout.astro`
   (Seitenkopf + Bereichsmenü links, auf dem Handy aufklappbar). Hilfsfunktionen in `src/lib/site.ts`,

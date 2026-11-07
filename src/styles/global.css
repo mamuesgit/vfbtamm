@@ -680,19 +680,40 @@ table {
   font-weight: 400;
 }
 
-/* ---------- Startseite: Aufmacher ---------- */
+/* ---------- Startseite: Aufmacher (Karussell) ---------- */
 
 .aufmacher {
   background: var(--schwarz);
   color: var(--weiss);
   border-top: 1px solid var(--grau-dunkel);
+  padding-block: 2rem 1.5rem;
+}
+.aufmacher__spur {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: var(--rand);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  position: relative;
+}
+.aufmacher__spur::-webkit-scrollbar {
+  display: none;
+}
+.aufmacher__folie {
+  scroll-snap-align: start;
+  position: relative;
 }
 .aufmacher__inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2.5rem;
   align-items: center;
-  padding-block: 2rem 1.75rem;
 }
 .aufmacher__text .meta {
   color: var(--grau-hell-auf-schwarz);
@@ -716,38 +737,77 @@ table {
   margin: 0 0 1.5rem;
   max-width: 34rem;
 }
+.aufmacher__bild {
+  display: block;
+}
 .aufmacher__bild img {
   width: 100%;
   aspect-ratio: 16 / 9;
   max-height: 20rem;
   object-fit: cover;
   border-radius: var(--radius);
+  outline: 1px solid var(--grau-dunkel);
+  outline-offset: -1px;
 }
-.aufmacher__shop {
-  padding-block: 0 2rem;
+.aufmacher__steuerung {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
 }
-.aufmacher__inner + .aufmacher__shop {
-  padding-top: 0.25rem;
+.aufmacher__steuerung button {
+  font: inherit;
+  color: var(--weiss);
+  background: none;
+  border: 1px solid var(--grau-dunkel);
+  border-radius: 99px;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.8rem;
+  cursor: pointer;
 }
-.aufmacher__shop:first-child {
-  padding-top: 1.5rem;
+.aufmacher__steuerung button:hover {
+  border-color: var(--grau-hell-auf-schwarz);
+}
+.aufmacher__punkte {
+  display: flex;
+  gap: 0.4rem;
+}
+.aufmacher__steuerung .aufmacher__punkt {
+  min-width: 0;
+  width: 2.25rem;
+  height: 0.35rem;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: var(--grau-dunkel);
+}
+.aufmacher__steuerung .aufmacher__punkt[aria-current='true'] {
+  background: var(--weiss);
+}
+.aufmacher__steuerung .aufmacher__pause {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: var(--grau-hell-auf-schwarz);
 }
 @media (max-width: 52rem) {
+  .aufmacher {
+    padding-block: 1.5rem 1.25rem;
+  }
   .aufmacher__inner {
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
-    padding-block: 1.5rem 2.25rem;
+    gap: 1.25rem;
   }
   .aufmacher__bild {
     order: -1;
   }
 }
-/* Einmalige Einblendung beim Laden */
+/* Einmalige Einblendung der ersten Folie beim Laden */
 @media (prefers-reduced-motion: no-preference) {
-  .aufmacher__text {
+  .aufmacher__folie:first-child .aufmacher__text {
     animation: auftritt 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
-  .aufmacher__bild {
+  .aufmacher__folie:first-child .aufmacher__bild {
     animation: auftritt 700ms 120ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 }
