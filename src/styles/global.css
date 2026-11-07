@@ -1061,7 +1061,7 @@ table {
 }
 
 .knopf-zeile {
-  margin: 0 0 2rem;
+  margin: 2.5rem 0 0;
 }
 .hinweis {
   border-left: 4px solid var(--schwarz);

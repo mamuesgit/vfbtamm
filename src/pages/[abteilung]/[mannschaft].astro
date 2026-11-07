@@ -28,19 +28,6 @@ const leer = !d.teamfoto && !d.beschreibung && !d.personen.length && !d.training
   <Markdown text={d.beschreibung} />
 
   {
-    d.links.length > 0 && (
-      <p class="knopf-zeile">
-        {d.links.map((l) => (
-          <a class="knopf" href={l.url} rel="noopener">
-            {l.titel}
-            <span class="visually-hidden"> (externe Seite)</span> ↗
-          </a>
-        ))}
-      </p>
-    )
-  }
-
-  {
     d.personen.length > 0 && (
       <section>
         <h2>{d.abteilung === 'Fußball' ? 'Trainer und Betreuer' : 'Ansprechpartner'}</h2>
@@ -75,6 +62,19 @@ const leer = !d.teamfoto && !d.beschreibung && !d.personen.length && !d.training
           ))}
         </ul>
       </section>
+    )
+  }
+
+  {
+    d.links.length > 0 && (
+      <p class="knopf-zeile">
+        {d.links.map((l) => (
+          <a class="knopf" href={l.url} rel="noopener">
+            {l.titel}
+            <span class="visually-hidden"> (externe Seite)</span> ↗
+          </a>
+        ))}
+      </p>
     )
   }
 
