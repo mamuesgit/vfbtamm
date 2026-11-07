@@ -10,9 +10,13 @@ Bitte prüfen und die Dateien in `src/data/` bzw. `src/content/seiten/` bei Beda
     (Customer DPA) – im Cloudflare-Konto unter Einstellungen bestätigen bzw. ablegen.
   - Kein Datenschutzbeauftragter angegeben. Pflicht erst, wenn in der Regel mind. 20 Personen ständig
     mit der Verarbeitung personenbezogener Daten beschäftigt sind (§ 38 BDSG) – vom Verein zu prüfen.
-- **Impressum:** Hinweis „Telefonnummern siehe unter Kontaktseite“ entfernt. Noch prüfen, ob der
-  vertretungsberechtigte Vorstand vollständig genannt ist (bei mehreren gemeinsam Vertretungsberechtigten
-  laut Satzung alle aufführen).
+- **Impressum:** Hinweis „Telefonnummern siehe unter Kontaktseite“ entfernt, E-Mail-Adresse als echter Link,
+  veralteter Link-Haftungsausschluss (LG Hamburg 1998) und „Webmaster“-Formulierungen ersetzt.
+  Noch offen (Vorstand):
+  - Vertretungsberechtigten Vorstand nach § 26 BGB nennen (laut Satzung § 11: Vorsitzender, 1. und 2.
+    stellvertretender Vorsitzender, Vorstand für Finanzen). Wer ist aktuell 1./2. Stellvertreter?
+  - Verantwortliche Person für redaktionelle Inhalte nach § 18 Abs. 2 MStV (Name und Anschrift).
+  - Umsatzsteuer-ID DE 146 121 889 bestätigen.
 
 ## Seiten und Kontakte
 
