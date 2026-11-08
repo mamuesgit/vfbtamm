@@ -1,6 +1,6 @@
 ---
 title: Fanshop verfügbar
-date: 2026-11-07T12:00:00
+date: 2026-07-27T12:00:00
 abteilung: Hauptverein
 aufmacher: true
 cover: /uploads/beitraege/fanshop-aufmacher.webp
