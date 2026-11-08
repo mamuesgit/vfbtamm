@@ -1,4 +1,4 @@
-# Vereinstermine (vom Admin gepflegt). datum im Format JJJJ-MM-TT, bis nur bei mehrtägigen Terminen.
+# Vereinstermine (im CMS unter „Veranstaltungen“ pflegbar). datum im Format JJJJ-MM-TT, bis nur bei mehrtägigen Terminen.
 veranstaltungen:
   - { datum: 2026-01-31, titel: Altpapiersammlung durch die Fußball-Aktiven }
   - { datum: 2026-02-07, titel: Brunch ab 11:00 Uhr für Jubilare und Funktionäre 2025 }

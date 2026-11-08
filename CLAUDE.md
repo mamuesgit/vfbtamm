@@ -37,7 +37,7 @@ https://www.vfbtamm.de online; die alte WordPress-Seite ist nur noch unter https
   Anfahrt nur als Link oder statisches Bild. Wird davon abgewichen, die Datenschutzerklärung anpassen.
 - **Bilder bleiben im Git-Repo.** Optimierung beim Upload durch Sveltia (WebP, max. ca. 1600 px Breite).
   Astro soll Bilder nicht aufwendig beim Build verarbeiten (Build-Zeit), Bilder werden direkt ausgeliefert.
-- **Autoren (max. 3 Personen inkl. Admin)** dürfen im CMS nur Beiträge bearbeiten. Felder:
+- **Autoren (max. 3 Personen inkl. Admin)** dürfen im CMS nur Beiträge und Veranstaltungen bearbeiten. Beitrags-Felder:
   Titel, Datum, Abteilung (Pflicht, Dropdown), „Auf der Startseite hervorheben“ (Aufmacher), Titelbild,
   Bildergalerie, Text (Markdown, Toolbar auf Basics reduziert: fett, kursiv, Link, Liste).
 - **Mannschaften, Trainer, Trainingszeiten, Sponsoren, Vorstand** sind NICHT im CMS sichtbar.
@@ -80,7 +80,7 @@ Umsetzung in `src/content.config.ts`:
 - Gremien: `src/data/gremien/*.yaml` (Vorstand, Abteilungsleiter, Abteilungsleitung Freizeitsport,
   Kontakt Tischtennis) – titel, reihenfolge?, personen[], hinweis?
 - Listen: `src/data/sponsoren.yaml`, `src/data/downloads.yaml` (Dateien in `public/downloads/`),
-  `src/data/veranstaltungen.yaml` – je eine Datei, laden mit `getEntry('sponsoren', 'sponsoren')` usw.
+  `src/data/veranstaltungen.yaml` (im CMS pflegbar) – je eine Datei, laden mit `getEntry('sponsoren', 'sponsoren')` usw.
 - Personen (Mannschaften und Gremien) haben dasselbe Schema: rolle, name, foto?, telefon?, email?, beschreibung?
 - Personenfotos werden rund angezeigt: als quadratischen Kopf-und-Schulter-Ausschnitt ablegen
   (`public/uploads/personen/vorname-nachname.webp`, 300–600 px, WebP, ohne EXIF), Gesicht mittig im oberen Drittel.
@@ -137,7 +137,8 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 - Sveltia CMS unter `/admin/`: `public/admin/index.html` + `public/admin/config.yml`. Das CMS-Skript wird
   nicht von einem CDN geladen, sondern vor jedem Build aus `node_modules/@sveltia/cms` nach `public/admin/`
   kopiert (`scripts/cms-kopieren.mjs`, npm `prebuild`; die Kopie ist in `.gitignore`). Update: `npm update @sveltia/cms`.
-- Nur die Collection `beitraege` ist im CMS. Neue Bilder → `public/uploads/beitraege/`, im Browser auf
+- Im CMS sind nur die Collection `beitraege` und die Datei `src/data/veranstaltungen.yaml` (Collection `termine`,
+  Liste mit Datum, bis?, Titel; Reihenfolge egal, die Seiten sortieren nach Datum). Neue Bilder → `public/uploads/beitraege/`, im Browser auf
   max. 1600 px verkleinert und als WebP gespeichert. Datum wird als `YYYY-MM-DDTHH:mm:ss` (lokale Zeit)
   gespeichert, Dateiname `JJJJ-MM-TT-titel.md`. Leere optionale Felder werden weggelassen.
 - Konfiguration gegen das Schema prüfen: `node_modules/@sveltia/cms/schema/sveltia-cms.json`.
