@@ -79,8 +79,10 @@ Umsetzung in `src/content.config.ts`:
   Impressum, Datenschutz) – Markdown mit Bildern im Text, nicht im CMS
 - Gremien: `src/data/gremien/*.yaml` (Vorstand, Abteilungsleiter, Abteilungsleitung Freizeitsport,
   Kontakt Tischtennis) – titel, reihenfolge?, personen[], hinweis?
-- Listen: `src/data/sponsoren.yaml`, `src/data/downloads.yaml` (Dateien in `public/downloads/`),
-  `src/data/veranstaltungen.yaml` (im CMS pflegbar) – je eine Datei, laden mit `getEntry('sponsoren', 'sponsoren')` usw.
+- Listen: `src/data/sponsoren.yaml`, `src/data/downloads.yaml` (Dateien in `public/downloads/`) – je eine Datei,
+  laden mit `getEntry('sponsoren', 'sponsoren')` usw.
+- Veranstaltungen: `src/data/veranstaltungen/*.yaml` (ein Termin pro Datei, im CMS pflegbar), laden mit
+  `getCollection('veranstaltungen')`.
 - Personen (Mannschaften und Gremien) haben dasselbe Schema: rolle, name, foto?, telefon?, email?, beschreibung?
 - Personenfotos werden rund angezeigt: als quadratischen Kopf-und-Schulter-Ausschnitt ablegen
   (`public/uploads/personen/vorname-nachname.webp`, 300–600 px, WebP, ohne EXIF), Gesicht mittig im oberen Drittel.
@@ -137,8 +139,10 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 - Sveltia CMS unter `/admin/`: `public/admin/index.html` + `public/admin/config.yml`. Das CMS-Skript wird
   nicht von einem CDN geladen, sondern vor jedem Build aus `node_modules/@sveltia/cms` nach `public/admin/`
   kopiert (`scripts/cms-kopieren.mjs`, npm `prebuild`; die Kopie ist in `.gitignore`). Update: `npm update @sveltia/cms`.
-- Im CMS sind nur die Collection `beitraege` und die Datei `src/data/veranstaltungen.yaml` (Collection `termine`,
-  Liste mit Datum, bis?, Titel; Reihenfolge egal, die Seiten sortieren nach Datum). Neue Bilder → `public/uploads/beitraege/`, im Browser auf
+- Im CMS sind nur die Collections `beitraege` und `veranstaltungen` (ein Termin pro Datei in
+  `src/data/veranstaltungen/JJJJ-MM-TT-titel.yaml`: datum, bis?, titel; die Seiten sortieren nach Datum).
+  Bewusst Ordner-Collection statt einer Listen-Datei: so ist „Veranstaltungen“ ein einziger Punkt in der
+  CMS-Seitenleiste (Datei-Collections und Singletons zeigen einen zusätzlichen Unterpunkt). Neue Bilder → `public/uploads/beitraege/`, im Browser auf
   max. 1600 px verkleinert und als WebP gespeichert. Datum wird als `YYYY-MM-DDTHH:mm:ss` (lokale Zeit)
   gespeichert, Dateiname `JJJJ-MM-TT-titel.md`. Leere optionale Felder werden weggelassen.
 - Konfiguration gegen das Schema prüfen: `node_modules/@sveltia/cms/schema/sveltia-cms.json`.

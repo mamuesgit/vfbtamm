@@ -122,40 +122,41 @@ collections:
         editor_components: []
         modes: [rich_text]
 
-  # Vereinstermine: eine einzige Datei mit einer Liste (Seite /hauptverein/veranstaltungen/ und
-  # „Nächste Termine“ auf /hauptverein/). Die Reihenfolge ist egal, die Website sortiert nach Datum.
-  - name: termine
+  # Vereinstermine: ein Termin pro Datei (Seite /hauptverein/veranstaltungen/ und „Nächste Termine“
+  # auf /hauptverein/). Die Website sortiert nach Datum und graut vergangene Termine aus.
+  - name: veranstaltungen
     label: Veranstaltungen
+    label_singular: Termin
     description: >-
       Vereinstermine für die Seite „Veranstaltungen“ und „Nächste Termine“ beim Hauptverein.
       Vergangene Termine werden auf der Website automatisch ausgegraut.
-    files:
-      - name: veranstaltungen
-        label: Veranstaltungen
-        file: src/data/veranstaltungen.yaml
-        format: yaml
-        preview_path: 'hauptverein/veranstaltungen/'
-        fields:
-          - name: veranstaltungen
-            label: Termine
-            label_singular: Termin
-            widget: list
-            add_to_top: true
-            collapsed: true
-            summary: "{{datum | date('DD.MM.YYYY')}}: {{titel}}"
-            fields:
-              - name: datum
-                label: Datum
-                widget: datetime
-                type: date
-                format: 'YYYY-MM-DD'
-              - name: bis
-                label: Bis (nur bei mehrtägigen Terminen)
-                widget: datetime
-                type: date
-                format: 'YYYY-MM-DD'
-                required: false
-              - name: titel
-                label: Titel
-                widget: string
-                hint: 'Kurz, mit Uhrzeit und Ort falls wichtig, z. B. „Jahreshauptversammlung im Vereinsheim ab 19:30 Uhr“.'
+    folder: src/data/veranstaltungen
+    create: true
+    delete: true
+    extension: yaml
+    format: yaml
+    identifier_field: titel
+    slug: '{{fields.datum}}-{{fields.titel}}'
+    preview_path: 'hauptverein/veranstaltungen/'
+    summary: "{{datum | date('DD.MM.YYYY')}}: {{titel}}"
+    sortable_fields:
+      fields: [datum, titel]
+      default:
+        field: datum
+        direction: descending
+    fields:
+      - name: datum
+        label: Datum
+        widget: datetime
+        type: date
+        format: 'YYYY-MM-DD'
+      - name: bis
+        label: Bis (nur bei mehrtägigen Terminen)
+        widget: datetime
+        type: date
+        format: 'YYYY-MM-DD'
+        required: false
+      - name: titel
+        label: Titel
+        widget: string
+        hint: 'Kurz, mit Uhrzeit und Ort falls wichtig, z. B. „Jahreshauptversammlung im Vereinsheim ab 19:30 Uhr“.'
