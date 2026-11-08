@@ -3,6 +3,7 @@ title: 'E1-Junioren: VfB Tamm - SV Sal. Kornwestheim		8:1 (4:1)'
 date: 2026-11-08T22:43:00
 abteilung: Fußball
 aufmacher: false
+cover: /uploads/beitraege/51161.webp
 ---
 
 Überzeugender Sieg im letzten Heimspiel
