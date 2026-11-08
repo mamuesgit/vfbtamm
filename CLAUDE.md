@@ -14,8 +14,8 @@ Kommunikation und Inhalte auf Deutsch.
 ## Ziel
 
 Ablösung der bisherigen WordPress-Seite (WordPress + Elementor) unter vfbtamm.de durch eine
-statische Website ohne PHP, Datenbank und Plugins. Die alte Seite läuft weiter, bis die Domain
-am Ende umgestellt wird.
+statische Website ohne PHP, Datenbank und Plugins. Seit 08.11.2026 ist die neue Seite unter
+https://www.vfbtamm.de online; die alte WordPress-Seite ist nur noch unter https://vfbtamm-de.prossl.de erreichbar.
 
 ## Stack (entschieden)
 
@@ -163,8 +163,8 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 
 ## Migration von WordPress
 
-- Beiträge und Medien über die WordPress-REST-API von https://www.vfbtamm.de/wp-json/wp/v2/ holen
-  (Netzwerkzugriff auf vfbtamm.de muss in der Cloud-Umgebung erlaubt sein).
+- Beiträge und Medien über die WordPress-REST-API holen – seit der Domain-Umstellung nur noch unter
+  https://vfbtamm-de.prossl.de/wp-json/wp/v2/ (Netzwerkzugriff auf diesen Host muss in der Cloud-Umgebung erlaubt sein).
 - Pro Bild nur die größte Version übernehmen, auf ca. 1600 px verkleinern, als WebP speichern.
   WordPress-Zwischengrößen ignorieren.
 - WordPress-Kategorien auf die Abteilungen mappen (`psg-news` wird nicht übernommen,
@@ -200,4 +200,5 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 3. Export-Skript WordPress → Markdown/Datendateien, Bilder optimieren
 4. Layouts: Startseite, Abteilungen, Mannschaftsseite, Beitragsliste, Beitrag
 5. Sveltia CMS + OAuth-Worker, Test mit Autoren
-6. Weiterleitungen, Impressum/Datenschutz prüfen, Domain umstellen
+6. Weiterleitungen, Impressum/Datenschutz prüfen, Domain umstellen (Domain seit 08.11.2026 auf Cloudflare,
+   Website live unter https://www.vfbtamm.de – Details in `migration/domain-umstellung.md`)

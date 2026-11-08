@@ -1,5 +1,14 @@
 # Domain-Umstellung vfbtamm.de → Cloudflare
 
+> **Erledigt am 08.11.2026.** Nameserver `angela.ns.cloudflare.com` / `stan.ns.cloudflare.com` (Zone im
+> Cloudflare-Konto des Workers, Plan Free). `www.vfbtamm.de` und `vfbtamm.de` sind Custom Domains des Workers
+> `vfbtamm`. Redirect Rules der Zone: „Redirect from root to WWW“ (`https://vfbtamm.de/*` →
+> `https://www.vfbtamm.de/${1}`, 301, Query-String bleibt) und „Redirect from HTTP to HTTPS“ (`http://*` →
+> `https://${1}`, 301). Alle Mail-Einträge stehen auf „DNS only“. Die Zusatzfunktionen (Bot Fight Mode usw.)
+> sind bewusst aus. Die alte WordPress-Seite ist nur noch unter https://vfbtamm-de.prossl.de erreichbar
+> (die `wp:*`-Skripte verwenden diese Adresse). Offen: E-Mail-Empfang/-Versand von info@vfbtamm.de durch
+> jemanden mit Postfachzugang bestätigen lassen.
+
 Stand der DNS-Zone beim Hoster (Sitecontrol `vfbtamm-de.prossl.de`, Nameserver `ns1/ns2/ns3.prodns.de`),
 abgelesen am 07.11.2026.
 

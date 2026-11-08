@@ -30,7 +30,9 @@ export function zielpfad(url, ext) {
 async function download(url) {
   const cacheFile = new URL(zielpfad(url), ORIGINALS);
   if (await exists(cacheFile)) return readFile(cacheFile);
-  const res = await fetch(url.replace(/^http:/, 'https:'), { headers: HEADERS });
+  // Bild-URLs im Cache zeigen auf www.vfbtamm.de – seit der Domain-Umstellung liegt WordPress nur noch beim Hoster
+  const quelle = url.replace(/^https?:\/\/(www\.)?vfbtamm\.de\//, 'https://vfbtamm-de.prossl.de/').replace(/^http:/, 'https:');
+  const res = await fetch(quelle, { headers: HEADERS });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const buf = Buffer.from(await res.arrayBuffer());
   await mkdir(dirname(cacheFile.pathname), { recursive: true });

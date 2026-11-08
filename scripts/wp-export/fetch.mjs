@@ -7,7 +7,9 @@
 
 import { mkdir, writeFile } from 'node:fs/promises';
 
-const API = 'https://www.vfbtamm.de/wp-json/wp/v2';
+// Seit der Domain-Umstellung (08.11.2026) zeigt www.vfbtamm.de auf die neue Seite;
+// die alte WordPress-Seite ist nur noch unter der Adresse des Hosters erreichbar.
+const API = 'https://vfbtamm-de.prossl.de/wp-json/wp/v2';
 // Der Webhoster blockiert Anfragen ohne Browser-ähnliche Kennung.
 const HEADERS = { 'User-Agent': 'Mozilla/5.0 (compatible; vfbtamm-migration)' };
 const OUT = new URL('../../migration/cache/', import.meta.url);
