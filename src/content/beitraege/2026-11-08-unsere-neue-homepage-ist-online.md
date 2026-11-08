@@ -8,13 +8,12 @@ cover: /uploads/beitraege/neue-homepage.webp
 
 Liebe Mitglieder, Freunde und Fans des VfB Tamm,
 
-unsere Homepage hat ein neues Gesicht bekommen! Sie ist moderner, übersichtlicher und funktioniert auf dem Handy genauso gut wie auf Tablet und Computer. Und sie ist zukünftig sicher und wird zuverlässig gegen Angriffe geschützt 
+unsere Homepage hat ein neues Gesicht bekommen! Sie ist moderner, übersichtlicher und funktioniert auf dem Handy genauso gut wie auf Tablet und Computer. Und sie ist sicherer und wird zuverlässig gegen Angriffe geschützt 
 
 **Was ist neu?**
 
 - Ein frisches Design in unseren Vereinsfarben Schwarz und Weiß
 - Die aktuellen Spielberichte mit allen Ergebnissen direkt auf der Startseite
-- Eine eigene Seite für jede Mannschaft und jede Gruppe mit Ansprechpartnern und Trainingszeiten
 - Installierbar als App
 
 Alle bisherigen Beiträge sind natürlich mit umgezogen. Wer sich alte Seiten als Lesezeichen gespeichert hat, landet automatisch an der richtigen Stelle. Außerdem gilt: Die Homepage verwendet keine Cookies und verfolgt keine Besucher – eure Daten bleiben geschützt.
