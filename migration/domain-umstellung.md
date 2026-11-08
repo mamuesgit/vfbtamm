@@ -67,6 +67,7 @@ Alle mit **Proxy-Status „DNS only“ (graue Wolke)**.
 | CNAME | `pop3` | `mail.vfbtamm.de` | | |
 | CNAME | `smtp` | `mail.vfbtamm.de` | | |
 | CNAME | `owncloud` | `owncloud1.prohost.de` | | ownCloud des Hosters – behalten, falls genutzt |
+| CAA | `@` | `0 issue "letsencrypt.org"` | | Zertifikate für den Mailserver des Hosters – behalten (im Sitecontrol nicht sichtbar, von Cloudflare eingelesen) |
 | TXT | `@` | `v=spf1 a mx ip4:91.233.84.0/22 ~all` | | SPF (Spamschutz) |
 | TXT | `_dmarc` | `v=DMARC1; p=none` | | DMARC |
 | SRV | `_autodiscover._tcp` | `securemail-vfbtamm-de.prossl.de`, Port 443 | 0 | Gewichtung 0 – Mail-Einrichtung (Outlook) |
