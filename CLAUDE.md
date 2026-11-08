@@ -75,6 +75,7 @@ Umsetzung in `src/content.config.ts`:
 - Personen (Mannschaften und Gremien) haben dasselbe Schema: rolle, name, foto?, telefon?, email?, beschreibung?
 - Personenfotos werden rund angezeigt: als quadratischen Kopf-und-Schulter-Ausschnitt ablegen
   (`public/uploads/personen/vorname-nachname.webp`, 300–600 px, WebP, ohne EXIF), Gesicht mittig im oberen Drittel.
+  Steht eine Person auf mehreren Seiten, überall dasselbe (neueste) Foto verwenden.
 - Abteilungsliste zentral in `src/data/abteilungen.ts`
 - Fanshop: https://vfbtamm.fan12.de/ (Aufmacher-Beitrag „Unser Onlineshop“, Link im Fuß)
 - Bildpfade sind Strings (z. B. `/uploads/...webp`), keine Astro-Bildverarbeitung
