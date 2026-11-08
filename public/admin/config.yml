@@ -19,7 +19,7 @@ backend:
 
 app_title: VfB Tamm – Redaktion
 logo:
-  src: /logo.png
+  src: /icon-512.png
 
 # Neue Bilder landen in public/uploads/beitraege/ (alte Bilder liegen in public/uploads/JJJJ/MM/)
 media_folder: public/uploads
