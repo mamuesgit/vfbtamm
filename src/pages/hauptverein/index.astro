@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
 import BereichLayout from '../../layouts/BereichLayout.astro';
 import BeitragKurz from '../../components/BeitragKurz.astro';
 import { beitraege, datumNumerisch } from '../../lib/site';
 
 const neueste = (await beitraege('Hauptverein')).slice(0, 6);
 const heute = new Date(new Date().toISOString().slice(0, 10));
-const termine = (await getCollection('veranstaltungen')).map((e) => e.data)
+const termine = ((await getEntry('veranstaltungen', 'veranstaltungen'))?.data.veranstaltungen ?? [])
   .filter((v) => (v.bis ?? v.datum) >= heute)
   .sort((a, b) => a.datum.getTime() - b.datum.getTime())
   .slice(0, 4);

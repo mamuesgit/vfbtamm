@@ -127,13 +127,13 @@ const downloads = liste(
   }),
 );
 
-/**
- * Veranstaltungen: ein Termin pro Datei in src/data/veranstaltungen/ (im CMS unter „Veranstaltungen“),
- * Dateiname z. B. "2026-06-19-parkplatzfest.yaml". bis nur bei mehrtägigen Terminen.
- */
-const veranstaltungen = defineCollection({
-  loader: glob({ pattern: '*.yaml', base: './src/data/veranstaltungen' }),
-  schema: z.object({ datum: z.coerce.date(), bis: z.coerce.date().optional(), titel: z.string().min(1) }),
-});
+const veranstaltungen = liste(
+  'veranstaltungen.yaml',
+  z.object({
+    veranstaltungen: z.array(
+      z.object({ datum: z.coerce.date(), bis: z.coerce.date().optional(), titel: z.string().min(1) }),
+    ),
+  }),
+);
 
 export const collections = { beitraege, mannschaften, seiten, gremien, sponsoren, downloads, veranstaltungen };

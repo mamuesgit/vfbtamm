@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
 import BereichLayout from '../../layouts/BereichLayout.astro';
 import { datumNumerisch, tagKurz } from '../../lib/site';
 
-const termine = (await getCollection('veranstaltungen')).map((e) => e.data).sort(
+const termine = ((await getEntry('veranstaltungen', 'veranstaltungen'))?.data.veranstaltungen ?? []).sort(
   (a, b) => a.datum.getTime() - b.datum.getTime(),
 );
 const heute = new Date(new Date().toISOString().slice(0, 10));
