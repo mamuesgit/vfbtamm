@@ -18,6 +18,14 @@ Bitte prüfen und die Dateien in `src/data/` bzw. `src/content/seiten/` bei Beda
   - Verantwortliche Person für redaktionelle Inhalte nach § 18 Abs. 2 MStV (Name und Anschrift).
   - Umsatzsteuer-ID DE 146 121 889 bestätigen.
 
+## Nach der Domain-Umstellung (später)
+
+- **workers.dev-Adresse abschalten:** Die Seite ist zusätzlich unter `vfbtamm.mamuesmailbox.workers.dev` erreichbar
+  (doppelter Inhalt für Suchmaschinen). Nicht über den Schalter im Dashboard – jeder Deploy schaltet sie wieder ein,
+  solange `wrangler.jsonc` keine Routen enthält. Stattdessen in `wrangler.jsonc`: `"workers_dev": false`,
+  `"preview_urls": true` und `"routes"` mit `www.vfbtamm.de` und `vfbtamm.de` (`custom_domain: true`).
+  Danach prüfen, ob die Preview-Adressen (`*-vfbtamm.mamuesmailbox.workers.dev`) noch funktionieren.
+
 ## Seiten und Kontakte
 
 - **Mitgliedsbeiträge:** Die alte Seite (2022) war veraltet (z. B. 85 € statt 95 €). Die neue Seite basiert auf
