@@ -994,7 +994,7 @@ table {
   border-radius: var(--radius);
 }
 
-/* Sponsoren: Logos in Graustufen, damit die bunten Logos die Seite nicht dominieren */
+/* Sponsoren: Logos in Originalfarben */
 .sponsoren {
   list-style: none;
   margin: 0;
@@ -1024,16 +1024,6 @@ table {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(1) contrast(1.1);
-  opacity: 0.85;
-  transition:
-    filter 200ms,
-    opacity 200ms;
-}
-.sponsoren li:hover img,
-.sponsoren a:focus-visible img {
-  filter: none;
-  opacity: 1;
 }
 
 /* Startseite: Sponsoren als waagerechtes Karussell (Reihenfolge per Skript zufällig) */

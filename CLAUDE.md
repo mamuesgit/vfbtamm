@@ -101,7 +101,7 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   Darunter „Spielberichte“-Leiste (Ergebnisse
   werden mit `spielergebnis()` in `src/lib/site.ts` aus Titeln wie „Herren 1: A – VfB Tamm 1:6 (1:3)“
   gelesen), Nachrichten in drei Spalten mit kleinen Vorschaubildern, „Mitmachen“, Sponsoren (Logos in
-  Graustufen, waagerechtes Karussell ohne Bedienelemente, rückt alle 3 s ein Logo weiter, pausiert bei Maus/Berührung; Reihenfolge wird bei jedem Seitenaufruf im
+  Originalfarben, waagerechtes Karussell ohne Bedienelemente, rückt alle 3 s ein Logo weiter, pausiert bei Maus/Berührung; Reihenfolge wird bei jedem Seitenaufruf im
   Browser zufällig gemischt, auch auf `/hauptverein/sponsoren/` – `src/lib/mischen.ts`), Anfahrt (nur Link „Karte öffnen“ zu Google Maps) und Kontakt.
 - Gestaltungsregeln: keine angehängten Pfeile „→“ an Linktexten, keine Trennpunkte „·“ in Metazeilen,
   keine Großbuchstaben-Etiketten, keine Schatten/Verläufe. Bewegung nur gezielt (Einblendung der ersten Aufmacher-Folie, Karussell-Wechsel),
