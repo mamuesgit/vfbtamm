@@ -6,7 +6,7 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
 ---
 
 <BereichLayout abteilung="Hauptverein" title="Unsere Sponsoren" intro="Vielen Dank für die Unterstützung!">
-  <ul class="sponsoren">
+  <ul class="sponsoren" id="sponsoren-liste">
     {
       sponsoren.map((s) => (
         <li>
@@ -24,3 +24,10 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
     }
   </ul>
 </BereichLayout>
+
+<script>
+  // Reihenfolge bei jedem Seitenaufruf zufällig, damit kein Sponsor dauerhaft hinten steht
+  import { mischen } from '../../lib/mischen';
+  const liste = document.getElementById('sponsoren-liste');
+  if (liste) mischen(liste);
+</script>
