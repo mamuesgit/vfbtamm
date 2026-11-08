@@ -60,7 +60,7 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
                       </a>
                     </div>
                     <h2>
-                      <a href={beitragUrl(b)} tabindex={i === 0 ? undefined : -1}>
+                      <a href={beitragUrl(b)} title={b.data.title} tabindex={i === 0 ? undefined : -1}>
                         {b.data.title}
                       </a>
                     </h2>

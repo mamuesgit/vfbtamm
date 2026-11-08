@@ -745,6 +745,14 @@ table {
   letter-spacing: -0.02em;
   margin: 0 0 1.5rem;
 }
+.aufmacher h2 {
+  /* Titel auf höchstens zwei Zeilen kürzen, Rest als „…“ */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
 .aufmacher h2 a {
   text-decoration: none;
 }

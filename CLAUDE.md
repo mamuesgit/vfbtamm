@@ -92,7 +92,7 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   Kopf schwarz mit Wappen in Negativ-Version (`public/logo-negativ.png`, aus `assets/vfb-logo-original.png`
   erzeugt); `public/logo.png` (positiv), `favicon.png`, `apple-touch-icon.png`. Styles zentral in
   `src/styles/global.css`.
-- Startseite: Aufmacher-Karussell (Datum, Abteilung, Titel, Bild – kein Textauszug) mit allen Beiträgen mit `aufmacher: true` (CMS: „Auf der Startseite
+- Startseite: Aufmacher-Karussell (Datum, Abteilung, Titel max. 2 Zeilen mit „…“, Bild – kein Textauszug) mit allen Beiträgen mit `aufmacher: true` (CMS: „Auf der Startseite
   hervorheben“), neueste zuerst; wischbar, Pfeile/Punkte, automatischer Wechsel alle 5 s, standardmäßig an
   (pausiert nur während Maus darüber/Tastaturfokus/Berührung, „Anhalten“-Knopf; bei „Bewegung reduzieren“
   ohne Gleitanimation). Ohne markierte Beiträge entfällt es.
