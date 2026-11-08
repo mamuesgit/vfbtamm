@@ -3,9 +3,7 @@ title: 'D1-Junioren: VfB Tamm - TSG Steinheim 1		3:0(3:0)'
 date: 2026-11-08T22:39:00
 abteilung: Fußball
 aufmacher: false
-cover: /uploads/beitraege/51161.webp
-gallery:
-  - /uploads/beitraege/51162.webp
+cover: /uploads/beitraege/51162.webp
 ---
 
 D-Jugend behält zu Hause die Oberhand
