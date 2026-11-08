@@ -486,7 +486,7 @@ table {
   line-height: 1.5;
 }
 @media (max-width: 30rem) {
-  .beitrag-kurz {
+  .beitrag-kurz:not(.beitrag-kurz--ohne-bild) {
     grid-template-columns: 6.5rem minmax(0, 1fr);
     gap: 0.9rem;
   }
