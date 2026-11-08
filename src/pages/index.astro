@@ -17,7 +17,6 @@ const alle = await beitraege();
 
 // Aufmacher-Karussell: alle im CMS als „Auf der Startseite hervorheben“ markierten Beiträge, neueste zuerst
 const aufmacher = alle.filter((b) => b.data.aufmacher);
-const aufmacherIds = new Set(aufmacher.map((b) => b.id));
 
 // Ergebnisleiste: die letzten Spielberichte mit erkennbarem Ergebnis im Titel
 const ergebnisse = (await beitraege('Fußball'))
@@ -31,7 +30,7 @@ const ANZAHL = 5;
 const bloecke = await Promise.all(
   BLOECKE.map(async (a) => ({
     abteilung: a,
-    liste: (await beitraege(a)).filter((b) => !aufmacherIds.has(b.id)).slice(0, ANZAHL),
+    liste: (await beitraege(a)).slice(0, ANZAHL), // Aufmacher-Beiträge erscheinen hier ebenfalls
   })),
 );
 const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? [];
