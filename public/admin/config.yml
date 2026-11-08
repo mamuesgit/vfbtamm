@@ -125,13 +125,13 @@ collections:
   # Vereinstermine: eine einzige Datei mit einer Liste (Seite /hauptverein/veranstaltungen/ und
   # „Nächste Termine“ auf /hauptverein/). Die Reihenfolge ist egal, die Website sortiert nach Datum.
   - name: termine
-    label: Veranstaltungen
+    label: Termine
     description: >-
       Vereinstermine für die Seite „Veranstaltungen“ und „Nächste Termine“ beim Hauptverein.
       Vergangene Termine werden auf der Website automatisch ausgegraut.
     files:
       - name: veranstaltungen
-        label: Veranstaltungen
+        label: Veranstaltungen – Verein
         file: src/data/veranstaltungen.yaml
         format: yaml
         preview_path: 'hauptverein/veranstaltungen/'

@@ -137,7 +137,7 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 - Sveltia CMS unter `/admin/`: `public/admin/index.html` + `public/admin/config.yml`. Das CMS-Skript wird
   nicht von einem CDN geladen, sondern vor jedem Build aus `node_modules/@sveltia/cms` nach `public/admin/`
   kopiert (`scripts/cms-kopieren.mjs`, npm `prebuild`; die Kopie ist in `.gitignore`). Update: `npm update @sveltia/cms`.
-- Im CMS sind nur die Collection `beitraege` und die Datei `src/data/veranstaltungen.yaml` (Collection `termine`,
+- Im CMS sind nur die Collection `beitraege` und die Datei `src/data/veranstaltungen.yaml` (Collection `termine`, im CMS „Termine“ → „Veranstaltungen – Verein“,
   Liste mit Datum, bis?, Titel; Reihenfolge egal, die Seiten sortieren nach Datum). Neue Bilder → `public/uploads/beitraege/`, im Browser auf
   max. 1600 px verkleinert und als WebP gespeichert. Datum wird als `YYYY-MM-DDTHH:mm:ss` (lokale Zeit)
   gespeichert, Dateiname `JJJJ-MM-TT-titel.md`. Leere optionale Felder werden weggelassen.
