@@ -195,16 +195,8 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
       </div>
     </section>
 
-    <section
-      class="abschnitt sponsoren-karussell"
-      aria-labelledby="sponsoren"
-      aria-roledescription="Karussell"
-      id="sponsoren-karussell"
-    >
-      <div class="abschnitt__kopf sponsoren-karussell__kopf">
-        <h2 id="sponsoren">Unsere Sponsoren</h2>
-        <a href="/hauptverein/sponsoren/">Alle Sponsoren</a>
-      </div>
+    <section class="abschnitt" aria-labelledby="sponsoren">
+      <h2 id="sponsoren">Unsere Sponsoren</h2>
       <ul class="sponsoren sponsoren--spur" id="sponsoren-spur">
         {
           sponsoren.map((s) => (
@@ -222,21 +214,6 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
           ))
         }
       </ul>
-      {
-        sponsoren.length > 1 && (
-          <div class="sponsoren-karussell__steuerung" id="sponsoren-steuerung" hidden>
-            <button type="button" data-schritt="-1" aria-label="Vorherige Sponsoren">
-              ‹
-            </button>
-            <button type="button" data-schritt="1" aria-label="Weitere Sponsoren">
-              ›
-            </button>
-            <button type="button" class="sponsoren-karussell__pause" aria-pressed="false">
-              Anhalten
-            </button>
-          </div>
-        )
-      }
     </section>
 
     <section class="abschnitt anfahrt" aria-labelledby="anfahrt">
@@ -359,82 +336,53 @@ const sponsoren = (await getEntry('sponsoren', 'sponsoren'))?.data.sponsoren ?? 
 <script>
   // Sponsoren-Karussell: Reihenfolge bei jedem Seitenaufruf zufällig (niemand steht dauerhaft hinten),
   // danach rückt die Leiste alle 3 s um ein Logo weiter; am Ende geht es wieder von vorn los.
-  // Pausiert wie das Aufmacher-Karussell bei Maus, Tastaturfokus oder Berührung, „Anhalten“ stoppt
-  // dauerhaft. Bei „Bewegung reduzieren“ ohne Gleitanimation. Ohne JavaScript bleibt die Leiste
-  // von Hand scrollbar.
+  // Keine Bedienelemente; pausiert, solange die Maus darüber ist, ein Logo per Tastatur fokussiert ist
+  // oder ein Finger die Leiste berührt (von Hand wischbar). Bei „Bewegung reduzieren“ ohne Gleitanimation.
   import { mischen } from '../lib/mischen';
 
   const INTERVALL = 3000;
   const spur = document.getElementById('sponsoren-spur');
-  const steuerung = document.getElementById('sponsoren-steuerung');
-  if (spur) mischen(spur);
-  if (spur && steuerung) {
-    const bereich = document.getElementById('sponsoren-karussell')!;
-    const pause = steuerung.querySelector<HTMLButtonElement>('.sponsoren-karussell__pause')!;
+  if (spur && spur.children.length > 1) {
+    mischen(spur);
+    // Chrome rastet nach dem Umsortieren wieder auf dem bisher ersten Logo ein (Scroll-Snap) – zurück an den Anfang
+    spur.scrollLeft = 0;
     const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let angehalten = false;
     let maus = false;
     let tastatur = false;
     let finger = false;
     let timer: number | undefined;
 
-    // Breite eines Logos inkl. Abstand
-    const schritt = () => {
-      const [a, b] = spur.children as unknown as HTMLElement[];
-      return b ? b.offsetLeft - a.offsetLeft : spur.clientWidth;
-    };
     const max = () => spur.scrollWidth - spur.clientWidth;
 
-    const bewege = (richtung: number) => {
-      let ziel = spur.scrollLeft + richtung * schritt();
-      if (richtung > 0 && spur.scrollLeft >= max() - 2) ziel = 0;
-      else if (richtung < 0 && spur.scrollLeft <= 2) ziel = max();
+    const weiter = () => {
+      const [a, b] = spur.children as unknown as HTMLElement[];
+      const ziel = spur.scrollLeft >= max() - 2 ? 0 : spur.scrollLeft + (b.offsetLeft - a.offsetLeft);
       spur.scrollTo({ left: ziel, behavior: ruhig ? 'auto' : 'smooth' });
-      plane();
     };
 
     const plane = () => {
       clearTimeout(timer);
-      if (angehalten) return;
+      // Nur bewegen, wenn nicht ohnehin alle Logos sichtbar sind
+      if (max() <= 2) return;
       timer = window.setTimeout(() => {
-        if (maus || tastatur || finger || document.hidden) return plane();
-        bewege(1);
+        if (!(maus || tastatur || finger || document.hidden)) weiter();
+        plane();
       }, INTERVALL);
     };
 
-    // Steuerung nur zeigen, wenn nicht alle Logos ohnehin sichtbar sind
-    const pruefe = () => {
-      const noetig = max() > 2;
-      steuerung.hidden = !noetig;
-      if (noetig) plane();
-      else clearTimeout(timer);
-    };
-
-    steuerung.addEventListener('click', (e) => {
-      const knopf = (e.target as HTMLElement).closest('button');
-      if (knopf?.dataset.schritt) bewege(Number(knopf.dataset.schritt));
-    });
-
-    pause.addEventListener('click', () => {
-      angehalten = !angehalten;
-      pause.setAttribute('aria-pressed', String(angehalten));
-      pause.textContent = angehalten ? 'Abspielen' : 'Anhalten';
-      plane();
-    });
-
-    bereich.addEventListener('mouseenter', () => (maus = true));
-    bereich.addEventListener('mouseleave', () => {
+    spur.addEventListener('mouseenter', () => (maus = true));
+    spur.addEventListener('mouseleave', () => {
       maus = false;
       plane();
     });
-    bereich.addEventListener('focusin', (e) => (tastatur = (e.target as HTMLElement).matches(':focus-visible')));
-    bereich.addEventListener('focusout', () => (tastatur = false));
+    spur.addEventListener('focusin', (e) => (tastatur = (e.target as HTMLElement).matches(':focus-visible')));
+    spur.addEventListener('focusout', () => (tastatur = false));
     spur.addEventListener('touchstart', () => (finger = true), { passive: true });
     spur.addEventListener('touchend', () => {
       finger = false;
       plane();
     });
 
-    new ResizeObserver(pruefe).observe(spur);
+    new ResizeObserver(plane).observe(spur);
   }
 </script>

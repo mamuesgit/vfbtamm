@@ -1037,19 +1037,6 @@ table {
 }
 
 /* Startseite: Sponsoren als waagerechtes Karussell (Reihenfolge per Skript zufällig) */
-.sponsoren-karussell__kopf {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.sponsoren-karussell__kopf h2 {
-  margin-bottom: 0;
-}
-.sponsoren-karussell__kopf a {
-  white-space: nowrap;
-}
 .sponsoren--spur {
   grid-template-columns: none;
   grid-auto-flow: column;
@@ -1069,36 +1056,6 @@ table {
   .sponsoren--spur {
     grid-auto-columns: 9rem;
   }
-}
-.sponsoren-karussell__steuerung {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-.sponsoren-karussell__steuerung[hidden] {
-  display: none;
-}
-.sponsoren-karussell__steuerung button {
-  font: inherit;
-  color: var(--schwarz);
-  background: var(--weiss);
-  border: 1px solid var(--linie);
-  border-radius: 99px;
-  min-width: 2.5rem;
-  height: 2.5rem;
-  padding: 0 0.8rem;
-  cursor: pointer;
-}
-.sponsoren-karussell__steuerung button:hover {
-  border-color: var(--schwarz);
-}
-.sponsoren-karussell__pause {
-  margin-left: auto;
-  font-size: 0.9rem;
-}
-.sponsoren-karussell__steuerung .sponsoren-karussell__pause {
-  color: var(--grau);
 }
 
 .anfahrt {
