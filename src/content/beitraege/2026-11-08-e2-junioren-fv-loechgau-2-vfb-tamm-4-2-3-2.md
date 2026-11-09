@@ -3,6 +3,7 @@ title: 'E2-Junioren: FV Löchgau 2 – VfB Tamm		4:2(3:2)'
 date: 2026-11-08T22:44:00
 abteilung: Fußball
 aufmacher: false
+cover: /uploads/beitraege/ki-bild-07-11-2026.webp
 ---
 
 Niederlage am 6. Spieltag
