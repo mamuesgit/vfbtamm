@@ -955,6 +955,10 @@ table {
   padding-bottom: 0.6rem;
   border-bottom: 4px solid var(--schwarz);
 }
+/* Unter der dicken Linie der Überschrift keine zweite dünne Linie beim ersten Eintrag */
+.spalten h2 + .kompaktliste > li:first-child {
+  border-top: 0;
+}
 
 .mitmachen {
   display: grid;
@@ -1057,6 +1061,13 @@ table {
 }
 .anfahrt h2 {
   margin-top: 0;
+}
+.anfahrt p:last-child {
+  margin-bottom: 0;
+}
+/* Startseite endet mit Anfahrt/Kontakt: weniger Abstand zum Fuß */
+main:has(> .container > .anfahrt:last-child) + .fuss {
+  margin-top: 3rem;
 }
 .knopf {
   display: inline-block;
