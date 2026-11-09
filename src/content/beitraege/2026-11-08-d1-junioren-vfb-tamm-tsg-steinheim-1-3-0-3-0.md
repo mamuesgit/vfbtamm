@@ -4,6 +4,8 @@ date: 2026-11-08T22:39:00
 abteilung: Fußball
 aufmacher: false
 cover: /uploads/beitraege/51162.webp
+gallery:
+  - /uploads/beitraege/img_7450.webp
 ---
 
 D-Jugend behält zu Hause die Oberhand
