@@ -134,3 +134,29 @@ export function spielergebnis(titel: string): Ergebnis | null {
     ausgang: eigene > gegner ? 'sieg' : eigene < gegner ? 'niederlage' : 'remis',
   };
 }
+
+/** Vergleichsschlüssel für Mannschaftsnamen: „D1 Junioren“, „D1-Jugend“ → „d1jugend“, „AH“ → „alteherren“ */
+function mannschaftsSchluessel(name: string) {
+  const s = name
+    .toLowerCase()
+    .replace(/\(.*?\)/g, '')
+    .replace(/\b(pokalspiel|freundschaftsspiel|testspiel)\b/g, '')
+    .replace(/junior(en|innen)|jugend/g, 'jugend')
+    .replace(/[^a-z0-9äöüß]/g, '');
+  return s === 'ah' ? 'alteherren' : s;
+}
+
+/**
+ * Mannschaft zu einem Spielbericht: liest die Mannschaft aus dem Titel (siehe spielergebnis())
+ * und sucht sie in derselben Abteilung. „E1“ passt auf „E1-Jugend“, „A1-Junioren“ passt auch auf „A-Jugend“, wenn es keine
+ * A1 gibt. Gibt undefined zurück, wenn der Beitrag kein Spielbericht ist oder keine Mannschaft passt.
+ */
+export async function mannschaftZumSpielbericht(b: Beitrag) {
+  const ergebnis = spielergebnis(b.data.title);
+  if (!ergebnis) return undefined;
+  const gesucht = mannschaftsSchluessel(ergebnis.mannschaft);
+  const liste = await mannschaften(b.data.abteilung);
+  const finde = (k: string) => liste.find((m) => mannschaftsSchluessel(m.data.name) === k);
+  const kurz = /^[a-g]\d?$/.test(gesucht) ? gesucht + 'jugend' : gesucht; // „E1: …“ ohne „Jugend“
+  return finde(kurz) ?? finde(kurz.replace(/^([a-z])1(?=jugend$)/, '$1'));
+}

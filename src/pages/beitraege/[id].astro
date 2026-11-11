@@ -1,7 +1,16 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { abteilungUrl, auszug, beitraegeUrl, datum, isoDatum, type Beitrag } from '../../lib/site';
+import {
+  abteilungUrl,
+  auszug,
+  beitraegeUrl,
+  datum,
+  isoDatum,
+  mannschaftUrl,
+  mannschaftZumSpielbericht,
+  type Beitrag,
+} from '../../lib/site';
 
 export async function getStaticPaths() {
   const alle = await getCollection('beitraege');
@@ -11,6 +20,7 @@ export async function getStaticPaths() {
 const { beitrag } = Astro.props as { beitrag: Beitrag };
 const { title, date, abteilung, cover, gallery = [] } = beitrag.data;
 const { Content } = await render(beitrag);
+const mannschaft = await mannschaftZumSpielbericht(beitrag);
 ---
 
 <Layout title={title} description={auszug(beitrag.body, 155) || title}>
@@ -32,6 +42,15 @@ const { Content } = await render(beitrag);
       {cover && <img class="beitrag__titelbild" src={cover} alt="" decoding="async" />}
       <Content />
     </div>
+    {
+      mannschaft && (
+        <p class="knopf-zeile">
+          <a class="knopf" href={mannschaftUrl(mannschaft)}>
+            Zur Mannschaftsseite {mannschaft.data.name}
+          </a>
+        </p>
+      )
+    }
     {
       gallery.length > 0 && (
         <section aria-label="Bildergalerie">

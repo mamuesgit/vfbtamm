@@ -125,6 +125,9 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
   `/freizeitsport/{abteilungsleitung,wochenplan-erwachsene,wochenplan-kinder}/` · `/tischtennis/kontakt/` ·
   `/impressum/` · `/datenschutz/`. Abteilungs-Slugs in `src/data/abteilungen.ts`.
 - Trainingszeiten-Übersicht (Fußball) und Wochenpläne (Freizeitsport) werden aus den Mannschaftsdateien erzeugt.
+- Spielberichte (Titel nach `spielergebnis()`) zeigen unter dem Text den Knopf „Zur Mannschaftsseite …“
+  (`mannschaftZumSpielbericht()` in `src/lib/site.ts`; „D1 Junioren“/„D1-Jugend“/„E1“ gelten als gleich, „AH“ = Alte Herren).
+  Passt keine Mannschaft der Abteilung (z. B. B- oder E3-Junioren), entfällt der Knopf.
 - „Nächste Termine“ (Hauptverein) und das Ausgrauen vergangener Termine richten sich nach dem Build-Datum.
 - Als App installierbar: `public/manifest.webmanifest` + Symbole `public/icon-192.png`, `icon-512.png`,
   `icon-maskable-512.png`, `apple-touch-icon.png` (Wappen negativ auf Schwarz). „Als App installieren“ im Fuß:
