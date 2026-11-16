@@ -15,6 +15,7 @@ Bitte prüfen und die Dateien in `src/data/` bzw. `src/content/seiten/` bei Beda
   Noch offen (Vorstand):
   - Vertretungsberechtigten Vorstand nach § 26 BGB nennen (laut Satzung § 11: Vorsitzender, 1. und 2.
     stellvertretender Vorsitzender, Vorstand für Finanzen). Wer ist aktuell 1./2. Stellvertreter?
+    Stand 16.11.2026: „2. Vorstand (Finanzen): Torsten Müller“ im Impressum ergänzt (Angabe Vereinsseite).
   - Verantwortliche Person für redaktionelle Inhalte nach § 18 Abs. 2 MStV (Name und Anschrift).
   - Umsatzsteuer-ID DE 146 121 889 bestätigen.
 

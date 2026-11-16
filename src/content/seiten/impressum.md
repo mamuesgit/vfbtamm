@@ -12,7 +12,8 @@ Registernummer im Vereinsregister des Amtsgerichts Besigheim: 396 220
 Umsatzsteuer-ID-Nummer: DE 146 121 889
 
 Für die Gestaltung der Seiten ist der Vorstand des Vereins verantwortlich.  
-1. Vorstand: Wolfgang Kellner
+1. Vorstand: Wolfgang Kellner  
+2. Vorstand (Finanzen): Torsten Müller
 
 E-Mail: [info@vfbtamm.de](mailto:info@vfbtamm.de)
 
