@@ -1,0 +1,14 @@
+name: E3-Jugend
+abteilung: Fußball
+gruppe: Jugend
+reihenfolge: 175
+teamfoto: /uploads/mannschaften/e3-jugend-2026.webp
+personen:
+  - rolle: Trainer
+    name: Christoph Engel
+    foto: /uploads/personen/christoph-engel.webp
+    email: engelchristoph.mail@web.de
+# Gleiche Trainingszeiten wie die E1-Jugend
+trainingszeiten:
+  - { tag: Dienstag, von: "17:00", bis: "18:30" }
+  - { tag: Donnerstag, von: "17:00", bis: "18:30" }

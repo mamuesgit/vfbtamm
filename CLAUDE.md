@@ -53,7 +53,7 @@ https://www.vfbtamm.de online; die alte WordPress-Seite ist nur noch unter https
   Chronik, Gaststätte, Downloads, Sponsoren
 - **Fußball:** Trainingszeiten (Übersicht), Beiträge
   - Aktive: Herren 1, Herren 2, Damen, Inklusionsteam, Alte Herren
-  - Jugend: Torwarttraining, A, C1, C2, D1, D2, E1, E2, F1, F2, Bambini
+  - Jugend: Torwarttraining, A, C1, C2, D1, D2, E1, E2, E3, F1, F2, Bambini
 - **Freizeitsport:** Abteilungsleiter, Beiträge, Wochenplan Erwachsene, Wochenplan Kinder
   - Erwachsene: Wandergruppe, Fitnessgymnastik, Seniorengymnastik, Nordic Walking,
     Wassergymnastik, Systema, Rehasport
@@ -127,7 +127,7 @@ Alle Mannschaftsseiten nutzen ein einziges Template (Teamfoto, Trainer/Betreuer,
 - Trainingszeiten-Übersicht (Fußball) und Wochenpläne (Freizeitsport) werden aus den Mannschaftsdateien erzeugt.
 - Spielberichte (Titel nach `spielergebnis()`) zeigen unter dem Text den Knopf „Zur Mannschaftsseite …“
   (`mannschaftZumSpielbericht()` in `src/lib/site.ts`; „D1 Junioren“/„D1-Jugend“/„E1“ gelten als gleich, „AH“ = Alte Herren).
-  Passt keine Mannschaft der Abteilung (z. B. B- oder E3-Junioren), entfällt der Knopf.
+  Passt keine Mannschaft der Abteilung (z. B. B-Junioren), entfällt der Knopf.
 - „Nächste Termine“ (Hauptverein) und das Ausgrauen vergangener Termine richten sich nach dem Build-Datum.
 - Als App installierbar: `public/manifest.webmanifest` + Symbole `public/icon-192.png`, `icon-512.png`,
   `icon-maskable-512.png`, `apple-touch-icon.png` (Wappen negativ auf Schwarz). „Als App installieren“ im Fuß:
