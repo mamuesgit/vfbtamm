@@ -2,6 +2,7 @@ name: Herren 1
 abteilung: Fußball
 gruppe: Aktive
 reihenfolge: 10
+teamfoto: /uploads/mannschaften/herren-1-2026.webp
 personen:
   - rolle: Trainer
     name: Markus Schneider
