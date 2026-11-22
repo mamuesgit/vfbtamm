@@ -20,9 +20,9 @@ Mobil: 0151/15329402
 
 Aspergerstr. 3, 71732 Tamm
 
-## Speisekarte (Stand 20.10.2026)
+## Speisekarte (Stand 22.11.2026)
 
-![Herbstempfehlung](/uploads/2026/09/empfehlung260919_herbst.webp)
+![Winterempfehlung](/uploads/gaststaette/empfehlung-winter-2026.webp)
 
 ![Speisekarte Seite 1](/uploads/2025/04/speisekarte-2025_04-001.webp)
 
