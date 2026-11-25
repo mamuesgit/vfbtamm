@@ -9,6 +9,10 @@ personen:
     name: Christoph Engel
     foto: /uploads/personen/christoph-engel.webp
     email: engelchristoph.mail@web.de
+  - rolle: Trainer
+    name: Mücahit Özdemir
+    foto: /uploads/personen/muecahit-oezdemir.webp
+    email: muco660@gmail.com
 # Gleiche Trainingszeiten wie die E1-Jugend
 trainingszeiten:
   - { tag: Dienstag, von: "17:00", bis: "18:30" }
